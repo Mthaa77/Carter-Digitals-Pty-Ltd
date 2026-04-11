@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import {
   ArrowRight,
   Mail,
@@ -51,6 +52,7 @@ const trustedClients = [
 
 export function Footer() {
   const { navigate } = useNavigation();
+  const [year] = useState(2026);
 
   const handleNavClick = (page: "about" | "services" | "portfolio" | "packages" | "contact") => {
     navigate(page);
@@ -288,7 +290,7 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-xs text-[rgba(212,168,83,0.35)]">
-              &copy; {new Date().getFullYear()} Carter Digitals (Pty) Ltd. All rights reserved. | CIPC:
+              &copy; {year} Carter Digitals (Pty) Ltd. All rights reserved. | CIPC:
               2025/907839/07
             </p>
             <div className="flex items-center gap-3">

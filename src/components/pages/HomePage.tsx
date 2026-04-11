@@ -60,6 +60,8 @@ import { MagneticButton } from "@/components/shared/MagneticButton";
 import { ParallaxSection } from "@/components/shared/ParallaxSection";
 import { CircularProgress } from "@/components/shared/CircularProgress";
 import { QuickCalculator } from "@/components/shared/QuickCalculator";
+import { BeforeAfterSlider } from "@/components/shared/BeforeAfterSlider";
+import InteractiveTestimonials from "@/components/shared/InteractiveTestimonials";
 import { useNavigation } from "@/lib/navigation";
 
 /* ─────────────────────────── DATA ─────────────────────────── */
@@ -772,11 +774,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ════════════════ 9. TESTIMONIALS CAROUSEL ════════════════ */}
+      {/* ════════════════ 9. TESTIMONIALS — INTERACTIVE FEATURED ════════════════ */}
       <section className="relative py-24 md:py-32 bg-[#0A0A0B]">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[rgba(212,168,83,0.02)] rounded-full blur-[120px] pointer-events-none" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             label="Testimonials"
             title="The Results Speak for"
@@ -784,43 +786,8 @@ export default function HomePage() {
             description="Don't take our word for it — hear directly from the institutions we've partnered with to engineer transformative digital outcomes."
             align="center"
           />
-          <AnimatedSection delay={0.1} direction="up">
-            <div className="relative mx-auto max-w-5xl"
-              onMouseEnter={() => setIsHoveringCarousel(true)}
-              onMouseLeave={() => setIsHoveringCarousel(false)}>
-              <Carousel setApi={setCarouselApi} opts={{ align: "start", loop: true }} className="w-full">
-                <CarouselContent className="-ml-4">
-                  {testimonials.map((testimonial, idx) => (
-                    <CarouselItem key={idx} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                      <div className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-6 md:p-8 card-hover hover-lift flex flex-col">
-                        <Quote className="w-10 h-10 text-[rgba(212,168,83,0.2)] mb-5 shrink-0" />
-                        <p className="text-sm md:text-base text-[rgba(245,245,245,0.6)] leading-[1.8] mb-6 flex-1">&ldquo;{testimonial.quote}&rdquo;</p>
-                        <div className="flex gap-1 mb-5">{Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-4 h-4 text-[#D4A853] fill-[#D4A853]" />)}</div>
-                        <Separator className="bg-[rgba(255,255,255,0.06)] mb-5" />
-                        <div className="flex items-start gap-4">
-                          <div className="w-11 h-11 shrink-0 rounded-full bg-gradient-to-br from-[rgba(212,168,83,0.2)] to-[rgba(212,168,83,0.05)] border border-[rgba(212,168,83,0.15)] flex items-center justify-center">
-                            <span className="text-sm font-bold text-[#D4A853]">{testimonial.name.split(" ").map((n) => n[0]).join("").slice(0, 2)}</span>
-                          </div>
-                          <div>
-                            <h4 className="text-sm font-semibold text-white">{testimonial.name}</h4>
-                            <p className="text-xs text-[rgba(245,245,245,0.4)]">{testimonial.role}</p>
-                            <p className="text-xs text-[#D4A853] mt-0.5">{testimonial.company}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious className="hidden md:flex -left-6 lg:-left-14 border-[rgba(212,168,83,0.3)] bg-[#131316]/90 hover:bg-[#1A1A1F] text-[#D4A853] hover:text-[#E8C97A] hover:border-[#D4A853] transition-all duration-300" />
-                <CarouselNext className="hidden md:flex -right-6 lg:-right-14 border-[rgba(212,168,83,0.3)] bg-[#131316]/90 hover:bg-[#1A1A1F] text-[#D4A853] hover:text-[#E8C97A] hover:border-[#D4A853] transition-all duration-300" />
-              </Carousel>
-              <div className="flex items-center justify-center gap-2 mt-8">
-                {testimonials.map((_, idx) => (
-                  <button key={idx} onClick={() => carouselApi?.scrollTo(idx)} aria-label={`Go to testimonial ${idx + 1}`}
-                    className={`transition-all duration-300 rounded-full ${currentSlide === idx ? "w-8 h-2 bg-[#D4A853]" : "w-2 h-2 bg-[rgba(255,255,255,0.2)] hover:bg-[rgba(255,255,255,0.35)]"}`} />
-                ))}
-              </div>
-            </div>
+          <AnimatedSection delay={0.15} direction="up">
+            <InteractiveTestimonials />
           </AnimatedSection>
         </div>
       </section>
@@ -891,7 +858,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ════════════════ 11. QUICK CALCULATOR ════════════════ */}
+      {/* ════════════════ 11. BEFORE & AFTER — TRANSFORMATION SHOWCASE ════════════════ */}
+      <section className="relative py-24 md:py-32 bg-[#0A0A0B]">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[rgba(212,168,83,0.015)] to-transparent pointer-events-none" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            label="Transformations"
+            title="Before & After."
+            titleHighlight="See The Difference."
+            description="Drag the slider to compare what our clients had before — and what they got after partnering with Carter Digitals. Real projects, real results."
+            align="center"
+          />
+          <AnimatedSection delay={0.15} direction="up">
+            <BeforeAfterSlider />
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ════════════════ 12. QUICK CALCULATOR ════════════════ */}
       <section className="relative py-24 md:py-32 bg-[#0A0A0B]">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[rgba(212,168,83,0.015)] to-transparent pointer-events-none" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
@@ -1110,24 +1095,41 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0B] via-[#0D0B08] to-[#0A0A0B]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[rgba(212,168,83,0.02)] via-[rgba(212,168,83,0.04)] to-[rgba(212,168,83,0.02)]" />
 
-        {/* Animated gold particle dots floating upward */}
-        {[...Array(16)].map((_, i) => (
+        {/* Animated gold particle dots floating upward (deterministic to avoid hydration mismatch) */}
+        {[
+          { w: 2.3, h: 1.8, x: 12, o: 0.25, yEnd: 520, oMid: 0.15, dur: 10, del: 0 },
+          { w: 1.5, h: 3.1, x: 28, o: 0.15, yEnd: 780, oMid: 0.20, dur: 12, del: 1.2 },
+          { w: 3.0, h: 2.4, x: 45, o: 0.30, yEnd: 600, oMid: 0.18, dur: 8, del: 2.5 },
+          { w: 1.8, h: 1.2, x: 62, o: 0.20, yEnd: 900, oMid: 0.12, dur: 14, del: 0.8 },
+          { w: 2.7, h: 3.5, x: 78, o: 0.35, yEnd: 450, oMid: 0.22, dur: 9, del: 3.0 },
+          { w: 1.2, h: 2.8, x: 90, o: 0.18, yEnd: 700, oMid: 0.25, dur: 11, del: 1.5 },
+          { w: 3.4, h: 1.5, x: 5, o: 0.28, yEnd: 550, oMid: 0.14, dur: 10, del: 4.0 },
+          { w: 2.1, h: 2.9, x: 22, o: 0.12, yEnd: 850, oMid: 0.20, dur: 13, del: 2.0 },
+          { w: 1.6, h: 3.3, x: 38, o: 0.22, yEnd: 480, oMid: 0.16, dur: 7, del: 0.5 },
+          { w: 2.8, h: 1.1, x: 55, o: 0.32, yEnd: 650, oMid: 0.19, dur: 11, del: 3.5 },
+          { w: 1.4, h: 2.2, x: 72, o: 0.14, yEnd: 950, oMid: 0.23, dur: 15, del: 1.0 },
+          { w: 3.2, h: 2.6, x: 85, o: 0.26, yEnd: 520, oMid: 0.17, dur: 9, del: 2.8 },
+          { w: 1.9, h: 1.7, x: 15, o: 0.19, yEnd: 730, oMid: 0.21, dur: 12, del: 4.2 },
+          { w: 2.5, h: 3.0, x: 33, o: 0.33, yEnd: 560, oMid: 0.13, dur: 8, del: 0.3 },
+          { w: 1.3, h: 2.4, x: 50, o: 0.16, yEnd: 820, oMid: 0.24, dur: 14, del: 1.8 },
+          { w: 3.6, h: 1.3, x: 68, o: 0.29, yEnd: 470, oMid: 0.15, dur: 10, del: 3.8 },
+        ].map((p, i) => (
           <motion.div key={i}
             className="absolute rounded-full bg-[#D4A853]"
             style={{
-              width: Math.random() * 3 + 1 + "px",
-              height: Math.random() * 3 + 1 + "px",
-              left: Math.random() * 100 + "%",
+              width: `${p.w}px`,
+              height: `${p.h}px`,
+              left: `${p.x}%`,
               bottom: "-10px",
-              opacity: Math.random() * 0.4 + 0.1,
+              opacity: p.o,
             }}
             animate={{
-              y: [0, -(Math.random() * 800 + 400)],
-              opacity: [Math.random() * 0.4 + 0.1, Math.random() * 0.3, 0],
+              y: [0, -p.yEnd],
+              opacity: [p.o, p.oMid, 0],
             }}
             transition={{
-              duration: Math.random() * 8 + 6,
-              delay: Math.random() * 5,
+              duration: p.dur,
+              delay: p.del,
               repeat: Infinity,
               ease: "linear",
             }}

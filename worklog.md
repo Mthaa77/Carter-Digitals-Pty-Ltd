@@ -909,3 +909,98 @@ Stage Summary:
 - ~280 lines of new CSS added to `globals.css` (animations, light theme overrides, utility classes)
 - ✅ ESLint: Zero errors (after fixing 28 pre-existing parsing errors)
 - ✅ Compilation: Clean, dev server running with HTTP 200 responses
+
+---
+Task ID: 4-a
+Agent: full-stack-developer
+Task: Create LiveStatus floating component
+
+Work Log:
+- Created src/components/shared/LiveStatus.tsx — Floating "Available for Projects" live status indicator
+- Component uses "use client" directive with React useState for hover expand/collapse state
+- Collapsed state: small rounded pill with green pulsing dot (#22C55E) + "Available for Projects" text
+- Expanded state: 260px card with 3 info rows (Activity: 3 active projects, Clock: ~2 hours avg response, Calendar: Tomorrow next slot)
+- Glass morphism dark background with gold (#D4A853) accents throughout
+- Framer Motion AnimatePresence for smooth expand/collapse animation (opacity, y-translate, scale)
+- Fixed positioning at top-20 right-4/right-6 with z-30 (below navbar z-50)
+- Hidden on mobile via `hidden md:block` class
+- Gold gradient accent line at top of expanded card
+- "Schedule a Call" CTA button in footer of expanded card with arrow icon
+- Uses lucide-react icons: Activity, Clock, Calendar
+- Premium shadow styling with inset border highlight
+
+Stage Summary:
+- LiveStatus component created at src/components/shared/LiveStatus.tsx
+- Floating pill at top-right (below navbar) with hover-to-expand interaction
+- Consistent with Carter Digitals design system (dark bg, gold accents, glass morphism)
+- ✅ ESLint: Zero errors
+- ✅ Compilation: Clean, no issues
+
+---
+Task ID: 4-c
+Agent: full-stack-developer
+Task: Create InteractiveTestimonials component
+
+Work Log:
+- Created `src/components/shared/InteractiveTestimonials.tsx` — Premium interactive testimonial component with crossfade animations
+- Built single-card featured layout with large premium card (`rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-8 md:p-12`)
+- Added large gold Quote icon as decorative element above testimonial text
+- Implemented gold quotation watermark in background (`text-[rgba(212,168,83,0.04)]`, 24-32px)
+- Added "results achieved" metric badge with ArrowUpRight icon (`bg-[rgba(212,168,83,0.08)] border border-[rgba(212,168,83,0.2)] text-[#D4A853] rounded-full`)
+- Added 5-star rating with filled gold stars
+- Author info section with gradient gold initials avatar (`from-[#D4A853] to-[#B8922F]`), name, role, company
+- Created vertical avatar selector on right side (desktop) with initials, tooltips, and gold ring for active state (`border-2 border-[#D4A853]`)
+- Created mobile indicator dots (gold pill for active, dim circles for inactive) at top of card
+- Added prev/next navigation arrows (vertical on desktop sidebar, horizontal on mobile below card)
+- Implemented Framer Motion crossfade transitions with `AnimatePresence` mode="wait" (opacity + y translate)
+- Added auto-rotate every 6 seconds with gold progress bar at top of card
+- Implemented pause-on-hover to stop auto-rotation when user interacts
+- Added manual navigation that resets auto-rotation timer
+- Full ARIA accessibility: `role="region"`, `aria-roledescription="carousel"`, `role="tablist"`, `aria-selected`, `aria-label` on all buttons
+- Used lucide-react icons: Quote, Star, ArrowUpRight
+- Used `use client` directive for client-side interactivity
+- Provided Testimonial interface and defaultTestimonials as default prop data (3 testimonials)
+- Helper function `getInitials()` strips honorific prefixes (Dr., Adv., etc.)
+- Responsive design: flex-col on mobile, flex-row on md+; avatar selector hidden on mobile, replaced with dots
+
+Stage Summary:
+- New reusable component: `src/components/shared/InteractiveTestimonials.tsx` (~260 lines)
+- Accepts `testimonials`, `autoRotateInterval`, and `className` props
+- Features: crossfade animation, auto-rotate with progress bar, pause-on-hover, responsive avatar/dot navigation
+- Styling matches Carter Digitals dark theme with gold accents (#D4A853)
+- ✅ ESLint: Zero errors
+
+---
+Task ID: 4-b
+Agent: full-stack-developer
+Task: Create BeforeAfterSlider component
+
+Work Log:
+- Created `src/components/shared/BeforeAfterSlider.tsx` (~280 lines)
+- Built `ComparisonCard` sub-component with split-view before/after design using CSS `clipPath` for the divider
+- Implemented draggable slider handle via pointer events (pointerdown/pointermove/pointerup) with smooth dragging
+- Gold gradient handle with GripVertical icon, glowing gold vertical divider line with shadow
+- "Before" side uses muted grayscale overlay, dark overlay, dashed border placeholder icon (✕), and red-tinted gradient backgrounds
+- "After" side uses vibrant gold accents, animated pulsing card element, decorative grid pattern, and emerald/amber gradient backgrounds
+- Category badge and after-label positioned in the after layer; before-label fades out when slider < 20%
+- "← Drag to compare →" hint overlay with horizontal bouncing animation, fades out on first drag interaction
+- Card info section below slider with Space Grotesk title and 2-3 stats per card (label in muted text, value in gold with ArrowRight hover reveal)
+- Main `BeforeAfterSlider` component supports responsive layout: horizontal scrollable container with snap on mobile, CSS grid (2-col tablet, 3-col desktop) on md+
+- Scroll arrows (left/right) on mobile with AnimatePresence fade in/out, edge gradient fade overlays
+- All cards wrapped in Framer Motion `whileInView` with staggered delays per card index
+- Full accessibility: `role="slider"`, `aria-label`, `aria-valuenow/min/max`, `tabIndex={0}`
+- Touch-friendly with `touch-none` on handle, `WebkitOverflowScrolling: touch` on mobile container
+- Default export of 3 example items: Soshanguve Secondary School (Education), Mogale & Associates (Legal), Gateway Hospitality (Hospitality)
+- Named exports: `BeforeAfterSlider`, `defaultItems`, `BeforeAfterItem` type
+- Uses `text-white` and `text-[rgba(245,245,245,0.5-0.7)]` color scheme throughout
+- Each card styled with `overflow-hidden rounded-2xl border border-[rgba(255,255,255,0.06)]` and `bg-[#0F0F12]`
+- Imports: GripVertical, ArrowRight from lucide-react; motion, AnimatePresence from framer-motion
+
+Stage Summary:
+- New reusable component: `src/components/shared/BeforeAfterSlider.tsx` (~280 lines)
+- Interactive before/after comparison slider with draggable gold handle
+- Responsive: horizontal scroll on mobile, 3-column grid on desktop
+- 3 default example items with realistic project transformation data
+- Follows Carter Digitals dark theme design system (#0A0A0B bg, #D4A853 gold accents)
+- ✅ ESLint: Zero errors
+- ✅ Compilation: Clean, HTTP 200 confirmed in dev log

@@ -14,6 +14,7 @@ import { CustomCursor } from "@/components/shared/CustomCursor";
 import { CookieConsent } from "@/components/shared/CookieConsent";
 import { ScrollNavDots } from "@/components/shared/ScrollNavDots";
 import { LiveChatIndicator } from "@/components/shared/LiveChatIndicator";
+import { LiveStatus } from "@/components/shared/LiveStatus";
 import { toast } from "sonner";
 import HomePage from "@/components/pages/HomePage";
 import AboutPage from "@/components/pages/AboutPage";
@@ -197,6 +198,8 @@ export default function Page() {
       <BackToTopPercentage />
       {/* WhatsApp floating button */}
       <WhatsAppButton />
+      {/* Live status indicator */}
+      <LiveStatus />
       {/* Live chat availability indicator */}
       <LiveChatIndicator />
       {/* Scroll navigation dots */}
