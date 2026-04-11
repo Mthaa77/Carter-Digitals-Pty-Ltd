@@ -8,9 +8,12 @@ import { Footer } from "@/components/layout/Footer";
 import { LoadingScreen } from "@/components/shared/LoadingScreen";
 import { ScrollProgress } from "@/components/shared/ScrollProgress";
 import { BackToTop } from "@/components/shared/BackToTop";
+import { BackToTopPercentage } from "@/components/shared/BackToTopPercentage";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
 import { CustomCursor } from "@/components/shared/CustomCursor";
 import { CookieConsent } from "@/components/shared/CookieConsent";
+import { ScrollNavDots } from "@/components/shared/ScrollNavDots";
+import { LiveChatIndicator } from "@/components/shared/LiveChatIndicator";
 import { toast } from "sonner";
 import HomePage from "@/components/pages/HomePage";
 import AboutPage from "@/components/pages/AboutPage";
@@ -190,10 +193,14 @@ export default function Page() {
         </AnimatePresence>
       </main>
       <Footer />
-      {/* Back to top button */}
-      <BackToTop />
+      {/* Back to top button with percentage */}
+      <BackToTopPercentage />
       {/* WhatsApp floating button */}
       <WhatsAppButton />
+      {/* Live chat availability indicator */}
+      <LiveChatIndicator />
+      {/* Scroll navigation dots */}
+      <ScrollNavDots />
       {/* Custom cursor effect (desktop only) */}
       <CustomCursor />
       {/* Cookie consent banner */}

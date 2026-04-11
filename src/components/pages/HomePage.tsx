@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -32,6 +32,11 @@ import {
   Timer,
   Users,
   Trophy,
+  Lock,
+  Clock,
+  Headphones,
+  Target,
+  Play,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -53,6 +58,8 @@ import {
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { MagneticButton } from "@/components/shared/MagneticButton";
 import { ParallaxSection } from "@/components/shared/ParallaxSection";
+import { CircularProgress } from "@/components/shared/CircularProgress";
+import { QuickCalculator } from "@/components/shared/QuickCalculator";
 import { useNavigation } from "@/lib/navigation";
 
 /* ─────────────────────────── DATA ─────────────────────────── */
@@ -487,8 +494,8 @@ export default function HomePage() {
           <SectionHeading
             label="Who We Are"
             title="We Don't Build Websites."
-            titleHighlight="We Architect Digital Dominance"
-            description="Carter Digitals (Pty) Ltd is a Pretoria-based digital studio that engineers digital infrastructure for South Africa's most ambitious institutions. No templates. No shortcuts. Just digital assets built to perform."
+            titleHighlight="We Engineer Digital Supremacy"
+            description="Carter Digitals (Pty) Ltd is a Pretoria-based digital studio that engineers high-performance infrastructure for South Africa's most ambitious institutions. No templates. No compromises. Only digital assets built to dominate."
             align="center"
           />
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5" staggerDelay={0.1}>
@@ -577,9 +584,9 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             label="Our Services"
-            title="End-to-End Digital"
-            titleHighlight="Arsenal"
-            description="From first click to full-scale deployment — every service architected to give South African institutions an unfair digital advantage."
+            title="Command Your Digital"
+            titleHighlight="Presence With Authority"
+            description="Every service meticulously architected to give South African institutions an unassailable competitive advantage — from first pixel to global deployment."
             align="center"
           />
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" staggerDelay={0.08}>
@@ -639,9 +646,9 @@ export default function HomePage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             label="Sectors"
-            title="Engineered for South Africa's"
-            titleHighlight="Most Demanding Industries"
-            description="From classrooms to courtrooms, clinics to corporations — we understand the unique demands of every sector we serve and build accordingly."
+            title="Purpose-Built for South Africa's"
+            titleHighlight="Highest-Stakes Sectors"
+            description="From classrooms to courtrooms, clinics to boardrooms — we decode the unique demands of every sector and engineer solutions that outperform."
             align="center"
           />
           <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto" staggerDelay={0.08}>
@@ -683,9 +690,9 @@ export default function HomePage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
           <SectionHeading
             label="Our Edge"
-            title="Why Institutions"
-            titleHighlight="Choose Carter Digitals"
-            description="Six pillars that set us apart from every other digital agency in South Africa."
+            title="Why 50+ Institutions"
+            titleHighlight="Trust Carter Digitals"
+            description="Six uncompromising pillars that separate us from every other digital agency operating in South Africa today."
             align="center"
           />
         </div>
@@ -719,9 +726,9 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             label="How We Work"
-            title="Our 5-Phase"
-            titleHighlight="Delivery Engine"
-            description="A battle-tested process that transforms your vision into a live, high-performance digital asset — with clarity at every phase."
+            title="A Ruthlessly Efficient"
+            titleHighlight="5-Phase Delivery Engine"
+            description="A battle-tested methodology that transforms your vision into a live, revenue-generating digital asset — with absolute clarity at every phase."
             align="center"
           />
           {/* Desktop timeline */}
@@ -772,9 +779,9 @@ export default function HomePage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             label="Testimonials"
-            title="Trusted by SA's"
-            titleHighlight="Most Ambitious Institutions"
-            description="Real results from real clients. Hear how we've helped institutions across South Africa transform their digital presence and dominate their markets."
+            title="The Results Speak for"
+            titleHighlight="Themselves"
+            description="Don't take our word for it — hear directly from the institutions we've partnered with to engineer transformative digital outcomes."
             align="center"
           />
           <AnimatedSection delay={0.1} direction="up">
@@ -818,57 +825,89 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ════════════════ 10. FEATURED PROJECTS — SPLIT-SCREEN ════════════════ */}
-      <section className="relative py-24 md:py-32 bg-[#0A0A0B]">
+      {/* ════════════════ 10. FEATURED PROJECTS — INTERACTIVE SHOWCASE ════════════════ */}
+      <section className="relative py-24 md:py-32 bg-[#0A0A0B] grain-texture overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[rgba(212,168,83,0.02)] to-transparent pointer-events-none" />
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
+        <div className="absolute top-1/3 right-0 w-[400px] h-[400px] bg-[rgba(212,168,83,0.025)] rounded-full blur-[150px] pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             label="Our Work"
-            title="Projects That"
-            titleHighlight="Define Industries"
-            description="Real outcomes from real builds. Every project is a case study in digital transformation — engineered to deliver measurable, lasting impact."
+            title="Case Studies in"
+            titleHighlight="Digital Transformation"
+            description="Every project is a testament to what's possible when engineering rigour meets creative ambition. Hover to explore the results."
             align="center"
           />
-          <StaggerContainer className="space-y-6 md:space-y-8" staggerDelay={0.12}>
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6" staggerDelay={0.12}>
             {featuredProjects.map((project, idx) => (
               <StaggerItem key={project.name}>
-                <div className={`group relative rounded-2xl border border-[rgba(255,255,255,0.06)] hover:border-[rgba(212,168,83,0.2)] overflow-hidden transition-all duration-500 hover:shadow-xl hover:shadow-[rgba(212,168,83,0.06)] bg-[#111114]`}>
-                  <div className={`flex flex-col ${idx % 2 === 1 ? "md:flex-row-reverse" : "md:flex-row"}`}>
-                    {/* Left: Project info */}
-                    <div className={`flex-1 p-8 md:p-12 ${idx % 2 === 1 ? "md:text-right" : ""}`}>
-                      <div className="flex items-center gap-3 mb-4">
-                        <Badge className="bg-[rgba(212,168,83,0.1)] border border-[rgba(212,168,83,0.2)] text-[#D4A853] text-xs font-medium px-3 py-1">{project.category}</Badge>
-                        <span className="text-xs font-medium text-[rgba(245,245,245,0.3)] tracking-[0.15em] uppercase">Project {String(idx + 1).padStart(2, "0")}</span>
-                      </div>
-                      <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-4 tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{project.name}</h3>
-                      <p className="text-sm md:text-base text-[rgba(245,245,245,0.5)] leading-[1.8] mb-8 max-w-lg">{project.description}</p>
-                      <div className="flex items-center gap-2 text-sm font-medium text-[#D4A853] group-hover:text-[#E8C97A] transition-colors cursor-pointer">
-                        <span>View Case Study</span>
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </div>
-                    </div>
-                    {/* Right: Result stats */}
-                    <div className={`flex-1 bg-gradient-to-br ${project.gradient} p-8 md:p-12 flex items-center`}>
-                      <div className="w-full space-y-6">
-                        {project.results.map((result) => (
-                          <div key={result.label} className="flex items-center justify-between gap-4">
-                            <span className="text-sm font-medium text-[rgba(245,245,245,0.6)]">{result.label}</span>
-                            <div className="text-right">
-                              <span className="text-2xl md:text-3xl font-extrabold text-white tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                                {result.prefix && <span className="text-lg text-[rgba(245,245,245,0.5)]">{result.prefix}</span>}
-                                <AnimatedCounter target={result.value} suffix={result.suffix} duration={2000} />
-                              </span>
-                            </div>
+                <div className="group relative rounded-2xl border border-[rgba(255,255,255,0.06)] hover:border-[rgba(212,168,83,0.2)] overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-[rgba(212,168,83,0.08)] bg-[#111114] h-full">
+                  {/* Gradient header */}
+                  <div className={`relative h-40 md:h-48 bg-gradient-to-br ${project.gradient} overflow-hidden`}>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#111114] via-transparent to-transparent" />
+                    {/* Animated stat counters on hover */}
+                    <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                      <div className="flex items-center gap-4">
+                        {project.results.slice(0, 2).map((result) => (
+                          <div key={result.label} className="text-center flex-1">
+                            <span className="text-xl font-extrabold text-white block" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                              {result.prefix && <span className="text-sm text-[rgba(245,245,245,0.5)]">{result.prefix}</span>}
+                              <AnimatedCounter target={result.value} suffix={result.suffix} duration={1500} />
+                            </span>
+                            <span className="text-[10px] text-[rgba(245,245,245,0.5)] uppercase tracking-wider">{result.label}</span>
                           </div>
                         ))}
                       </div>
+                    </div>
+                    {/* Category badge */}
+                    <div className="absolute top-4 left-4">
+                      <Badge className="bg-[rgba(0,0,0,0.4)] backdrop-blur-sm border border-[rgba(255,255,255,0.1)] text-white text-[10px] font-medium px-2.5 py-0.5">
+                        {project.category}
+                      </Badge>
+                    </div>
+                  </div>
+                  {/* Content */}
+                  <div className="p-6">
+                    <h3 className="text-lg md:text-xl font-bold text-white mb-2 tracking-tight group-hover:text-[#E8C97A] transition-colors duration-300" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                      {project.name}
+                    </h3>
+                    <p className="text-sm text-[rgba(245,245,245,0.45)] leading-[1.7] mb-4 line-clamp-2">{project.description}</p>
+                    {/* Third result stat always visible */}
+                    <div className="flex items-center justify-between py-3 border-t border-[rgba(255,255,255,0.06)]">
+                      <span className="text-xs text-[rgba(245,245,245,0.4)]">{project.results[2].label}</span>
+                      <span className="text-lg font-extrabold text-gradient-gold" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                        <AnimatedCounter target={project.results[2].value} suffix={project.results[2].suffix} duration={2000} />
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 text-sm font-medium text-[#D4A853] group-hover:text-[#E8C97A] transition-colors cursor-pointer mt-3 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                      <span>Explore Case Study</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </div>
               </StaggerItem>
             ))}
           </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ════════════════ 11. QUICK CALCULATOR ════════════════ */}
+      <section className="relative py-24 md:py-32 bg-[#0A0A0B]">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[rgba(212,168,83,0.015)] to-transparent pointer-events-none" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            label="Budget"
+            title="Plan Your Investment."
+            titleHighlight="See What's Possible."
+            description="Our interactive estimator gives you an instant ballpark. Get a precise, tailored quote on a 30-minute discovery call — no obligation."
+            align="center"
+          />
+          <AnimatedSection delay={0.15} direction="up">
+            <div className="max-w-2xl mx-auto">
+              <QuickCalculator />
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
@@ -880,9 +919,9 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             label="Pricing"
-            title="Transparent Investment."
-            titleHighlight="Exceptional Returns."
-            description="Every tier is architected around real business outcomes. No hidden fees, no recurring surprises. Pick your tier and let's build."
+            title="Invest With Confidence."
+            titleHighlight="Reap Exceptional Returns."
+            description="Every tier is architected around measurable business outcomes. No hidden fees, no recurring surprises — pick your tier and let's engineer your advantage."
             align="center"
           />
 
@@ -964,79 +1003,115 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ════════════════ 12. RESULTS DASHBOARD ════════════════ */}
+      {/* ════════════════ 12. CLIENT SUCCESS METRICS — CIRCULAR PROGRESS ════════════════ */}
       <AnimatedSection direction="up">
-        <section className="relative py-24 md:py-32 bg-[#0A0A0B]">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[150px] pointer-events-none" />
+        <section className="relative py-24 md:py-32 bg-[#0A0A0B] grain-texture overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[500px] bg-[rgba(212,168,83,0.04)] rounded-full blur-[160px] pointer-events-none" />
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
           <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <SectionHeading
               label="Impact"
-              title="Results That"
-              titleHighlight="Compound Over Time"
-              description="Real metrics from real projects. Every number represents a tangible, measurable outcome for our clients."
+              title="Metrics That"
+              titleHighlight="Define Our Standard"
+              description="Real performance data from real projects. These aren't aspirational targets — they're our baseline expectations for every engagement."
               align="center"
             />
-            <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8" staggerDelay={0.12}>
-              <StaggerItem><ResultsBar label="Google Ranking Improvement" percentage={85} /></StaggerItem>
-              <StaggerItem><ResultsBar label="Client Retention Rate" percentage={96} /></StaggerItem>
-              <StaggerItem><ResultsBar label="On-Time Delivery" percentage={100} /></StaggerItem>
-              <StaggerItem><ResultsBar label="Client Satisfaction" percentage={98} /></StaggerItem>
+            <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10" staggerDelay={0.12}>
+              <StaggerItem>
+                <CircularProgress value={98} label="Client Satisfaction" suffix="%" size={130} color="#E8C97A" icon={<Star className="w-4 h-4" />} />
+              </StaggerItem>
+              <StaggerItem>
+                <CircularProgress value={100} label="On-Time Delivery" suffix="%" size={130} color="#D4A853" icon={<Clock className="w-4 h-4" />} />
+              </StaggerItem>
+              <StaggerItem>
+                <CircularProgress value={85} label="Avg. SEO Rank Jump" suffix="%" size={130} color="#E8C97A" icon={<TrendingUp className="w-4 h-4" />} />
+              </StaggerItem>
+              <StaggerItem>
+                <CircularProgress value={96} label="Client Retention" suffix="%" size={130} color="#D4A853" icon={<Users className="w-4 h-4" />} />
+              </StaggerItem>
             </StaggerContainer>
           </div>
         </section>
       </AnimatedSection>
 
-      {/* ════════════════ 13. OUR GUARANTEE ════════════════ */}
+      {/* ════════════════ 13. IRON-CLAD PROMISE — GLASSMORPHISM CARDS ════════════════ */}
       <AnimatedSection direction="up">
-        <section className="relative py-16 md:py-24 bg-[#0A0A0B]">
+        <section className="relative py-24 md:py-32 bg-[#0A0A0B]">
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
-          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="relative rounded-2xl border-gradient-gold overflow-hidden p-8 md:p-12">
-              <div className="absolute inset-0 bg-gradient-to-br from-[rgba(212,168,83,0.06)] via-[rgba(19,19,22,0.95)] to-[rgba(212,168,83,0.03)]" />
-              <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-[rgba(212,168,83,0.06)] rounded-full blur-[80px] pointer-events-none" />
-              <div className="absolute bottom-0 left-0 w-[200px] h-[200px] bg-[rgba(212,168,83,0.04)] rounded-full blur-[80px] pointer-events-none" />
-              <div className="relative z-10">
-                <div className="flex justify-center mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[rgba(212,168,83,0.15)] to-[rgba(212,168,83,0.05)] border border-[rgba(212,168,83,0.2)] flex items-center justify-center">
-                    <Shield className="w-8 h-8 text-[#D4A853]" />
-                  </div>
-                </div>
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-white text-center mb-10 tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                  Our Iron-Clad <span className="text-gradient-gold">Guarantee</span>
-                </h2>
-                <div className="space-y-6 md:space-y-8">
-                  {[
-                    { title: "Delivery in 5-7 Days or It's Free", desc: "If we miss your deadline, you don't pay. Simple as that." },
-                    { title: "You Own Everything — Always", desc: "Full source code, hosting credentials, domain. Zero lock-in, zero recurring licensing." },
-                    { title: "30 Days Free Support", desc: "Post-launch bug fixes, content updates, and technical support — all included at no extra cost." },
-                  ].map((item) => (
-                    <div key={item.title} className="flex items-start gap-4">
-                      <div className="w-8 h-8 shrink-0 rounded-full bg-[rgba(212,168,83,0.1)] border border-[rgba(212,168,83,0.15)] flex items-center justify-center mt-0.5">
-                        <CheckCircle className="w-4 h-4 text-[#D4A853]" />
+          <div className="absolute top-1/3 left-0 w-[400px] h-[400px] bg-[rgba(212,168,83,0.025)] rounded-full blur-[160px] pointer-events-none" />
+          <div className="absolute bottom-1/3 right-0 w-[350px] h-[350px] bg-[rgba(212,168,83,0.02)] rounded-full blur-[140px] pointer-events-none" />
+          <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <SectionHeading
+              label="Our Promise"
+              title="An Iron-Clad"
+              titleHighlight="Commitment To Your Success"
+              description="Every word below is backed by our track record. No fine print, no asterisks, no legal loopholes — just unwavering accountability."
+              align="center"
+            />
+            <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6" staggerDelay={0.1}>
+              {[
+                {
+                  icon: <Timer className="w-7 h-7 text-[#D4A853]" />,
+                  title: "5–7 Days or It's Free",
+                  description: "Miss your deadline? You pay absolutely nothing. We stake our revenue on our reliability — that's how confident we are in our process.",
+                  accent: "from-[rgba(212,168,83,0.15)] to-[rgba(212,168,83,0.02)]",
+                },
+                {
+                  icon: <Lock className="w-7 h-7 text-[#D4A853]" />,
+                  title: "Full Ownership. Zero Lock-In.",
+                  description: "Source code, hosting credentials, domain — everything belongs to you from day one. No contracts, no recurring licensing fees, ever.",
+                  accent: "from-[rgba(232,201,122,0.12)] to-[rgba(184,146,47,0.02)]",
+                },
+                {
+                  icon: <Headphones className="w-7 h-7 text-[#D4A853]" />,
+                  title: "30 Days Free Support",
+                  description: "Post-launch bug fixes, content updates, and technical guidance — all included at zero extra cost. We don't vanish after handover.",
+                  accent: "from-[rgba(212,168,83,0.12)] to-[rgba(212,168,83,0.01)]",
+                },
+              ].map((promise) => (
+                <StaggerItem key={promise.title}>
+                  <div className="group relative rounded-2xl glass-gold-premium p-7 md:p-8 h-full">
+                    {/* Animated gold border glow on hover */}
+                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                      style={{
+                        background: "conic-gradient(from 0deg, rgba(212,168,83,0.3), rgba(212,168,83,0.05), rgba(232,201,122,0.3), rgba(212,168,83,0.05), rgba(212,168,83,0.3))",
+                        mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                        maskComposite: "exclude",
+                        WebkitMaskComposite: "xor",
+                        padding: "1px",
+                        borderRadius: "1rem",
+                      }}
+                    />
+                    <div className="relative z-10">
+                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${promise.accent} border border-[rgba(212,168,83,0.15)] flex items-center justify-center mb-5 group-hover:shadow-lg group-hover:shadow-[rgba(212,168,83,0.1)] transition-shadow duration-500`}>
+                        {promise.icon}
                       </div>
-                      <div>
-                        <h3 className="text-base md:text-lg font-semibold text-white mb-1 tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{item.title}</h3>
-                        <p className="text-sm text-[rgba(245,245,245,0.5)] leading-[1.8]">{item.desc}</p>
-                      </div>
+                      <h3 className="text-lg font-bold text-white mb-3 tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                        {promise.title}
+                      </h3>
+                      <p className="text-sm text-[rgba(245,245,245,0.5)] leading-[1.8]">{promise.description}</p>
                     </div>
-                  ))}
-                </div>
-                <p className="text-center text-xs md:text-sm text-[rgba(212,168,83,0.6)] mt-10 italic">No fine print. No asterisks. Just our word.</p>
-              </div>
-            </div>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+            <AnimatedSection delay={0.3} direction="up">
+              <p className="text-center text-sm text-[rgba(212,168,83,0.5)] mt-10 font-serif-accent italic">
+                &ldquo;Our reputation is our most valuable asset — and we protect it with every line of code.&rdquo;
+              </p>
+            </AnimatedSection>
           </div>
         </section>
       </AnimatedSection>
 
-      {/* ════════════════ 14. CINEMATIC "PROMISE" SECTION ════════════════ */}
+      {/* ════════════════ 14. START YOUR JOURNEY — PREMIUM CTA ════════════════ */}
       <section className="relative py-32 md:py-44 overflow-hidden">
         {/* Dark gradient background */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0B] via-[#0D0B08] to-[#0A0A0B]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[rgba(212,168,83,0.02)] via-[rgba(212,168,83,0.04)] to-[rgba(212,168,83,0.02)]" />
 
         {/* Animated gold particle dots floating upward */}
-        {[...Array(20)].map((_, i) => (
+        {[...Array(16)].map((_, i) => (
           <motion.div key={i}
             className="absolute rounded-full bg-[#D4A853]"
             style={{
@@ -1064,21 +1139,43 @@ export default function HomePage() {
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection direction="up">
+            {/* Animated gold ring */}
+            <div className="relative inline-block mb-10">
+              <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-[rgba(212,168,83,0.15)] to-[rgba(212,168,83,0.03)] border border-[rgba(212,168,83,0.2)] flex items-center justify-center">
+                <Play className="w-7 h-7 text-[#D4A853] ml-1" />
+              </div>
+              {/* Spinning ring */}
+              <div className="absolute top-1/2 left-1/2 w-28 h-28 animate-gold-ring-spin"
+                style={{
+                  borderRadius: "50%",
+                  border: "2px dashed rgba(212,168,83,0.2)",
+                }}
+              />
+            </div>
+
             {/* Tagline */}
             <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.1] tracking-tight mb-6"
               style={{
                 fontFamily: "'Space Grotesk', sans-serif",
-                backgroundImage: "linear-gradient(135deg, #D4A853 0%, #E8C97A 40%, #D4A853 70%, #B8922F 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
               }}>
-              Built Different. Built African. Built to Win.
+              <span className="text-[#F5F5F5]">Ready to</span>{" "}
+              <span className="font-serif-accent text-gradient-gold">Dominate</span>
+              <span className="text-[#F5F5F5]"> Your Market?</span>
             </h2>
 
-            <p className="text-lg md:text-xl text-[rgba(245,245,245,0.55)] max-w-2xl mx-auto leading-[1.8] mb-10">
-              Start your project today and join 50+ institutions that trust Carter Digitals to engineer their digital future.
+            <p className="text-lg md:text-xl text-[rgba(245,245,245,0.5)] max-w-2xl mx-auto leading-[1.8] mb-10">
+              Join 50+ South African institutions that chose Carter Digitals to engineer their digital future. Your 30-minute discovery call is free — and it might change everything.
             </p>
+
+            {/* Trust micro-badges */}
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
+              {["Free Discovery Call", "No Obligation", "Response Within 2 Hours"].map((badge) => (
+                <span key={badge} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[rgba(212,168,83,0.06)] border border-[rgba(212,168,83,0.12)] text-xs font-medium text-[#D4A853]">
+                  <CheckCircle className="w-3 h-3" />
+                  {badge}
+                </span>
+              ))}
+            </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

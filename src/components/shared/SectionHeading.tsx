@@ -58,7 +58,7 @@ export function SectionHeading({
           {titleHighlight ? (
             <>
               {title}{" "}
-              <span className="text-gradient-gold">{titleHighlight}</span>
+              <span className="text-gradient-gold font-serif-accent">{titleHighlight}</span>
             </>
           ) : (
             title
@@ -67,9 +67,12 @@ export function SectionHeading({
       </AnimatedSection>
       {description && (
         <AnimatedSection delay={0.2} direction="up">
-          <p className="mt-5 md:mt-6 text-base md:text-lg text-[rgba(245,245,245,0.55)] leading-[1.8] font-light">
-            {description}
-          </p>
+          <div className="relative">
+            <div className="mx-auto w-[60px] h-[3px] bg-gradient-to-r from-[#D4A853] to-[#E8C97A] rounded-full mb-6" />
+            <p className="text-base md:text-lg text-[rgba(245,245,245,0.55)] leading-[1.8] font-light">
+              {description}
+            </p>
+          </div>
         </AnimatedSection>
       )}
     </div>
