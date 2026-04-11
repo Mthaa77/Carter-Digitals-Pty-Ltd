@@ -45,6 +45,8 @@ import {
   AnimatedCounter,
 } from "@/components/shared/AnimatedSection";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { MagneticButton } from "@/components/shared/MagneticButton";
+import { ParallaxSection } from "@/components/shared/ParallaxSection";
 import { useNavigation } from "@/lib/navigation";
 
 /* ─────────────────────────── floating shape data ─────────────────────────── */
@@ -244,6 +246,117 @@ const trustBadges = [
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════
+   TYPING TEXT COMPONENT
+   ═══════════════════════════════════════════════════════════════════════ */
+interface TypingTextProps {
+  words: string[];
+  className?: string;
+}
+
+function TypingText({ words, className = "" }: TypingTextProps) {
+  const [displayText, setDisplayText] = useState("");
+  const [isInView, setIsInView] = useState(false);
+  const containerRef = useRef<HTMLSpanElement>(null);
+  const animationRef = useRef<ReturnType<typeof requestAnimationFrame> | null>(null);
+  const wordIndexRef = useRef(0);
+  const charIndexRef = useRef(0);
+  const isDeletingRef = useRef(false);
+  const lastTimestampRef = useRef<number | null>(null);
+  const pauseUntilRef = useRef<number>(0);
+
+  // Observe when the element enters viewport
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Typing animation loop using requestAnimationFrame
+  useEffect(() => {
+    if (!isInView) return;
+
+    const TYPING_SPEED = 80;
+    const DELETE_SPEED = 40;
+    const PAUSE_DURATION = 2000;
+
+    const animate = (timestamp: number) => {
+      // Handle pause after typing a full word
+      if (timestamp < pauseUntilRef.current) {
+        animationRef.current = requestAnimationFrame(animate);
+        return;
+      }
+
+      const word = words[wordIndexRef.current];
+
+      if (!isDeletingRef.current) {
+        // Typing
+        if (lastTimestampRef.current === null) {
+          lastTimestampRef.current = timestamp;
+        }
+
+        if (timestamp - lastTimestampRef.current >= TYPING_SPEED) {
+          lastTimestampRef.current = timestamp;
+          charIndexRef.current += 1;
+          setDisplayText(word.slice(0, charIndexRef.current));
+
+          if (charIndexRef.current === word.length) {
+            // Word fully typed — pause before deleting
+            pauseUntilRef.current = timestamp + PAUSE_DURATION;
+            isDeletingRef.current = true;
+            lastTimestampRef.current = null;
+          }
+        }
+      } else {
+        // Deleting
+        if (lastTimestampRef.current === null) {
+          lastTimestampRef.current = timestamp;
+        }
+
+        if (timestamp - lastTimestampRef.current >= DELETE_SPEED) {
+          lastTimestampRef.current = timestamp;
+          charIndexRef.current -= 1;
+          setDisplayText(word.slice(0, charIndexRef.current));
+
+          if (charIndexRef.current === 0) {
+            // Move to next word
+            isDeletingRef.current = false;
+            wordIndexRef.current = (wordIndexRef.current + 1) % words.length;
+            lastTimestampRef.current = null;
+          }
+        }
+      }
+
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+    };
+  }, [isInView, words]);
+
+  return (
+    <span ref={containerRef} className={className} aria-label={words.join(", ")}>
+      <span aria-hidden="true">{displayText}</span>
+      <span className="animate-blink text-[#D4A853]" aria-hidden="true">|</span>
+    </span>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
    HOME PAGE COMPONENT
    ═══════════════════════════════════════════════════════════════════════ */
 export default function HomePage() {
@@ -307,35 +420,42 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0B] via-transparent to-[#0A0A0B]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[rgba(212,168,83,0.03)] via-transparent to-[rgba(212,168,83,0.02)]" />
 
-        {/* Floating geometric shapes */}
-        {floatingShapes.map((shape, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full border border-[rgba(212,168,83,0.15)]"
-            style={{
-              width: shape.size,
-              height: shape.size,
-              left: shape.x,
-              top: shape.y,
-              opacity: shape.opacity,
-            }}
-            animate={{
-              y: [0, -30, 0, 20, 0],
-              x: [0, 15, 0, -10, 0],
-              rotate: [0, 5, 0, -5, 0],
-            }}
-            transition={{
-              duration: shape.duration,
-              delay: shape.delay,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
+        {/* Floating geometric shapes with parallax */}
+        <ParallaxSection speed={0.1} direction="up" className="absolute inset-0 pointer-events-none">
+          {floatingShapes.map((shape, i) => (
+            <motion.div
+              key={i}
+              className="absolute rounded-full border border-[rgba(212,168,83,0.15)]"
+              style={{
+                width: shape.size,
+                height: shape.size,
+                left: shape.x,
+                top: shape.y,
+                opacity: shape.opacity,
+              }}
+              animate={{
+                y: [0, -30, 0, 20, 0],
+                x: [0, 15, 0, -10, 0],
+                rotate: [0, 5, 0, -5, 0],
+              }}
+              transition={{
+                duration: shape.duration,
+                delay: shape.delay,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          ))}
+        </ParallaxSection>
 
         {/* Radial glow */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[rgba(212,168,83,0.04)] rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[100px] pointer-events-none" />
+
+        {/* Decorative parallax gold glow orb */}
+        <ParallaxSection speed={0.1} direction="up" className="absolute pointer-events-none">
+          <div className="absolute bottom-1/3 left-1/4 w-[500px] h-[500px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[150px]" />
+        </ParallaxSection>
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 md:pt-40 md:pb-28">
@@ -356,9 +476,11 @@ export default function HomePage() {
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight"
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}
               >
-                <span className="text-[#F5F5F5]">Built Different.</span>
+                <span className="text-[#F5F5F5]">We Build Digital</span>
                 <br />
-                <span className="text-gradient-gold">Built African.</span>
+                <span className="text-gradient-gold">
+                  <TypingText words={["Infrastructure.", "Credibility.", "Futures.", "Experiences."]} />
+                </span>
                 <br />
                 <span className="text-[#F5F5F5]">Built to Win.</span>
               </h1>
@@ -376,23 +498,27 @@ export default function HomePage() {
             {/* CTA Buttons */}
             <AnimatedSection delay={0.6} direction="up">
               <div className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4">
-                <Button
-                  onClick={() => handleNavClick("contact")}
-                  size="lg"
-                  className="bg-gradient-to-r from-[#D4A853] to-[#B8922F] hover:from-[#E8C97A] hover:to-[#D4A853] text-[#0A0A0B] font-semibold px-8 py-6 text-base rounded-xl shadow-lg shadow-[rgba(212,168,83,0.25)] hover:shadow-[rgba(212,168,83,0.35)] transition-all duration-300 group"
-                >
-                  Start Your Project
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button
-                  onClick={() => handleNavClick("services")}
-                  size="lg"
-                  variant="outline"
-                  className="border-[rgba(255,255,255,0.15)] bg-transparent hover:bg-white/5 text-white font-semibold px-8 py-6 text-base rounded-xl transition-all duration-300 group"
-                >
-                  View Our Work
-                  <ChevronRight className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                <MagneticButton strength={0.2}>
+                  <Button
+                    onClick={() => handleNavClick("contact")}
+                    size="lg"
+                    className="bg-gradient-to-r from-[#D4A853] to-[#B8922F] hover:from-[#E8C97A] hover:to-[#D4A853] text-[#0A0A0B] font-semibold px-8 py-6 text-base rounded-xl shadow-lg shadow-[rgba(212,168,83,0.25)] hover:shadow-[rgba(212,168,83,0.35)] transition-all duration-300 group"
+                  >
+                    Start Your Project
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </MagneticButton>
+                <MagneticButton strength={0.2}>
+                  <Button
+                    onClick={() => handleNavClick("services")}
+                    size="lg"
+                    variant="outline"
+                    className="border-[rgba(255,255,255,0.15)] bg-transparent hover:bg-white/5 text-white font-semibold px-8 py-6 text-base rounded-xl transition-all duration-300 group"
+                  >
+                    View Our Work
+                    <ChevronRight className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </MagneticButton>
               </div>
             </AnimatedSection>
           </div>

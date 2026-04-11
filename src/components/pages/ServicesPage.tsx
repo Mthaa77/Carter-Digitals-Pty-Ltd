@@ -31,9 +31,12 @@ import {
   SearchIcon,
   CreditCard,
   Presentation,
+  Clock,
+  Star,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import {
   Accordion,
@@ -47,7 +50,10 @@ import {
   StaggerItem,
 } from "@/components/shared/AnimatedSection";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { ParallaxSection } from "@/components/shared/ParallaxSection";
+import { TiltCard } from "@/components/shared/TiltCard";
 import { useNavigation } from "@/lib/navigation";
+import { toast } from "sonner";
 
 /* ──────────────────────── flagship features ───────────────────── */
 const flagshipFeatures = [
@@ -146,6 +152,7 @@ const processPhases = [
   {
     num: "01",
     title: "Discovery & Alignment",
+    timeline: "Day 1",
     description:
       "We map your institutional goals, stakeholder expectations, technical constraints, and compliance requirements. No assumptions — just deep understanding and a shared roadmap before a single line of code is written.",
     icon: Lightbulb,
@@ -153,6 +160,7 @@ const processPhases = [
   {
     num: "02",
     title: "Architecture & Wireflow",
+    timeline: "Day 1–2",
     description:
       "We design the information hierarchy, user journeys, and system architecture upfront. Every page, every flow, every integration is planned and approved before development begins.",
     icon: Code,
@@ -160,6 +168,7 @@ const processPhases = [
   {
     num: "03",
     title: "Design & Build",
+    timeline: "Day 2–5",
     description:
       "We develop using modern, secure frameworks, building content and interface as a unified experience. Mobile-first, accessible, and performance-optimised from the ground up.",
     icon: Wrench,
@@ -167,6 +176,7 @@ const processPhases = [
   {
     num: "04",
     title: "QA & Compliance",
+    timeline: "Day 5–6",
     description:
       "Cross-device testing, messaging refinement, validation against security, accessibility, SEO, and regulatory standards. We test everything so you don't have to.",
     icon: ClipboardCheck,
@@ -174,6 +184,7 @@ const processPhases = [
   {
     num: "05",
     title: "Launch & Enablement",
+    timeline: "Day 6–7",
     description:
       "Deploy, document, and equip your team for full ownership. Training, handover documentation, and post-launch support — you own everything from day one.",
     icon: Rocket,
@@ -351,33 +362,35 @@ export default function ServicesPage() {
                     </div>
                   </div>
 
-                  {/* Right: Why Next.js features */}
-                  <div>
-                    <h3
-                      className="text-xl font-bold text-white mb-6"
-                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                    >
-                      Why Next.js & Vercel?
-                    </h3>
+                  {/* Right: Why Next.js features with parallax */}
+                  <ParallaxSection speed={0.1} direction="up">
+                    <div>
+                      <h3
+                        className="text-xl font-bold text-white mb-6"
+                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                      >
+                        Why Next.js & Vercel?
+                      </h3>
 
-                    <StaggerContainer
-                      className="grid grid-cols-1 sm:grid-cols-2 gap-3"
-                      staggerDelay={0.08}
-                    >
-                      {flagshipFeatures.map((feature) => (
-                        <StaggerItem key={feature.title}>
-                          <div className="flex items-start gap-3 p-4 rounded-xl bg-[rgba(10,10,11,0.5)] border border-[rgba(255,255,255,0.04)] hover:border-[rgba(212,168,83,0.15)] transition-colors duration-300">
-                            <div className="w-9 h-9 shrink-0 rounded-lg bg-[rgba(212,168,83,0.1)] border border-[rgba(212,168,83,0.12)] flex items-center justify-center">
-                              <feature.icon className="w-4 h-4 text-[#D4A853]" />
+                      <StaggerContainer
+                        className="grid grid-cols-1 sm:grid-cols-2 gap-3"
+                        staggerDelay={0.08}
+                      >
+                        {flagshipFeatures.map((feature) => (
+                          <StaggerItem key={feature.title}>
+                            <div className="flex items-start gap-3 p-4 rounded-xl bg-[rgba(10,10,11,0.5)] border border-[rgba(255,255,255,0.04)] hover:border-[rgba(212,168,83,0.15)] transition-colors duration-300">
+                              <div className="w-9 h-9 shrink-0 rounded-lg bg-[rgba(212,168,83,0.1)] border border-[rgba(212,168,83,0.12)] flex items-center justify-center">
+                                <feature.icon className="w-4 h-4 text-[#D4A853]" />
+                              </div>
+                              <span className="text-sm text-[rgba(245,245,245,0.7)] font-medium leading-snug pt-1.5">
+                                {feature.title}
+                              </span>
                             </div>
-                            <span className="text-sm text-[rgba(245,245,245,0.7)] font-medium leading-snug pt-1.5">
-                              {feature.title}
-                            </span>
-                          </div>
-                        </StaggerItem>
-                      ))}
-                    </StaggerContainer>
-                  </div>
+                          </StaggerItem>
+                        ))}
+                      </StaggerContainer>
+                    </div>
+                  </ParallaxSection>
                 </div>
               </div>
             </div>
@@ -406,30 +419,32 @@ export default function ServicesPage() {
           >
             {coreServices.map((service) => (
               <StaggerItem key={service.title}>
-                <div className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-6 card-hover overflow-hidden">
-                  {/* Shimmer on hover */}
-                  <div className="absolute inset-0 animate-shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                <TiltCard className="h-full" tiltStrength={4}>
+                  <div className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-6 card-hover overflow-hidden">
+                    {/* Shimmer on hover */}
+                    <div className="absolute inset-0 animate-shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
 
-                  <div className="relative z-10">
-                    {/* Icon in gold circle */}
-                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[rgba(212,168,83,0.18)] to-[rgba(212,168,83,0.05)] border border-[rgba(212,168,83,0.15)] flex items-center justify-center mb-5 group-hover:shadow-lg group-hover:shadow-[rgba(212,168,83,0.12)] transition-shadow duration-300">
-                      <service.icon className="w-6 h-6 text-[#D4A853]" />
+                    <div className="relative z-10">
+                      {/* Icon in gold circle */}
+                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[rgba(212,168,83,0.18)] to-[rgba(212,168,83,0.05)] border border-[rgba(212,168,83,0.15)] flex items-center justify-center mb-5 group-hover:shadow-lg group-hover:shadow-[rgba(212,168,83,0.12)] transition-shadow duration-300">
+                        <service.icon className="w-6 h-6 text-[#D4A853]" />
+                      </div>
+
+                      {/* Title */}
+                      <h3
+                        className="text-lg font-semibold text-white mb-2.5"
+                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                      >
+                        {service.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-sm text-[rgba(245,245,245,0.5)] leading-relaxed">
+                        {service.description}
+                      </p>
                     </div>
-
-                    {/* Title */}
-                    <h3
-                      className="text-lg font-semibold text-white mb-2.5"
-                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                    >
-                      {service.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-sm text-[rgba(245,245,245,0.5)] leading-relaxed">
-                      {service.description}
-                    </p>
                   </div>
-                </div>
+                </TiltCard>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -468,13 +483,17 @@ export default function ServicesPage() {
                             {phase.num}
                           </span>
                         </div>
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-3 flex-wrap">
                           <phase.icon className="w-5 h-5 text-[rgba(212,168,83,0.6)] hidden sm:block" />
                           <span
                             className="text-base md:text-lg font-semibold text-white"
                             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                           >
                             {phase.title}
+                          </span>
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold tracking-wide bg-[rgba(212,168,83,0.1)] text-[#D4A853] border border-[rgba(212,168,83,0.2)]">
+                            <Clock className="w-2.5 h-2.5" />
+                            {phase.timeline}
                           </span>
                         </div>
                       </div>
@@ -559,7 +578,282 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ───────────────────── 6. CTA SECTION ──────────────────── */}
+      {/* ──────────── 6. SERVICES COMPARISON TABLE ────────────── */}
+      <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[rgba(212,168,83,0.02)] rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeading
+            label="Find Your Fit"
+            title="Compare Our"
+            titleHighlight="Solutions"
+            description="Not sure which service is right for you? This side-by-side comparison makes it easy to find the perfect match for your goals and budget."
+            align="center"
+          />
+
+          <AnimatedSection direction="up" delay={0.15}>
+            <div className="overflow-x-auto">
+              <div className="min-w-[640px]">
+                {/* Table */}
+                <div className="rounded-2xl border border-[rgba(255,255,255,0.06)] overflow-hidden">
+                  {/* Header Row */}
+                  <div className="grid grid-cols-4">
+                    <div className="p-4 md:p-5 bg-[#131316] border-b border-[rgba(255,255,255,0.06)]" />
+                    <div className="p-4 md:p-5 bg-[#131316] border-b border-[rgba(255,255,255,0.06)] border-l border-[rgba(255,255,255,0.04)] text-center">
+                      <Globe className="w-6 h-6 text-[rgba(245,245,245,0.5)] mx-auto mb-2" />
+                      <h4
+                        className="text-sm md:text-base font-bold text-white"
+                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                      >
+                        Website Development
+                      </h4>
+                      <p className="text-[11px] text-[rgba(245,245,245,0.4)] mt-1">
+                        Professional online presence
+                      </p>
+                    </div>
+                    {/* Recommended Column */}
+                    <div className="p-4 md:p-5 bg-[rgba(212,168,83,0.06)] border-b border-[rgba(212,168,83,0.15)] border-l border-[rgba(212,168,83,0.12)] text-center relative">
+                      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                        <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase bg-gradient-to-r from-[#D4A853] to-[#B8922F] text-[#0A0A0B] shadow-lg shadow-[rgba(212,168,83,0.25)]">
+                          <Star className="w-3 h-3" />
+                          Most Popular
+                        </span>
+                      </div>
+                      <Code className="w-6 h-6 text-[#D4A853] mx-auto mb-2 mt-2" />
+                      <h4
+                        className="text-sm md:text-base font-bold text-white"
+                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                      >
+                        Web Applications
+                      </h4>
+                      <p className="text-[11px] text-[#D4A853] mt-1">
+                        Custom software solutions
+                      </p>
+                    </div>
+                    <div className="p-4 md:p-5 bg-[#131316] border-b border-[rgba(255,255,255,0.06)] border-l border-[rgba(255,255,255,0.04)] text-center">
+                      <Bot className="w-6 h-6 text-[rgba(245,245,245,0.5)] mx-auto mb-2" />
+                      <h4
+                        className="text-sm md:text-base font-bold text-white"
+                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                      >
+                        AI & Automation
+                      </h4>
+                      <p className="text-[11px] text-[rgba(245,245,245,0.4)] mt-1">
+                        Intelligent technology
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Data Rows */}
+                  {[
+                    {
+                      label: "Best For",
+                      values: [
+                        "Small businesses, schools, professionals needing a credible online presence",
+                        "Organisations needing custom tools, portals, or internal systems",
+                        "Businesses ready to automate workflows and leverage AI capabilities",
+                      ],
+                    },
+                    {
+                      label: "Starting Price",
+                      values: [
+                        "R3,999",
+                        "R7,999",
+                        "R4,999",
+                      ],
+                      highlight: true,
+                    },
+                    {
+                      label: "Delivery Time",
+                      values: ["5–7 Days", "2–3 Weeks", "1–2 Weeks"],
+                    },
+                    {
+                      label: "Complexity",
+                      values: ["Standard", "Custom", "Advanced"],
+                    },
+                    {
+                      label: "Includes Design",
+                      values: ["Yes", "Yes", "Yes"],
+                      isBoolean: true,
+                    },
+                    {
+                      label: "Custom Features",
+                      values: ["No", "Yes", "Yes"],
+                      isBoolean: true,
+                    },
+                    {
+                      label: "Post-Launch Support",
+                      values: ["30 days", "90 days", "Ongoing"],
+                    },
+                    {
+                      label: "SEO Included",
+                      values: ["Basic", "Advanced", "AI-Powered"],
+                    },
+                  ].map((row, rowIdx) => (
+                    <div
+                      key={row.label}
+                      className={`grid grid-cols-4 ${
+                        rowIdx % 2 === 0 ? "bg-[#131316]" : "bg-[#151519]"
+                      }`}
+                    >
+                      {/* Label cell */}
+                      <div className="p-4 md:p-5 border-b border-[rgba(255,255,255,0.03)]">
+                        <span className="text-xs md:text-sm font-semibold text-[rgba(245,245,245,0.6)] uppercase tracking-wider">
+                          {row.label}
+                        </span>
+                      </div>
+                      {/* Value cells */}
+                      {row.values.map((val, colIdx) => {
+                        const isRecommended = colIdx === 1;
+                        const isNo = row.isBoolean && val === "No";
+                        return (
+                          <div
+                            key={`${row.label}-${colIdx}`}
+                            className={`p-4 md:p-5 border-b border-[rgba(255,255,255,0.03)] border-l border-[rgba(255,255,255,0.04)] text-center ${
+                              isRecommended
+                                ? "bg-[rgba(212,168,83,0.04)] border-l-[rgba(212,168,83,0.08)]"
+                                : ""
+                            }`}
+                          >
+                            {row.isBoolean ? (
+                              <span className="inline-flex items-center gap-1.5">
+                                {val === "Yes" ? (
+                                  <CheckCircle
+                                    className={`w-4 h-4 ${
+                                      isRecommended
+                                        ? "text-[#D4A853]"
+                                        : "text-emerald-400"
+                                    }`}
+                                  />
+                                ) : (
+                                  <span
+                                    className={`text-sm ${
+                                      isRecommended
+                                        ? "text-[rgba(245,245,245,0.4)]"
+                                        : "text-[rgba(245,245,245,0.3)]"
+                                    }`}
+                                  >
+                                    —
+                                  </span>
+                                )}
+                              </span>
+                            ) : (
+                              <span
+                                className={`text-sm font-medium leading-snug ${
+                                  row.highlight && isRecommended
+                                    ? "text-gradient-gold text-base font-bold"
+                                    : row.highlight
+                                      ? "text-white font-semibold"
+                                      : isRecommended
+                                        ? "text-[rgba(245,245,245,0.8)]"
+                                        : "text-[rgba(245,245,245,0.55)]"
+                                }`}
+                              >
+                                {val}
+                              </span>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ))}
+
+                  {/* Footer Row with CTAs */}
+                  <div className="grid grid-cols-4">
+                    <div className="p-4 md:p-5 bg-[#0F0F12]" />
+                    <div className="p-4 md:p-5 bg-[#0F0F12] border-l border-[rgba(255,255,255,0.04)] flex justify-center">
+                      <Button
+                        onClick={() => handleNavClick("packages")}
+                        variant="outline"
+                        size="sm"
+                        className="border-[rgba(255,255,255,0.12)] bg-transparent hover:bg-white/5 text-white text-xs rounded-lg px-4 py-2 transition-all duration-300"
+                      >
+                        View Packages
+                        <ChevronRight className="w-3 h-3 ml-1" />
+                      </Button>
+                    </div>
+                    <div className="p-4 md:p-5 bg-[rgba(212,168,83,0.04)] border-l border-[rgba(212,168,83,0.08)] flex justify-center">
+                      <Button
+                        onClick={() => handleNavClick("contact")}
+                        size="sm"
+                        className="bg-gradient-to-r from-[#D4A853] to-[#B8922F] hover:from-[#E8C97A] hover:to-[#D4A853] text-[#0A0A0B] font-semibold text-xs rounded-lg px-4 py-2 shadow-md shadow-[rgba(212,168,83,0.2)] transition-all duration-300"
+                      >
+                        Get Started
+                        <ArrowRight className="w-3 h-3 ml-1" />
+                      </Button>
+                    </div>
+                    <div className="p-4 md:p-5 bg-[#0F0F12] border-l border-[rgba(255,255,255,0.04)] flex justify-center">
+                      <Button
+                        onClick={() => handleNavClick("contact")}
+                        variant="outline"
+                        size="sm"
+                        className="border-[rgba(255,255,255,0.12)] bg-transparent hover:bg-white/5 text-white text-xs rounded-lg px-4 py-2 transition-all duration-300"
+                      >
+                        Learn More
+                        <ChevronRight className="w-3 h-3 ml-1" />
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ──────────── 7. STAY CONNECTED / NEWSLETTER ────────────── */}
+      <section className="relative py-16 md:py-20 bg-[#0A0A0B]">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection direction="up">
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[rgba(212,168,83,0.1)] via-[#131316] to-[rgba(212,168,83,0.05)] border border-[rgba(212,168,83,0.15)] p-8 md:p-10">
+              {/* Decorative glows */}
+              <div className="absolute -top-20 -right-20 w-[300px] h-[300px] bg-[rgba(212,168,83,0.06)] rounded-full blur-[100px] pointer-events-none" />
+              <div className="absolute -bottom-20 -left-20 w-[200px] h-[200px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[80px] pointer-events-none" />
+
+              <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
+                <div className="flex-1">
+                  <h3
+                    className="text-xl md:text-2xl font-bold text-white mb-2"
+                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                  >
+                    Stay Ahead of the Curve
+                  </h3>
+                  <p className="text-sm text-[rgba(245,245,245,0.5)] leading-relaxed">
+                    Get monthly insights on digital trends, AI developments, and
+                    web strategy tips — tailored for South African businesses and
+                    institutions.
+                  </p>
+                </div>
+                <div className="flex-1 w-full">
+                  <div className="flex gap-3">
+                    <Input
+                      placeholder="Enter your email"
+                      className="flex-1 bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.08)] text-white placeholder:text-[rgba(245,245,245,0.25)] focus:border-[rgba(212,168,83,0.4)] rounded-xl h-11"
+                    />
+                    <Button
+                      onClick={() =>
+                        toast.success(
+                          "Subscribed! Check your inbox for a welcome email."
+                        )
+                      }
+                      className="bg-gradient-to-r from-[#D4A853] to-[#B8922F] hover:from-[#E8C97A] hover:to-[#D4A853] text-[#0A0A0B] font-semibold px-6 rounded-xl shrink-0"
+                    >
+                      Subscribe
+                    </Button>
+                  </div>
+                  <p className="mt-2 text-[10px] text-[rgba(245,245,245,0.25)]">
+                    No spam. Unsubscribe anytime. Join 200+ SA business leaders.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* ───────────────────── 8. CTA SECTION ──────────────────── */}
       <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

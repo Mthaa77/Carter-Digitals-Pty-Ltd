@@ -311,3 +311,14 @@
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* Custom cursor */
+.cursor-none * {
+  cursor: none !important;
+}
+
+@media (pointer: coarse) {
+  .custom-cursor-container {
+    display: none !important;
+  }
+}

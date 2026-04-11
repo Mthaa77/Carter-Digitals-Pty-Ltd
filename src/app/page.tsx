@@ -9,6 +9,7 @@ import { LoadingScreen } from "@/components/shared/LoadingScreen";
 import { ScrollProgress } from "@/components/shared/ScrollProgress";
 import { BackToTop } from "@/components/shared/BackToTop";
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton";
+import { CustomCursor } from "@/components/shared/CustomCursor";
 import HomePage from "@/components/pages/HomePage";
 import AboutPage from "@/components/pages/AboutPage";
 import ServicesPage from "@/components/pages/ServicesPage";
@@ -122,6 +123,8 @@ export default function Page() {
       <BackToTop />
       {/* WhatsApp floating button */}
       <WhatsAppButton />
+      {/* Custom cursor effect (desktop only) */}
+      <CustomCursor />
     </div>
   );
 }

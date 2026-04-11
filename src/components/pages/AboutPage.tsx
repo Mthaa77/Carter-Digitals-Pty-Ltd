@@ -24,6 +24,14 @@ import {
   Users,
   CheckCircle,
   Sparkles,
+  GraduationCap,
+  Scale,
+  HeartPulse,
+  Building2,
+  Landmark,
+  BarChart3,
+  TrendingUp,
+  Bot,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -33,8 +41,11 @@ import {
   AnimatedSection,
   StaggerContainer,
   StaggerItem,
+  AnimatedCounter,
 } from "@/components/shared/AnimatedSection";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { ParallaxSection } from "@/components/shared/ParallaxSection";
+import { TiltCard } from "@/components/shared/TiltCard";
 import { useNavigation } from "@/lib/navigation";
 
 /* ──────────────────────── value cards data ─────────────────────── */
@@ -112,6 +123,34 @@ const credentials = [
     label: "Location",
     value: "1457 Block L, Soshanguve, Pretoria, Gauteng",
   },
+];
+
+/* ──────────────────── trust logos data ────────────────────────── */
+const trustLogos = [
+  { name: "Rise & Shine Academy", sector: "Education", icon: GraduationCap },
+  { name: "Mogale & Associates", sector: "Legal", icon: Scale },
+  { name: "Family Clinic Group", sector: "Healthcare", icon: HeartPulse },
+  { name: "Gateway Hospitality", sector: "Hospitality", icon: Building2 },
+  { name: "Tshwane Municipality", sector: "Government", icon: Landmark },
+  { name: "Nkosi Advisory", sector: "Finance", icon: BarChart3 },
+];
+
+/* ──────────────────── milestones data ───────────────────────────── */
+const milestones = [
+  { year: "2023", title: "Founded", description: "Carter Digitals established in Soshanguve, Pretoria — born from a friendship and a vision to build real digital infrastructure for South African institutions.", icon: Rocket },
+  { year: "2024", title: "First Major Client", description: "Delivered the Soshanguve School of Specialisation website — our first government-adjacent deployment, proving our capability at scale.", icon: Building2 },
+  { year: "2024", title: "B-BBEE Level 1", description: "Achieved B-BBEE Level 1 certification with 135% procurement recognition — opening doors to government procurement.", icon: Shield },
+  { year: "2025", title: "50+ Projects", description: "Crossed 50 projects delivered across education, legal, medical, hospitality, and government sectors.", icon: TrendingUp },
+  { year: "2025", title: "AI Integration", description: "Launched AI-powered business tools — chatbots, automated workflows, and intelligent analytics for our clients.", icon: Bot },
+  { year: "2026", title: "National AI Policy", description: "Positioned as a key implementation partner for South Africa's Draft National AI Policy — targeting funded contracts.", icon: Globe },
+];
+
+/* ──────────────────── company stats data ────────────────────────── */
+const companyStats = [
+  { value: "50+", label: "Projects Delivered", numericValue: 50, suffix: "+" },
+  { value: "30+", label: "Happy Clients", numericValue: 30, suffix: "+" },
+  { value: "99.9%", label: "Uptime Guaranteed", numericValue: 99, suffix: ".9%" },
+  { value: "5-7", label: "Day Delivery", numericValue: 5, suffix: "-7" },
 ];
 
 /* ═══════════════════════════════════════════════════════════════════════
@@ -245,75 +284,77 @@ export default function AboutPage() {
             </AnimatedSection>
 
             {/* Visual column */}
-            <AnimatedSection direction="left" delay={0.2}>
-              <div className="relative">
-                {/* Main visual card */}
-                <div className="relative rounded-3xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-8 md:p-10 overflow-hidden">
-                  <div className="absolute inset-0 bg-dots opacity-30" />
-                  <div className="absolute -top-20 -right-20 w-[300px] h-[300px] bg-[rgba(212,168,83,0.04)] rounded-full blur-[100px] pointer-events-none" />
+            <ParallaxSection speed={0.15} direction="up">
+              <AnimatedSection direction="left" delay={0.2}>
+                <div className="relative">
+                  {/* Main visual card */}
+                  <div className="relative rounded-3xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-8 md:p-10 overflow-hidden">
+                    <div className="absolute inset-0 bg-dots opacity-30" />
+                    <div className="absolute -top-20 -right-20 w-[300px] h-[300px] bg-[rgba(212,168,83,0.04)] rounded-full blur-[100px] pointer-events-none" />
 
-                  <div className="relative z-10">
-                    {/* Decorative quote */}
-                    <Quote className="w-12 h-12 text-[rgba(212,168,83,0.2)] mb-6" />
-                    <blockquote
-                      className="text-lg md:text-xl font-medium text-[rgba(245,245,245,0.8)] leading-relaxed mb-6"
-                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                    >
-                      We don&apos;t ask you to trust our pitch. We ask you to
-                      look at what we&apos;ve already built — and let the work
-                      speak.
-                    </blockquote>
+                    <div className="relative z-10">
+                      {/* Decorative quote */}
+                      <Quote className="w-12 h-12 text-[rgba(212,168,83,0.2)] mb-6" />
+                      <blockquote
+                        className="text-lg md:text-xl font-medium text-[rgba(245,245,245,0.8)] leading-relaxed mb-6"
+                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                      >
+                        We don&apos;t ask you to trust our pitch. We ask you to
+                        look at what we&apos;ve already built — and let the work
+                        speak.
+                      </blockquote>
 
-                    <Separator className="bg-[rgba(212,168,83,0.15)] mb-6" />
+                      <Separator className="bg-[rgba(212,168,83,0.15)] mb-6" />
 
-                    {/* Key highlights */}
-                    <div className="grid grid-cols-2 gap-4">
-                      {[
-                        { label: "Founded", value: "2023" },
-                        { label: "Based In", value: "Pretoria" },
-                        { label: "Delivery", value: "5-7 Days" },
-                        { label: "Ownership", value: "100%" },
-                      ].map((item) => (
-                        <div key={item.label}>
-                          <p className="text-xs text-[rgba(245,245,245,0.4)] uppercase tracking-wider mb-1">
-                            {item.label}
-                          </p>
-                          <p
-                            className="text-lg font-bold text-gradient-gold"
-                            style={{
-                              fontFamily: "'Space Grotesk', sans-serif",
-                            }}
-                          >
-                            {item.value}
-                          </p>
-                        </div>
-                      ))}
+                      {/* Key highlights */}
+                      <div className="grid grid-cols-2 gap-4">
+                        {[
+                          { label: "Founded", value: "2023" },
+                          { label: "Based In", value: "Pretoria" },
+                          { label: "Delivery", value: "5-7 Days" },
+                          { label: "Ownership", value: "100%" },
+                        ].map((item) => (
+                          <div key={item.label}>
+                            <p className="text-xs text-[rgba(245,245,245,0.4)] uppercase tracking-wider mb-1">
+                              {item.label}
+                            </p>
+                            <p
+                              className="text-lg font-bold text-gradient-gold"
+                              style={{
+                                fontFamily: "'Space Grotesk', sans-serif",
+                              }}
+                            >
+                              {item.value}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Floating accent element */}
-                <motion.div
-                  className="absolute -bottom-4 -left-4 w-24 h-24 rounded-2xl bg-gradient-to-br from-[rgba(212,168,83,0.15)] to-[rgba(212,168,83,0.05)] border border-[rgba(212,168,83,0.15)]"
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-                <motion.div
-                  className="absolute -top-4 -right-4 w-16 h-16 rounded-xl bg-gradient-to-br from-[rgba(212,168,83,0.1)] to-[rgba(212,168,83,0.03)] border border-[rgba(212,168,83,0.1)]"
-                  animate={{ y: [0, 6, 0] }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: 1,
-                  }}
-                />
-              </div>
-            </AnimatedSection>
+                  {/* Floating accent element */}
+                  <motion.div
+                    className="absolute -bottom-4 -left-4 w-24 h-24 rounded-2xl bg-gradient-to-br from-[rgba(212,168,83,0.15)] to-[rgba(212,168,83,0.05)] border border-[rgba(212,168,83,0.15)]"
+                    animate={{ y: [0, -8, 0] }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  />
+                  <motion.div
+                    className="absolute -top-4 -right-4 w-16 h-16 rounded-xl bg-gradient-to-br from-[rgba(212,168,83,0.1)] to-[rgba(212,168,83,0.03)] border border-[rgba(212,168,83,0.1)]"
+                    animate={{ y: [0, 6, 0] }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: 1,
+                    }}
+                  />
+                </div>
+              </AnimatedSection>
+            </ParallaxSection>
           </div>
         </div>
       </section>
@@ -339,23 +380,25 @@ export default function AboutPage() {
           >
             {values.map((value) => (
               <StaggerItem key={value.title}>
-                <div className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-6 card-hover overflow-hidden">
-                  {/* Gold top accent line */}
-                  <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4A853] to-transparent opacity-60" />
+                <TiltCard className="h-full" tiltStrength={4}>
+                  <div className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-6 card-hover overflow-hidden">
+                    {/* Gold top accent line */}
+                    <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4A853] to-transparent opacity-60" />
 
-                  <div className="w-12 h-12 rounded-xl bg-[rgba(212,168,83,0.1)] border border-[rgba(212,168,83,0.15)] flex items-center justify-center mb-5 group-hover:bg-[rgba(212,168,83,0.15)] transition-colors duration-300">
-                    <value.icon className="w-6 h-6 text-[#D4A853]" />
+                    <div className="w-12 h-12 rounded-xl bg-[rgba(212,168,83,0.1)] border border-[rgba(212,168,83,0.15)] flex items-center justify-center mb-5 group-hover:bg-[rgba(212,168,83,0.15)] transition-colors duration-300">
+                      <value.icon className="w-6 h-6 text-[#D4A853]" />
+                    </div>
+                    <h3
+                      className="text-lg font-semibold text-white mb-3"
+                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    >
+                      {value.title}
+                    </h3>
+                    <p className="text-sm text-[rgba(245,245,245,0.5)] leading-relaxed">
+                      {value.description}
+                    </p>
                   </div>
-                  <h3
-                    className="text-lg font-semibold text-white mb-3"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                  >
-                    {value.title}
-                  </h3>
-                  <p className="text-sm text-[rgba(245,245,245,0.5)] leading-relaxed">
-                    {value.description}
-                  </p>
-                </div>
+                </TiltCard>
               </StaggerItem>
             ))}
           </StaggerContainer>
@@ -537,6 +580,116 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ──────────── 5a. COMPANY STATS BAR ───────────────────── */}
+      <AnimatedSection direction="up">
+        <section className="relative py-16 md:py-20 bg-[#0A0A0B]">
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+          <div className="absolute inset-0 bg-dots opacity-40" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[120px] pointer-events-none" />
+
+          <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <StaggerContainer className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12" staggerDelay={0.1}>
+              {companyStats.map((stat) => (
+                <StaggerItem key={stat.label}>
+                  <div className="text-center">
+                    <div
+                      className="text-3xl md:text-4xl lg:text-5xl font-bold text-gradient-gold mb-2"
+                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    >
+                      <AnimatedCounter
+                        target={stat.numericValue}
+                        suffix={stat.suffix}
+                        duration={2000}
+                      />
+                    </div>
+                    <p className="text-sm text-[rgba(245,245,245,0.45)] font-medium tracking-wide">
+                      {stat.label}
+                    </p>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+        </section>
+      </AnimatedSection>
+
+      {/* ──────────── 5b. COMPANY MILESTONES TIMELINE ─────────────── */}
+      <AnimatedSection direction="up">
+        <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[600px] bg-[rgba(212,168,83,0.02)] rounded-full blur-[120px] pointer-events-none" />
+
+          <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <SectionHeading
+              label="Our Journey"
+              title="Building Milestone by"
+              titleHighlight="Milestone"
+              description="From a bold idea in Soshanguve to becoming a trusted digital partner for South Africa's institutions."
+              align="center"
+            />
+
+            <div className="relative mt-12">
+              {/* Vertical gold gradient line — centered on desktop, left on mobile */}
+              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2">
+                <div className="w-full h-full bg-gradient-to-b from-[#D4A853] via-[#B8922F] to-[rgba(212,168,83,0.1)]" />
+              </div>
+              <div className="md:hidden absolute left-[15px] top-0 bottom-0 w-px">
+                <div className="w-full h-full bg-gradient-to-b from-[#D4A853] via-[#B8922F] to-[rgba(212,168,83,0.1)]" />
+              </div>
+
+              <div className="space-y-12 md:space-y-16">
+                {milestones.map((milestone, idx) => {
+                  const isLeft = idx % 2 === 0;
+                  return (
+                    <StaggerContainer key={milestone.title + milestone.year} className="relative" staggerDelay={0.08}>
+                      <div className={`flex items-start gap-6 md:gap-0 ${isLeft ? "md:flex-row" : "md:flex-row-reverse"}`}>
+                        {/* Content card */}
+                        <div className={`flex-1 pl-10 md:pl-0 ${isLeft ? "md:pr-12 md:text-right" : "md:pl-12 md:text-left"}`}>
+                          <StaggerItem>
+                            <div className="group rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-6 card-hover hover:border-[rgba(212,168,83,0.15)] transition-colors duration-300">
+                              <div className={`flex items-center gap-3 mb-3 ${isLeft ? "md:flex-row-reverse" : ""}`}>
+                                <div className="w-10 h-10 rounded-xl bg-[rgba(212,168,83,0.1)] border border-[rgba(212,168,83,0.15)] flex items-center justify-center shrink-0 group-hover:bg-[rgba(212,168,83,0.15)] transition-colors duration-300">
+                                  <milestone.icon className="w-5 h-5 text-[#D4A853]" />
+                                </div>
+                                <div className={`flex items-center gap-3 ${isLeft ? "md:flex-row-reverse" : ""}`}>
+                                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-md bg-[rgba(212,168,83,0.1)] text-[#D4A853] text-xs font-bold tracking-wider" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                                    {milestone.year}
+                                  </span>
+                                  <h3
+                                    className="text-lg font-bold text-white"
+                                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                                  >
+                                    {milestone.title}
+                                  </h3>
+                                </div>
+                              </div>
+                              <p className="text-sm text-[rgba(245,245,245,0.5)] leading-relaxed">
+                                {milestone.description}
+                              </p>
+                            </div>
+                          </StaggerItem>
+                        </div>
+
+                        {/* Center dot — desktop only */}
+                        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-6 w-8 h-8 rounded-full bg-[#0A0A0B] border-2 border-[#D4A853] items-center justify-center z-10 shadow-lg shadow-[rgba(212,168,83,0.2)]">
+                          <div className="w-3 h-3 rounded-full bg-[#D4A853]" />
+                        </div>
+
+                        {/* Mobile dot */}
+                        <div className="md:hidden absolute left-[7px] top-6 w-4 h-4 rounded-full bg-[#D4A853] border-2 border-[#0A0A0B] z-10" />
+
+                        {/* Spacer for alternating layout — desktop only */}
+                        <div className="hidden md:block flex-1" />
+                      </div>
+                    </StaggerContainer>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+      </AnimatedSection>
+
       {/* ────────────────── 5. CREDENTIALS SECTION ──────────────── */}
       <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
@@ -620,6 +773,35 @@ export default function AboutPage() {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* ──────────────── TRUSTED BY / CLIENT LOGOS ──────────────── */}
+      <AnimatedSection direction="up">
+        <div className="py-16 md:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase bg-[rgba(212,168,83,0.1)] text-[#D4A853] border border-[rgba(212,168,83,0.2)]">
+                Trusted Across Sectors
+              </span>
+              <h2 className="mt-6 text-2xl md:text-3xl font-bold text-white" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                Institutions That <span className="text-gradient-gold">Believe In Us</span>
+              </h2>
+            </div>
+
+            {/* Logo grid - styled text logos since we don't have actual images */}
+            <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6" staggerDelay={0.05}>
+              {trustLogos.map((logo) => (
+                <StaggerItem key={logo.name}>
+                  <div className="group flex flex-col items-center justify-center p-6 rounded-2xl bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] hover:border-[rgba(212,168,83,0.15)] transition-all duration-300">
+                    <logo.icon className="w-8 h-8 text-[rgba(245,245,245,0.2)] group-hover:text-[rgba(212,168,83,0.5)] transition-colors duration-300 mb-3" />
+                    <span className="text-xs font-semibold text-[rgba(245,245,245,0.3)] group-hover:text-[rgba(245,245,245,0.6)] transition-colors text-center leading-tight">{logo.name}</span>
+                    <span className="text-[10px] text-[rgba(245,245,245,0.15)] mt-1">{logo.sector}</span>
+                  </div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+          </div>
+        </div>
+      </AnimatedSection>
 
       {/* ────────────── 6. ENGAGEMENT MODELS SECTION ────────────── */}
       <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
