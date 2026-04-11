@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect, useSyncExternalStore } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight, Phone, Twitter, Linkedin, Instagram, MessageCircle, Sun, Moon } from "lucide-react";
+import { Menu, X, ArrowRight, Phone, Twitter, Linkedin, Instagram, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigation, type PageKey } from "@/lib/navigation";
-import { useTheme } from "next-themes";
+import { ThemeToggle } from "@/components/shared/ThemeToggle";
 
 const navItems: { key: PageKey; label: string }[] = [
   { key: "home", label: "Home" },
@@ -26,13 +26,7 @@ const socialLinks = [
 
 export function Navbar() {
   const { currentPage, navigate, isMobileMenuOpen, setMobileMenuOpen } = useNavigation();
-  const { theme, setTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
-  const mounted = useSyncExternalStore(
-    () => () => {},
-    () => true,
-    () => false
-  );
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -133,37 +127,7 @@ export function Navbar() {
             {/* ─── CTA Buttons (Desktop) ─── */}
             <div className="hidden lg:flex items-center gap-3">
               {/* Theme toggle button */}
-              {mounted && (
-                <button
-                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className="relative w-9 h-9 rounded-lg border border-[rgba(212,168,83,0.2)] bg-[rgba(212,168,83,0.06)] flex items-center justify-center text-[rgba(245,245,245,0.7)] hover:text-[#D4A853] hover:border-[rgba(212,168,83,0.35)] hover:bg-[rgba(212,168,83,0.1)] transition-all duration-300 hover:shadow-[0_0_12px_rgba(212,168,83,0.1)]"
-                  aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-                >
-                  <AnimatePresence mode="wait" initial={false}>
-                    {theme === "dark" ? (
-                      <motion.span
-                        key="sun"
-                        initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
-                        animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                        exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <Sun className="w-4 h-4" />
-                      </motion.span>
-                    ) : (
-                      <motion.span
-                        key="moon"
-                        initial={{ rotate: 90, opacity: 0, scale: 0.5 }}
-                        animate={{ rotate: 0, opacity: 1, scale: 1 }}
-                        exit={{ rotate: -90, opacity: 0, scale: 0.5 }}
-                        transition={{ duration: 0.2 }}
-                      >
-                        <Moon className="w-4 h-4" />
-                      </motion.span>
-                    )}
-                  </AnimatePresence>
-                </button>
-              )}
+              <ThemeToggle />
               {/* Phone pill */}
               <a
                 href="tel:0724026893"
@@ -301,15 +265,7 @@ export function Navbar() {
 
                 <div className="space-y-3">
                   {/* Theme toggle (mobile) */}
-                  {mounted && (
-                    <button
-                      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                      className="flex items-center gap-3 text-sm text-[rgba(245,245,245,0.7)] hover:text-[#D4A853] transition-colors bg-[rgba(212,168,83,0.06)] border border-[rgba(212,168,83,0.12)] rounded-full px-3 py-1.5"
-                    >
-                      {theme === "dark" ? <Sun className="w-4 h-4 text-[#D4A853]" /> : <Moon className="w-4 h-4 text-[#D4A853]" />}
-                      {theme === "dark" ? "Light Mode" : "Dark Mode"}
-                    </button>
-                  )}
+                  <ThemeToggle variant="pill" showLabel />
 
                   {/* Phone */}
                   <a

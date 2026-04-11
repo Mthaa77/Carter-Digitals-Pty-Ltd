@@ -830,3 +830,82 @@ Stage Summary:
 4. Add blog/news section with CMS
 5. Implement email sending on contact form
 6. Add portfolio image gallery with lightbox
+- ✅ ESLint: Zero errors
+- ✅ Compilation: Clean, HTTP 200 responses confirmed
+
+---
+Task ID: 10
+Agent: frontend-styling-expert
+Task: Premium CSS polish, micro-animations, and dark/light mode toggle
+
+Work Log:
+
+**1. Premium CSS Animations (globals.css — ~180 new lines)**
+- Added `@keyframes morphBlob` + `.animate-morph-blob` — Organic morphing border-radius animation (8s ease-in-out infinite)
+- Added `@keyframes revealUp` + `.animate-reveal` — Blur-to-clear reveal animation with cubic-bezier easing
+- Added `.stagger-1` through `.stagger-6` — Animation delay utilities for cascading reveals
+- Added `@keyframes gradientShift` + `.animate-gradient-text` — Animated gradient background-position shift
+- Added `.hover-lift` — Premium hover effect with translateY(-6px) and gold-tinted shadow
+- Added smooth scrollbar styles for Firefox (`scrollbar-width: thin`, `scrollbar-color`)
+- Added `*:focus-visible` gold outline for accessibility
+- Added premium link hover transition (`a { transition: color 0.2s ease }`)
+- Added `@keyframes goldLineGrow` + `.animate-gold-line` — Animated width grow for gold accent lines
+- Added `.label-badge` — Polished hover effect for section label badges
+
+**2. Enhanced SectionHeading Component**
+- Added `.label-badge` class to label span with polished hover glow effect
+- Replaced static gold line with `.animate-gold-line` (animates width from 0 to 60px) on center-aligned headings
+- Added `.animate-reveal` class to description paragraph for blur-to-clear entrance
+- Added `.section-description` class for light mode text color override
+
+**3. ThemeToggle Component (NEW)**
+- Created `src/components/shared/ThemeToggle.tsx` — Reusable theme toggle with 2 variants:
+  - `variant="icon"` — Compact icon-only button (default) for navbar
+  - `variant="pill"` — Pill-shaped button with icon + text label for mobile drawer
+- Props: `className`, `size` (sm/md), `showLabel`, `variant` (icon/pill)
+- Sun icon for dark mode, Moon icon for light mode with Framer Motion rotation animation
+- Glassmorphism background via `.theme-toggle-btn` CSS class
+- Mount-aware with skeleton placeholder to prevent layout shift
+- Handles its own `useSyncExternalStore` for hydration safety
+- Integrated into Navbar: replaced inline theme toggle code with `<ThemeToggle />` component
+- Desktop: icon variant next to phone pill and CTA button
+- Mobile: pill variant with "Light Mode" / "Dark Mode" text label
+
+**4. Light Theme CSS Fixes (~100 new lines)**
+- `.light .hover-lift:hover` — Reduced shadow opacity for light backgrounds
+- `.light *` — Light-mode scrollbar color
+- `.light .glass-gold-premium` — Light glassmorphism with white tint
+- `.light .section-divider` / `.section-divider-gold` — Visible gold dividers in light mode
+- `.light .text-gradient-gold` — Darker gold gradient for light backgrounds
+- `.light .text-glow-gold` / `.counter-glow` — Reduced glow intensity
+- `.light .section-gold-tint` — Subtle gold tint for light sections
+- `.light .bg-gold-gradient-subtle` / `.bg-gold-gradient-radial` — Adjusted opacities
+- `.light .card-hover` — Light-mode card border
+- `.light .input-gold:focus` — Light-mode gold focus ring
+- `.light .accordion-gold` — Light-mode accordion open state
+- `.light .animate-shimmer-gold` — Reduced shimmer opacity
+- `.light .animate-pulse-glow` + `@keyframes pulseGlowLight` — Light pulse animation
+- `.light .gold-border-animated::before` — Adjusted conic-gradient for light
+- `.light .section-description` — Dark text for descriptions
+- `.theme-toggle-btn` / `.light .theme-toggle-btn` — Glassmorphism toggle button styles
+
+**5. Animation Applications**
+- Applied `.animate-morph-blob` to hero floating shapes in HomePage (replacing `rounded-full`)
+- Applied `.animate-gradient-text` to hero typing text gold gradient span
+- Applied `.hover-lift` to cards across pages:
+  - HomePage: Service cards, Why Choose Us ticker cards, Featured Projects, Testimonials, Guarantee cards
+  - AboutPage: Milestone timeline cards, Trust logo cards
+  - ServicesPage: Flagship feature cards
+  - Footer: Trusted client badges
+
+**6. Bug Fixes (pre-existing)**
+- Fixed 28 duplicated `className` attribute parsing errors across ContactPage, PackagesPage, PortfolioPage, and ServicesPage (caused by previous Task 9's `font-display` injection)
+- Pattern: `className="XclassName="X" font-display"` → `className="X font-display"`
+
+Stage Summary:
+- 1 new component created: `ThemeToggle.tsx`
+- 3 components modified: `SectionHeading.tsx`, `Navbar.tsx`, `Footer.tsx`
+- 5 page files fixed: `ContactPage.tsx`, `PackagesPage.tsx`, `PortfolioPage.tsx`, `ServicesPage.tsx`, `HomePage.tsx`
+- ~280 lines of new CSS added to `globals.css` (animations, light theme overrides, utility classes)
+- ✅ ESLint: Zero errors (after fixing 28 pre-existing parsing errors)
+- ✅ Compilation: Clean, dev server running with HTTP 200 responses

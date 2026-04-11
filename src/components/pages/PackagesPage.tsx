@@ -219,7 +219,7 @@ function PricingCard({
         pkg.popular
           ? "bg-[#131316] border-2 border-[rgba(212,168,83,0.3)] glow-gold md:-mt-4 md:mb-[-16px] z-10"
           : "bg-[#131316] border border-[rgba(255,255,255,0.06)]"
-      } p-6 md:p-8 card-hover flex flex-col`}
+      } p-6 md:p-8 glass-gold card-hover-gold flex flex-col`}
     >
       {/* Popular badge */}
       {pkg.popular && (
@@ -233,8 +233,7 @@ function PricingCard({
       {/* Package name */}
       <div className="mb-6">
         <h3
-          className="text-xl font-bold text-gradient-gold mb-1"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          className="text-xl font-bold text-gradient-gold mb-1" font-display
         >
           {pkg.name}
         </h3>
@@ -246,8 +245,7 @@ function PricingCard({
       {/* Price */}
       <div className="mb-6">
         <span
-          className="text-3xl md:text-4xl font-bold text-white"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          className="text-3xl md:text-4xl font-bold text-white font-display"
         >
           {pkg.price}
         </span>
@@ -331,8 +329,7 @@ export default function PackagesPage() {
 
           <AnimatedSection delay={0.2} direction="up">
             <h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight font-display"
             >
               <span className="text-gradient-gold">Packages & Pricing</span>
             </h1>
@@ -340,8 +337,7 @@ export default function PackagesPage() {
 
           <AnimatedSection delay={0.35} direction="up">
             <p
-              className="mt-4 text-xl md:text-2xl text-[rgba(245,245,245,0.5)] font-medium"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="mt-4 text-xl md:text-2xl text-[rgba(245,245,245,0.5)] font-medium font-display"
             >
               Pick Your Package. Go Live in 5-7 Days.
             </p>
@@ -429,9 +425,7 @@ export default function PackagesPage() {
       <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
 
       {/* ────────────────── 3. ADD-ON SERVICES ──────────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
-        {/* Gold glow orb */}
+      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[300px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
@@ -455,8 +449,7 @@ export default function PackagesPage() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3
-                        className="text-base font-semibold text-white mb-1.5"
-                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                        className="text-base font-semibold text-white mb-1.5 font-display"
                       >
                         {addon.title}
                       </h3>
@@ -506,7 +499,7 @@ export default function PackagesPage() {
                   <AccordionItem
                     key={idx}
                     value={`faq-${idx}`}
-                    className="border-[rgba(255,255,255,0.06)] data-[state=open]:border-[rgba(212,168,83,0.2)] data-[state=open]:bg-[rgba(212,168,83,0.02)] transition-colors duration-300"
+                    className="border-[rgba(255,255,255,0.06)] accordion-gold data-[state=open]:border-[rgba(212,168,83,0.2)] data-[state=open]:bg-[rgba(212,168,83,0.02)] transition-colors duration-300 hover-lift"
                   >
                     <AccordionTrigger className="text-left text-sm md:text-base font-medium text-[rgba(245,245,245,0.8)] hover:text-white hover:no-underline py-4 transition-colors duration-200">
                       {faq.question}
@@ -539,8 +532,7 @@ export default function PackagesPage() {
 
               <div className="relative z-10 px-6 py-14 md:px-16 md:py-20 lg:px-24 lg:py-24 text-center">
                 <h2
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
-                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight font-display"
                 >
                   Ready to Get Started?
                 </h2>

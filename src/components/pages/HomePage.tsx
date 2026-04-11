@@ -408,7 +408,7 @@ export default function HomePage() {
 
         <ParallaxSection speed={0.1} direction="up" className="absolute inset-0 pointer-events-none">
           {floatingShapes.map((shape, i) => (
-            <motion.div key={i} className="absolute rounded-full border border-[rgba(212,168,83,0.15)]"
+            <motion.div key={i} className={`absolute border border-[rgba(212,168,83,0.15)] animate-morph-blob ${i % 2 === 0 ? 'bg-[rgba(212,168,83,0.02)]' : ''}`}
               style={{ width: shape.size, height: shape.size, left: shape.x, top: shape.y, opacity: shape.opacity }}
               animate={{ y: [0, -30, 0, 20, 0], x: [0, 15, 0, -10, 0], rotate: [0, 5, 0, -5, 0] }}
               transition={{ duration: shape.duration, delay: shape.delay, repeat: Infinity, ease: "easeInOut" }}
@@ -435,7 +435,7 @@ export default function HomePage() {
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                 <span className="text-[#F5F5F5]">We Build Digital</span>
                 <br />
-                <span className="text-gradient-gold">
+                <span className="text-gradient-gold animate-gradient-text">
                   <TypingText words={["Infrastructure.", "Credibility.", "Futures.", "Experiences."]} />
                 </span>
                 <br />
@@ -503,7 +503,7 @@ export default function HomePage() {
               <StaggerItem key={feature.title} className={idx === 0 ? "lg:col-span-2 lg:row-span-1" : ""}>
                 {idx === 0 ? (
                   /* Large featured bento card */
-                  <div className="group relative h-full rounded-2xl overflow-hidden p-8 md:p-10 hover:-translate-y-1 transition-transform duration-500"
+                  <div className="group relative h-full rounded-2xl overflow-hidden p-8 md:p-10 hover:-translate-y-1 transition-transform duration-500 hover-lift"
                     style={{ background: "linear-gradient(135deg, rgba(212,168,83,0.08) 0%, rgba(19,19,22,0.95) 50%, rgba(212,168,83,0.04) 100%)" }}>
                     <motion.div className="absolute -top-20 -right-20 w-[300px] h-[300px] rounded-full opacity-30"
                       style={{ background: "radial-gradient(circle, rgba(212,168,83,0.15) 0%, transparent 70%)" }}
@@ -521,7 +521,7 @@ export default function HomePage() {
                   </div>
                 ) : (
                   /* Minimal accent bar cards */
-                  <div className="group relative h-full pl-5 py-6 pr-4 hover:-translate-y-1 transition-transform duration-500 border-l-2 border-[rgba(212,168,83,0.2)] hover:border-[#D4A853] bg-transparent">
+                  <div className="group relative h-full pl-5 py-6 pr-4 hover:-translate-y-1 transition-transform duration-500 border-l-2 border-[rgba(212,168,83,0.2)] hover:border-[#D4A853] bg-transparent hover-lift">
                     <div className="w-10 h-10 rounded-lg bg-[rgba(212,168,83,0.08)] flex items-center justify-center mb-4 group-hover:bg-[rgba(212,168,83,0.15)] transition-colors duration-300">
                       <feature.icon className="w-5 h-5 text-[#D4A853]" />
                     </div>
@@ -592,7 +592,7 @@ export default function HomePage() {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" staggerDelay={0.08}>
             {services.map((service, idx) => (
               <StaggerItem key={service.title}>
-                <div className="group relative rounded-2xl bg-[#111114] border border-[rgba(255,255,255,0.04)] hover:border-[rgba(212,168,83,0.2)] transition-all duration-500 overflow-hidden cursor-pointer">
+                <div className="group relative rounded-2xl bg-[#111114] border border-[rgba(255,255,255,0.04)] hover:border-[rgba(212,168,83,0.2)] transition-all duration-500 overflow-hidden cursor-pointer hover-lift">
                   {/* Numbered gold circle + title row */}
                   <div className="flex items-center gap-4 p-6 pb-4">
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[rgba(212,168,83,0.15)] to-[rgba(212,168,83,0.05)] border border-[rgba(212,168,83,0.2)] flex items-center justify-center shrink-0">
@@ -708,7 +708,7 @@ export default function HomePage() {
               onDragStart={handleTickerDragStart}
               onDragEnd={handleTickerDragEnd}>
               {[...whyChooseUs, ...whyChooseUs, ...whyChooseUs].map((usp, i) => (
-                <div key={i} className="shrink-0 w-72 md:w-80 rounded-2xl bg-[#111114] border border-[rgba(255,255,255,0.04)] hover:border-[rgba(212,168,83,0.15)] p-6 md:p-8 transition-all duration-500 hover:-translate-y-1">
+                <div key={i} className="shrink-0 w-72 md:w-80 rounded-2xl bg-[#111114] border border-[rgba(255,255,255,0.04)] hover:border-[rgba(212,168,83,0.15)] p-6 md:p-8 transition-all duration-500 hover-lift">
                   <span className="text-4xl md:text-5xl font-extrabold text-[rgba(212,168,83,0.1)] block mb-3" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{usp.num}</span>
                   <h3 className="text-lg font-semibold text-white mb-2 tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{usp.title}</h3>
                   <p className="text-sm text-[rgba(245,245,245,0.45)] leading-[1.8]">{usp.description}</p>
@@ -792,7 +792,7 @@ export default function HomePage() {
                 <CarouselContent className="-ml-4">
                   {testimonials.map((testimonial, idx) => (
                     <CarouselItem key={idx} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                      <div className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-6 md:p-8 card-hover flex flex-col">
+                      <div className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-6 md:p-8 card-hover hover-lift flex flex-col">
                         <Quote className="w-10 h-10 text-[rgba(212,168,83,0.2)] mb-5 shrink-0" />
                         <p className="text-sm md:text-base text-[rgba(245,245,245,0.6)] leading-[1.8] mb-6 flex-1">&ldquo;{testimonial.quote}&rdquo;</p>
                         <div className="flex gap-1 mb-5">{Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-4 h-4 text-[#D4A853] fill-[#D4A853]" />)}</div>
@@ -841,7 +841,7 @@ export default function HomePage() {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6" staggerDelay={0.12}>
             {featuredProjects.map((project, idx) => (
               <StaggerItem key={project.name}>
-                <div className="group relative rounded-2xl border border-[rgba(255,255,255,0.06)] hover:border-[rgba(212,168,83,0.2)] overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-[rgba(212,168,83,0.08)] bg-[#111114] h-full">
+                <div className="group relative rounded-2xl border border-[rgba(255,255,255,0.06)] hover:border-[rgba(212,168,83,0.2)] overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-[rgba(212,168,83,0.08)] bg-[#111114] h-full hover-lift">
                   {/* Gradient header */}
                   <div className={`relative h-40 md:h-48 bg-gradient-to-br ${project.gradient} overflow-hidden`}>
                     <div className="absolute inset-0 bg-gradient-to-t from-[#111114] via-transparent to-transparent" />
@@ -1070,7 +1070,7 @@ export default function HomePage() {
                 },
               ].map((promise) => (
                 <StaggerItem key={promise.title}>
-                  <div className="group relative rounded-2xl glass-gold-premium p-7 md:p-8 h-full">
+                  <div className="group relative rounded-2xl glass-gold-premium p-7 md:p-8 h-full hover-lift">
                     {/* Animated gold border glow on hover */}
                     <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"
                       style={{

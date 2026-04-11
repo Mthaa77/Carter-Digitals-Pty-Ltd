@@ -189,8 +189,7 @@ export default function AboutPage() {
 
           <AnimatedSection delay={0.2} direction="up">
             <h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight font-display"
             >
               <span className="text-[#F5F5F5]">About Carter </span>
               <span className="text-gradient-gold">Digitals</span>
@@ -199,8 +198,7 @@ export default function AboutPage() {
 
           <AnimatedSection delay={0.35} direction="up">
             <p
-              className="mt-4 text-xl md:text-2xl font-medium text-[rgba(245,245,245,0.5)] tracking-wide"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="mt-4 text-xl md:text-2xl font-medium text-[rgba(245,245,245,0.5)] tracking-wide font-display"
             >
               Built Different. Built African. Built to Win.
             </p>
@@ -251,8 +249,7 @@ export default function AboutPage() {
                 Our Story
               </span>
               <h2
-                className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] mb-6"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] mb-6 font-display"
               >
                 A Studio Born from{" "}
                 <span className="text-gradient-gold">Purpose</span>
@@ -296,8 +293,7 @@ export default function AboutPage() {
                       {/* Decorative quote */}
                       <Quote className="w-12 h-12 text-[rgba(212,168,83,0.2)] mb-6" />
                       <blockquote
-                        className="text-lg md:text-xl font-medium text-[rgba(245,245,245,0.8)] leading-relaxed mb-6"
-                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                        className="text-lg md:text-xl font-medium text-[rgba(245,245,245,0.8)] leading-relaxed mb-6 font-display"
                       >
                         We don&apos;t ask you to trust our pitch. We ask you to
                         look at what we&apos;ve already built — and let the work
@@ -361,9 +357,9 @@ export default function AboutPage() {
 
       {/* ────────────────── 3. MISSION & VALUES ─────────────────── */}
       <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
         {/* Background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-[rgba(212,168,83,0.02)] rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[500px] bg-[rgba(212,168,83,0.04)] rounded-full blur-[140px] pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
@@ -389,8 +385,7 @@ export default function AboutPage() {
                       <value.icon className="w-6 h-6 text-[#D4A853]" />
                     </div>
                     <h3
-                      className="text-lg font-semibold text-white mb-3"
-                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                      className="text-lg font-semibold text-white mb-3 font-display"
                     >
                       {value.title}
                     </h3>
@@ -406,7 +401,7 @@ export default function AboutPage() {
       </section>
 
       {/* ────────────────── 4. FOUNDER SECTION ──────────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
+      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
         {/* Gold gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-[rgba(212,168,83,0.03)] via-[rgba(212,168,83,0.01)] to-transparent pointer-events-none" />
@@ -429,8 +424,7 @@ export default function AboutPage() {
                     <div className="relative mb-6">
                       <div className="w-32 h-32 rounded-full bg-gradient-to-br from-[rgba(212,168,83,0.2)] to-[rgba(212,168,83,0.05)] border-2 border-[rgba(212,168,83,0.25)] flex items-center justify-center">
                         <span
-                          className="text-4xl font-bold text-gradient-gold"
-                          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                          className="text-4xl font-bold text-gradient-gold font-display"
                         >
                           KK
                         </span>
@@ -442,8 +436,7 @@ export default function AboutPage() {
                     </div>
 
                     <h3
-                      className="text-2xl font-bold text-white text-center"
-                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                      className="text-2xl font-bold text-white text-center font-display"
                     >
                       Kabelo Kadiaka
                     </h3>
@@ -499,8 +492,7 @@ export default function AboutPage() {
                 </span>
 
                 <h2
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] mb-3"
-                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] mb-3 font-display"
                 >
                   Meet <span className="text-gradient-gold">Kabelo Kadiaka</span>
                 </h2>
@@ -569,8 +561,7 @@ export default function AboutPage() {
                 {/* Quote */}
                 <div>
                   <p
-                    className="text-lg md:text-xl font-semibold text-[rgba(245,245,245,0.8)] leading-relaxed mb-2"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    className="text-lg md:text-xl font-semibold text-[rgba(245,245,245,0.8)] leading-relaxed mb-2 font-display"
                   >
                     &ldquo;AI-Augmented. Human-Driven. Built to Deliver.&rdquo;
                   </p>
@@ -586,7 +577,7 @@ export default function AboutPage() {
 
       {/* ──────────── 5a. COMPANY STATS BAR ───────────────────── */}
       <AnimatedSection direction="up">
-        <section className="relative py-16 md:py-20 bg-[#0A0A0B]">
+        <section className="relative py-16 md:py-20 bg-[#0A0A0B] section-gold-tint">
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
           <div className="absolute inset-0 bg-dots opacity-40" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[120px] pointer-events-none" />
@@ -597,8 +588,7 @@ export default function AboutPage() {
                 <StaggerItem key={stat.label}>
                   <div className="text-center">
                     <div
-                      className="text-3xl md:text-4xl lg:text-5xl font-bold text-gradient-gold mb-2"
-                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                      className="text-3xl md:text-4xl lg:text-5xl font-bold text-gradient-gold mb-2 font-display"
                     >
                       <AnimatedCounter
                         target={stat.numericValue}
@@ -650,18 +640,17 @@ export default function AboutPage() {
                         {/* Content card */}
                         <div className={`flex-1 pl-10 md:pl-0 ${isLeft ? "md:pr-12 md:text-right" : "md:pl-12 md:text-left"}`}>
                           <StaggerItem>
-                            <div className="group rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-6 card-hover hover:border-[rgba(212,168,83,0.15)] transition-colors duration-300">
+                            <div className="group rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-6 card-hover-gold hover:border-[rgba(212,168,83,0.15)] transition-colors duration-300 hover-lift">
                               <div className={`flex items-center gap-3 mb-3 ${isLeft ? "md:flex-row-reverse" : ""}`}>
                                 <div className="w-10 h-10 rounded-xl bg-[rgba(212,168,83,0.1)] border border-[rgba(212,168,83,0.15)] flex items-center justify-center shrink-0 group-hover:bg-[rgba(212,168,83,0.15)] transition-colors duration-300">
                                   <milestone.icon className="w-5 h-5 text-[#D4A853]" />
                                 </div>
                                 <div className={`flex items-center gap-3 ${isLeft ? "md:flex-row-reverse" : ""}`}>
-                                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-md bg-[rgba(212,168,83,0.1)] text-[#D4A853] text-xs font-bold tracking-wider" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-md bg-[rgba(212,168,83,0.1)] text-[#D4A853] text-xs font-bold tracking-wider font-display">
                                     {milestone.year}
                                   </span>
                                   <h3
-                                    className="text-lg font-bold text-white"
-                                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                                    className="text-lg font-bold text-white font-display"
                                   >
                                     {milestone.title}
                                   </h3>
@@ -724,8 +713,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h3
-                        className="text-xl font-bold text-white"
-                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                        className="text-xl font-bold text-white font-display"
                       >
                         Company Credentials
                       </h3>
@@ -786,7 +774,7 @@ export default function AboutPage() {
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase bg-[rgba(212,168,83,0.1)] text-[#D4A853] border border-[rgba(212,168,83,0.2)]">
                 Trusted Across Sectors
               </span>
-              <h2 className="mt-6 text-2xl md:text-3xl font-bold text-white" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              <h2 className="mt-6 text-2xl md:text-3xl font-bold text-white font-display">
                 Institutions That <span className="text-gradient-gold">Believe In Us</span>
               </h2>
             </div>
@@ -795,7 +783,7 @@ export default function AboutPage() {
             <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6" staggerDelay={0.05}>
               {trustLogos.map((logo) => (
                 <StaggerItem key={logo.name}>
-                  <div className="group flex flex-col items-center justify-center p-6 rounded-2xl bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] hover:border-[rgba(212,168,83,0.15)] transition-all duration-300">
+                  <div className="group flex flex-col items-center justify-center p-6 rounded-2xl glass-gold hover:border-[rgba(212,168,83,0.2)] transition-all duration-300 hover-lift">
                     <logo.icon className="w-8 h-8 text-[rgba(245,245,245,0.2)] group-hover:text-[rgba(212,168,83,0.5)] transition-colors duration-300 mb-3" />
                     <span className="text-xs font-semibold text-[rgba(245,245,245,0.3)] group-hover:text-[rgba(245,245,245,0.6)] transition-colors text-center leading-tight">{logo.name}</span>
                     <span className="text-[10px] text-[rgba(245,245,245,0.15)] mt-1">{logo.sector}</span>
@@ -825,7 +813,7 @@ export default function AboutPage() {
           >
             {engagementModels.map((model) => (
               <StaggerItem key={model.title}>
-                <div className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-6 md:p-8 card-hover overflow-hidden flex flex-col">
+                <div className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-6 md:p-8 card-hover-gold hover-lift overflow-hidden flex flex-col">
                   {/* Gold top accent */}
                   <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4A853] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -834,8 +822,7 @@ export default function AboutPage() {
                   </div>
 
                   <h3
-                    className="text-xl font-bold text-white mb-3"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    className="text-xl font-bold text-white mb-3 font-display"
                   >
                     {model.title}
                   </h3>

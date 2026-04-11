@@ -725,3 +725,309 @@
 .flip-card-back {
   transform: rotateY(180deg);
 }
+
+/* ============================================
+   Task 9 — Display Font & Slider Utilities
+   ============================================ */
+
+/* Display font for headings — replaces inline style={{ fontFamily }} */
+.font-display {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+/* Gold pricing slider */
+.pricing-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(to right, #B8922F, #D4A853, #E8C97A, #D4A853, #B8922F);
+  outline: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.pricing-slider:hover {
+  box-shadow: 0 0 20px rgba(212, 168, 83, 0.2);
+}
+
+.pricing-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #E8C97A, #D4A853);
+  border: 3px solid #0A0A0B;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(212, 168, 83, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pricing-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 20px rgba(212, 168, 83, 0.5), 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.pricing-slider::-webkit-slider-thumb:active {
+  transform: scale(1.05);
+}
+
+.pricing-slider::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #E8C97A, #D4A853);
+  border: 3px solid #0A0A0B;
+  cursor: pointer;
+  box-shadow: 0 0 12px rgba(212, 168, 83, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.pricing-slider::-moz-range-track {
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(to right, #B8922F, #D4A853, #E8C97A, #D4A853, #B8922F);
+}
+
+/* ============================================
+   Task 10 — Premium CSS Polish & Animations
+   ============================================ */
+
+/* Morphing blob background */
+@keyframes morphBlob {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  25% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  50% { border-radius: 50% 60% 30% 40% / 50% 40% 60% 50%; }
+  75% { border-radius: 40% 50% 60% 30% / 60% 50% 40% 60%; }
+}
+
+.animate-morph-blob {
+  animation: morphBlob 8s ease-in-out infinite;
+}
+
+/* Reveal text animation */
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(30px); filter: blur(4px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+.animate-reveal {
+  animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Stagger delay utilities */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* Gradient text animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-text {
+  background-size: 200% auto;
+  animation: gradientShift 3s ease infinite;
+}
+
+/* Hover lift effect */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(212, 168, 83, 0.08);
+}
+
+/* Light mode hover-lift */
+.light .hover-lift:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 0 30px rgba(212, 168, 83, 0.06);
+}
+
+/* Smooth scrollbar everywhere */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 168, 83, 0.3) transparent;
+}
+
+.light * {
+  scrollbar-color: rgba(184, 146, 47, 0.25) transparent;
+}
+
+/* Focus visible for accessibility */
+*:focus-visible {
+  outline: 2px solid rgba(212, 168, 83, 0.5);
+  outline-offset: 2px;
+}
+
+/* Premium link hover */
+a {
+  transition: color 0.2s ease;
+}
+
+/* Animated gold accent line for SectionHeading */
+@keyframes goldLineGrow {
+  from { width: 0; opacity: 0; }
+  to { width: 60px; opacity: 1; }
+}
+
+.animate-gold-line {
+  animation: goldLineGrow 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.3s;
+  width: 0;
+  opacity: 0;
+}
+
+/* Label badge hover polish */
+.label-badge {
+  transition: all 0.3s ease;
+}
+.label-badge:hover {
+  background: rgba(212, 168, 83, 0.12);
+  border-color: rgba(212, 168, 83, 0.3);
+  box-shadow: 0 0 20px rgba(212, 168, 83, 0.08);
+}
+
+/* Glass morphism light mode for navbar & cards */
+.light .glass-gold-premium {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(184, 146, 47, 0.12);
+}
+
+.light .glass-gold-premium:hover {
+  border-color: rgba(184, 146, 47, 0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06), 0 0 40px rgba(212, 168, 83, 0.04);
+}
+
+/* Section dividers visible in light mode */
+.light .section-divider {
+  background: linear-gradient(90deg, transparent, rgba(184, 146, 47, 0.2), transparent);
+}
+
+.light .section-divider-gold {
+  background: linear-gradient(90deg, transparent 0%, rgba(184, 146, 47, 0.3) 50%, transparent 100%);
+}
+
+/* Light mode gradient text */
+.light .text-gradient-gold {
+  background: linear-gradient(135deg, #B8922F 0%, #D4A853 50%, #B8922F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Light mode text glow */
+.light .text-glow-gold {
+  text-shadow: 0 0 20px rgba(184, 146, 47, 0.15), 0 0 40px rgba(184, 146, 47, 0.05);
+}
+
+/* Light mode counter glow */
+.light .counter-glow {
+  text-shadow: 0 0 30px rgba(184, 146, 47, 0.1);
+}
+
+/* Light mode section gold tint */
+.light .section-gold-tint {
+  background: linear-gradient(180deg, rgba(212, 168, 83, 0.02) 0%, transparent 50%, rgba(212, 168, 83, 0.015) 100%);
+}
+
+/* Light mode gold gradient backgrounds */
+.light .bg-gold-gradient-subtle {
+  background: linear-gradient(135deg, rgba(212, 168, 83, 0.03) 0%, transparent 50%, rgba(212, 168, 83, 0.02) 100%);
+}
+
+.light .bg-gold-gradient-radial {
+  background: radial-gradient(ellipse at center, rgba(212, 168, 83, 0.04) 0%, transparent 70%);
+}
+
+/* Light mode card backgrounds */
+.light .card-hover {
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+/* Light mode input gold focus */
+.light .input-gold:focus {
+  border-color: rgba(184, 146, 47, 0.4);
+  box-shadow: 0 0 0 3px rgba(184, 146, 47, 0.08);
+}
+
+/* Light mode accordion gold */
+.light .accordion-gold[data-state="open"] {
+  border-color: rgba(184, 146, 47, 0.2);
+  background: rgba(212, 168, 83, 0.03);
+}
+
+.light .accordion-gold[data-state="open"] > button {
+  color: #B8922F;
+}
+
+/* Light mode animated gold float */
+.light .animate-gold-float {
+  filter: brightness(0.7);
+}
+
+/* Light mode shimmer gold */
+.light .animate-shimmer-gold {
+  background: linear-gradient(90deg, transparent 0%, rgba(184, 146, 47, 0.1) 25%, rgba(212, 168, 83, 0.15) 50%, rgba(184, 146, 47, 0.1) 75%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmerGold 3s ease-in-out infinite;
+}
+
+/* Light mode pulse glow */
+.light .animate-pulse-glow {
+  animation: pulseGlowLight 3s ease-in-out infinite;
+}
+
+@keyframes pulseGlowLight {
+  0%, 100% { box-shadow: 0 0 20px rgba(212, 168, 83, 0.06); }
+  50% { box-shadow: 0 0 40px rgba(212, 168, 83, 0.12); }
+}
+
+/* Light mode gold border animated */
+.light .gold-border-animated::before {
+  background: conic-gradient(
+    from var(--angle),
+    rgba(184, 146, 47, 0.4),
+    rgba(212, 168, 83, 0.6),
+    rgba(184, 146, 47, 0.3),
+    rgba(184, 146, 47, 0.4)
+  );
+}
+
+/* Light mode description text */
+.light .section-description {
+  color: rgba(26, 26, 31, 0.55);
+}
+
+/* Theme toggle glassmorphism */
+.theme-toggle-btn {
+  background: rgba(212, 168, 83, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 168, 83, 0.2);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(212, 168, 83, 0.1);
+  border-color: rgba(212, 168, 83, 0.35);
+  box-shadow: 0 0 20px rgba(212, 168, 83, 0.1);
+}
+
+.light .theme-toggle-btn {
+  background: rgba(184, 146, 47, 0.06);
+  border-color: rgba(184, 146, 47, 0.15);
+}
+
+.light .theme-toggle-btn:hover {
+  background: rgba(184, 146, 47, 0.1);
+  border-color: rgba(184, 146, 47, 0.3);
+  box-shadow: 0 0 20px rgba(184, 146, 47, 0.08);
+}

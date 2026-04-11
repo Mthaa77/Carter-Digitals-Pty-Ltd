@@ -261,8 +261,7 @@ export default function ServicesPage() {
 
           <AnimatedSection delay={0.2} direction="up">
             <h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight"
-              style={{ fontFamily: "Space Grotesk, sans-serif" }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight" font-display
             >
               <span className="text-[#F5F5F5]">Our </span>
               <span className="text-gradient-gold">Services</span>
@@ -271,8 +270,7 @@ export default function ServicesPage() {
 
           <AnimatedSection delay={0.35} direction="up">
             <p
-              className="mt-4 text-xl md:text-2xl font-medium text-[rgba(245,245,245,0.5)] tracking-wide"
-              style={{ fontFamily: "Space Grotesk, sans-serif" }}
+              className="mt-4 text-xl md:text-2xl font-medium text-[rgba(245,245,245,0.5)] tracking-wide font-display"
             >
               From a Single Page to a Full Platform
             </p>
@@ -331,15 +329,13 @@ export default function ServicesPage() {
                     </span>
 
                     <h2
-                      className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] mb-3"
-                      style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                      className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] mb-3 font-display"
                     >
                       Website{" "}
                       <span className="text-gradient-gold">Development</span>
                     </h2>
                     <p
-                      className="text-lg text-[#D4A853] font-medium mb-6"
-                      style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                      className="text-lg text-[#D4A853] font-medium mb-6 font-display"
                     >
                       Your Digital Foundation
                     </p>
@@ -366,8 +362,7 @@ export default function ServicesPage() {
                   <ParallaxSection speed={0.1} direction="up">
                     <div>
                       <h3
-                        className="text-xl font-bold text-white mb-6"
-                        style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                        className="text-xl font-bold text-white mb-6 font-display"
                       >
                         Why Next.js & Vercel?
                       </h3>
@@ -378,7 +373,7 @@ export default function ServicesPage() {
                       >
                         {flagshipFeatures.map((feature) => (
                           <StaggerItem key={feature.title}>
-                            <div className="flex items-start gap-3 p-4 rounded-xl bg-[rgba(10,10,11,0.5)] border border-[rgba(255,255,255,0.04)] hover:border-[rgba(212,168,83,0.15)] transition-colors duration-300">
+                            <div className="flex items-start gap-3 p-4 rounded-xl bg-[rgba(10,10,11,0.5)] border border-[rgba(255,255,255,0.04)] hover:border-[rgba(212,168,83,0.15)] transition-colors duration-300 hover-lift">
                               <div className="w-9 h-9 shrink-0 rounded-lg bg-[rgba(212,168,83,0.1)] border border-[rgba(212,168,83,0.12)] flex items-center justify-center">
                                 <feature.icon className="w-4 h-4 text-[#D4A853]" />
                               </div>
@@ -432,8 +427,7 @@ export default function ServicesPage() {
 
                       {/* Title */}
                       <h3
-                        className="text-lg font-semibold text-white mb-2.5"
-                        style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                        className="text-lg font-semibold text-white mb-2.5 font-display"
                       >
                         {service.title}
                       </h3>
@@ -479,8 +473,7 @@ export default function ServicesPage() {
                         {/* Phase number in gold circle */}
                         <div className="w-11 h-11 shrink-0 rounded-full bg-gradient-to-br from-[rgba(212,168,83,0.2)] to-[rgba(212,168,83,0.08)] border border-[rgba(212,168,83,0.25)] flex items-center justify-center">
                           <span
-                            className="text-sm font-bold text-[#D4A853]"
-                            style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                            className="text-sm font-bold text-[#D4A853] font-display"
                           >
                             {phase.num}
                           </span>
@@ -488,8 +481,7 @@ export default function ServicesPage() {
                         <div className="flex items-center gap-3 flex-wrap">
                           <phase.icon className="w-5 h-5 text-[rgba(212,168,83,0.6)] hidden sm:block" />
                           <span
-                            className="text-base md:text-lg font-semibold text-white"
-                            style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                            className="text-base md:text-lg font-semibold text-white font-display"
                           >
                             {phase.title}
                           </span>
@@ -546,15 +538,13 @@ export default function ServicesPage() {
                     </div>
                     <div className="flex-1">
                       <h3
-                        className="text-lg font-bold text-white mb-1"
-                        style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                        className="text-lg font-bold text-white mb-1 font-display"
                       >
                         {addon.title}
                       </h3>
                       <div className="flex items-center gap-2 flex-wrap">
                         <span
-                          className="text-xl font-bold text-gradient-gold"
-                          style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                          className="text-xl font-bold text-gradient-gold font-display"
                         >
                           {addon.price}
                         </span>
@@ -605,8 +595,7 @@ export default function ServicesPage() {
                     <div className="p-4 md:p-5 bg-[#131316] border-b border-[rgba(255,255,255,0.06)] border-l border-[rgba(255,255,255,0.04)] text-center">
                       <Globe className="w-6 h-6 text-[rgba(245,245,245,0.5)] mx-auto mb-2" />
                       <h4
-                        className="text-sm md:text-base font-bold text-white"
-                        style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                        className="text-sm md:text-base font-bold text-white font-display"
                       >
                         Website Development
                       </h4>
@@ -624,8 +613,7 @@ export default function ServicesPage() {
                       </div>
                       <Code className="w-6 h-6 text-[#D4A853] mx-auto mb-2 mt-2" />
                       <h4
-                        className="text-sm md:text-base font-bold text-white"
-                        style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                        className="text-sm md:text-base font-bold text-white font-display"
                       >
                         Web Applications
                       </h4>
@@ -636,8 +624,7 @@ export default function ServicesPage() {
                     <div className="p-4 md:p-5 bg-[#131316] border-b border-[rgba(255,255,255,0.06)] border-l border-[rgba(255,255,255,0.04)] text-center">
                       <Bot className="w-6 h-6 text-[rgba(245,245,245,0.5)] mx-auto mb-2" />
                       <h4
-                        className="text-sm md:text-base font-bold text-white"
-                        style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                        className="text-sm md:text-base font-bold text-white font-display"
                       >
                         AI & Automation
                       </h4>
@@ -817,8 +804,7 @@ export default function ServicesPage() {
               <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
                 <div className="flex-1">
                   <h3
-                    className="text-xl md:text-2xl font-bold text-white mb-2"
-                    style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                    className="text-xl md:text-2xl font-bold text-white mb-2 font-display"
                   >
                     Stay Ahead of the Curve
                   </h3>
@@ -877,8 +863,7 @@ export default function ServicesPage() {
 
                 {/* Quote */}
                 <blockquote
-                  className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight max-w-3xl mx-auto"
-                  style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                  className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight max-w-3xl mx-auto font-display"
                 >
                   &#8220;In the time it takes most agencies to finish their
                   proposal, we&#39;ve already launched your site.&#8221;

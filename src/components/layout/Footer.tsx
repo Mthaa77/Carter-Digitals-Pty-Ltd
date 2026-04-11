@@ -268,7 +268,7 @@ export function Footer() {
           <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
             {trustedClients.map((client, i) => (
               <div key={client.name} className="flex items-center gap-3">
-                <div className="glass-gold rounded-lg px-4 py-2.5 flex items-center gap-2.5 transition-all duration-300 hover:bg-[rgba(212,168,83,0.1)] hover:border-[rgba(212,168,83,0.3)] group cursor-default">
+                <div className="glass-gold rounded-lg px-4 py-2.5 flex items-center gap-2.5 transition-all duration-300 hover:bg-[rgba(212,168,83,0.1)] hover:border-[rgba(212,168,83,0.3)] group cursor-default hover-lift">
                   <client.icon className="w-4 h-4 text-[rgba(212,168,83,0.4)] group-hover:text-[#D4A853] transition-colors duration-300" />
                   <span className="text-xs font-medium text-[rgba(245,245,245,0.5)] group-hover:text-[rgba(245,245,245,0.8)] transition-colors duration-300 whitespace-nowrap">
                     {client.name}

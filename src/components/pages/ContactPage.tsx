@@ -178,8 +178,7 @@ export default function ContactPage() {
 
           <AnimatedSection delay={0.2} direction="up">
             <h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight" font-display
             >
               <span className="text-gradient-gold">Let&apos;s Talk</span>
             </h1>
@@ -187,8 +186,7 @@ export default function ContactPage() {
 
           <AnimatedSection delay={0.35} direction="up">
             <p
-              className="mt-4 text-xl md:text-2xl text-[rgba(245,245,245,0.5)] font-medium"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="mt-4 text-xl md:text-2xl text-[rgba(245,245,245,0.5)] font-medium font-display"
             >
               Ready When You Are
             </p>
@@ -217,8 +215,7 @@ export default function ContactPage() {
               <AnimatedSection delay={0.1} direction="left">
                 <div className="rounded-2xl bg-[#131316] border border-[rgba(212,168,83,0.1)] p-6 md:p-8 shadow-[0_0_40px_rgba(212,168,83,0.05)]">
                   <h2
-                    className="text-2xl md:text-3xl font-bold text-white mb-2"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    className="text-2xl md:text-3xl font-bold text-white mb-2 font-display"
                   >
                     Send Us a Message
                   </h2>
@@ -402,8 +399,7 @@ export default function ContactPage() {
                   {/* Get in Touch heading */}
                   <div>
                     <h2
-                      className="text-2xl md:text-3xl font-bold text-white mb-2"
-                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                      className="text-2xl md:text-3xl font-bold text-white mb-2 font-display"
                     >
                       Get in Touch
                     </h2>
@@ -463,8 +459,7 @@ export default function ContactPage() {
                           <Clock className="w-5 h-5 text-[#D4A853]" />
                         </div>
                         <h3
-                          className="text-base font-semibold text-white"
-                          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                          className="text-base font-semibold text-white font-display"
                         >
                           Business Hours
                         </h3>
@@ -556,7 +551,7 @@ export default function ContactPage() {
                 {/* Label */}
                 <div className="absolute bottom-4 left-4 right-4">
                   <div className="px-4 py-3 rounded-xl bg-[rgba(10,10,11,0.8)] backdrop-blur-sm border border-[rgba(255,255,255,0.06)]">
-                    <p className="text-sm font-semibold text-white" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                    <p className="text-sm font-semibold text-white font-display">
                       Carter Digitals (Pty) Ltd
                     </p>
                     <p className="text-xs text-[rgba(245,245,245,0.5)] mt-0.5">
@@ -570,8 +565,7 @@ export default function ContactPage() {
               <div className="flex flex-col justify-center gap-6">
                 <div className="rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-6">
                   <h3
-                    className="text-lg font-semibold text-white mb-4"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    className="text-lg font-semibold text-white mb-4 font-display"
                   >
                     Address Details
                   </h3>
@@ -673,8 +667,7 @@ export default function ContactPage() {
                     <Heart className="w-6 h-6 text-[#D4A853]" />
                   </div>
                   <h2
-                    className="text-2xl md:text-3xl font-bold text-white"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    className="text-2xl md:text-3xl font-bold text-white font-display"
                   >
                     Our Response Promise
                   </h2>

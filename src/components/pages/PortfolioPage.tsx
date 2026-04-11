@@ -319,8 +319,7 @@ function ProjectDetailDialog({
         <div className="px-6 md:px-8 pb-6 md:pb-8 -mt-4">
           {/* Title */}
           <h2
-            className="text-2xl md:text-3xl font-bold text-white mb-3 leading-tight"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            className="text-2xl md:text-3xl font-bold text-white mb-3 leading-tight" font-display
           >
             {project.name}
           </h2>
@@ -364,8 +363,7 @@ function ProjectDetailDialog({
           {/* Results */}
           <div className="mb-6">
             <h3
-              className="text-sm font-semibold text-[rgba(245,245,245,0.5)] uppercase tracking-wider mb-3"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="text-sm font-semibold text-[rgba(245,245,245,0.5)] uppercase tracking-wider mb-3 font-display"
             >
               Results
             </h3>
@@ -384,8 +382,7 @@ function ProjectDetailDialog({
           {/* Tech stack */}
           <div className="mb-6">
             <h3
-              className="text-sm font-semibold text-[rgba(245,245,245,0.5)] uppercase tracking-wider mb-3"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="text-sm font-semibold text-[rgba(245,245,245,0.5)] uppercase tracking-wider mb-3 font-display"
             >
               Tech Stack
             </h3>
@@ -467,8 +464,7 @@ export default function PortfolioPage() {
 
           <AnimatedSection delay={0.2} direction="up">
             <h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight font-display"
             >
               <span className="text-gradient-gold">Our Work</span>
             </h1>
@@ -476,8 +472,7 @@ export default function PortfolioPage() {
 
           <AnimatedSection delay={0.35} direction="up">
             <p
-              className="mt-4 text-xl md:text-2xl text-[rgba(245,245,245,0.5)] font-medium"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="mt-4 text-xl md:text-2xl text-[rgba(245,245,245,0.5)] font-medium font-display"
             >
               Results That Speak Louder Than Pitches
             </p>
@@ -500,7 +495,7 @@ export default function PortfolioPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection direction="up">
             <div
-              className="relative overflow-hidden rounded-3xl border-gradient-gold cursor-pointer group"
+              className="relative overflow-hidden rounded-3xl border-gradient-gold glass-gold cursor-pointer group"
               onClick={() => setSelectedProject(featuredProject)}
             >
               {/* Background */}
@@ -526,8 +521,7 @@ export default function PortfolioPage() {
                     </div>
 
                     <h2
-                      className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight"
-                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                      className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight font-display"
                     >
                       {featuredProject.name}
                     </h2>
@@ -669,7 +663,7 @@ export default function PortfolioPage() {
                       .map((project) => (
                         <StaggerItem key={project.name}>
                           <div
-                            className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] overflow-hidden card-hover-gold cursor-pointer hover:shadow-[0_0_30px_rgba(212,168,83,0.08)] transition-shadow duration-300"
+                            className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] overflow-hidden card-hover-gold hover-lift cursor-pointer hover:shadow-[0_0_30px_rgba(212,168,83,0.08)] transition-shadow duration-300"
                             onClick={() => setSelectedProject(project)}
                           >
                             {/* Gradient placeholder header */}
@@ -689,8 +683,7 @@ export default function PortfolioPage() {
                             {/* Content */}
                             <div className="p-5">
                               <h3
-                                className="text-base font-semibold text-white mb-2 group-hover:text-[#E8C97A] transition-colors duration-300"
-                                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                                className="text-base font-semibold text-white mb-2 group-hover:text-[#E8C97A] transition-colors duration-300 font-display"
                               >
                                 {project.name}
                               </h3>
@@ -747,8 +740,7 @@ export default function PortfolioPage() {
               <StaggerItem key={stat.label}>
                 <div className="text-center p-6 rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] card-hover">
                   <div
-                    className="text-4xl md:text-5xl font-bold text-gradient-gold mb-2"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    className="text-4xl md:text-5xl font-bold text-gradient-gold mb-2 font-display"
                   >
                     {stat.prefix}
                     <AnimatedCounter
@@ -784,8 +776,7 @@ export default function PortfolioPage() {
 
               <div className="relative z-10 px-6 py-14 md:px-16 md:py-20 lg:px-24 lg:py-24 text-center">
                 <h2
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight"
-                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight font-display"
                 >
                   Have a Project in Mind?
                 </h2>
