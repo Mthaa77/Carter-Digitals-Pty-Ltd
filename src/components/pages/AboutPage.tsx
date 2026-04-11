@@ -241,7 +241,7 @@ export default function AboutPage() {
 
       {/* ────────────────── 2. OUR STORY SECTION ───────────────── */}
       <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Text column */}
@@ -258,7 +258,7 @@ export default function AboutPage() {
                 <span className="text-gradient-gold">Purpose</span>
               </h2>
 
-              <div className="space-y-5 text-[rgba(245,245,245,0.6)] leading-relaxed">
+              <div className="space-y-5 text-[rgba(245,245,245,0.6)] leading-[1.8]">
                 <p>
                   Carter Digitals was never meant to be just another digital
                   agency. Founded in 2023, this studio was named in tribute to a
@@ -360,8 +360,8 @@ export default function AboutPage() {
       </section>
 
       {/* ────────────────── 3. MISSION & VALUES ─────────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
         {/* Background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-[rgba(212,168,83,0.02)] rounded-full blur-[120px] pointer-events-none" />
 
@@ -406,14 +406,18 @@ export default function AboutPage() {
       </section>
 
       {/* ────────────────── 4. FOUNDER SECTION ──────────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+      <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
+        {/* Gold gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[rgba(212,168,83,0.03)] via-[rgba(212,168,83,0.01)] to-transparent pointer-events-none" />
+        {/* Gold glow orb */}
+        <div className="absolute top-1/3 right-0 w-[400px] h-[300px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Image/visual column */}
             <AnimatedSection direction="right" delay={0.1}>
               <div className="relative">
-                <div className="relative rounded-3xl bg-[#131316] border border-[rgba(255,255,255,0.06)] overflow-hidden aspect-[4/5] max-w-md mx-auto lg:max-w-none">
+                <div className="relative rounded-3xl bg-gradient-to-br from-[#131316] via-[rgba(212,168,83,0.03)] to-[#131316] border border-[rgba(212,168,83,0.12)] overflow-hidden aspect-[4/5] max-w-md mx-auto lg:max-w-none">
                   {/* Background pattern */}
                   <div className="absolute inset-0 bg-grid opacity-50" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#131316] via-transparent to-transparent" />
@@ -522,7 +526,7 @@ export default function AboutPage() {
                 </div>
 
                 {/* Bio */}
-                <div className="space-y-4 text-[rgba(245,245,245,0.6)] leading-relaxed mb-8">
+                <div className="space-y-4 text-[rgba(245,245,245,0.6)] leading-[1.8] mb-8">
                   <p>
                     Kabelo is a full-stack developer and enterprise cloud
                     architect with deep expertise in building production-grade
@@ -583,7 +587,7 @@ export default function AboutPage() {
       {/* ──────────── 5a. COMPANY STATS BAR ───────────────────── */}
       <AnimatedSection direction="up">
         <section className="relative py-16 md:py-20 bg-[#0A0A0B]">
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
           <div className="absolute inset-0 bg-dots opacity-40" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[120px] pointer-events-none" />
 
@@ -615,9 +619,9 @@ export default function AboutPage() {
 
       {/* ──────────── 5b. COMPANY MILESTONES TIMELINE ─────────────── */}
       <AnimatedSection direction="up">
-        <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[600px] bg-[rgba(212,168,83,0.025)] rounded-full blur-[120px] pointer-events-none" />
+        <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[600px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[120px] pointer-events-none" />
 
           <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <SectionHeading
@@ -671,12 +675,12 @@ export default function AboutPage() {
                         </div>
 
                         {/* Center dot — desktop only */}
-                        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-6 w-8 h-8 rounded-full bg-[#0A0A0B] border-2 border-[#D4A853] items-center justify-center z-10 shadow-lg shadow-[rgba(212,168,83,0.2)]">
-                          <div className="w-3 h-3 rounded-full bg-[#D4A853]" />
+                        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-6 w-10 h-10 rounded-full bg-[#0A0A0B] border-2 border-[#D4A853] items-center justify-center z-10 shadow-lg shadow-[rgba(212,168,83,0.3)]">
+                          <div className="w-4 h-4 rounded-full bg-[#D4A853]" />
                         </div>
 
                         {/* Mobile dot */}
-                        <div className="md:hidden absolute left-[7px] top-6 w-4 h-4 rounded-full bg-[#D4A853] border-2 border-[#0A0A0B] z-10" />
+                        <div className="md:hidden absolute left-[5px] top-6 w-5 h-5 rounded-full bg-[#D4A853] border-2 border-[#0A0A0B] z-10 shadow-md shadow-[rgba(212,168,83,0.25)]" />
 
                         {/* Spacer for alternating layout — desktop only */}
                         <div className="hidden md:block flex-1" />
@@ -691,8 +695,8 @@ export default function AboutPage() {
       </AnimatedSection>
 
       {/* ────────────────── 5. CREDENTIALS SECTION ──────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[rgba(212,168,83,0.02)] rounded-full blur-[120px] pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -707,7 +711,7 @@ export default function AboutPage() {
           <AnimatedSection direction="up" delay={0.15}>
             <div className="relative max-w-3xl mx-auto">
               {/* Credentials card */}
-              <div className="rounded-3xl bg-[#131316] border border-[rgba(212,168,83,0.12)] overflow-hidden">
+              <div className="rounded-3xl bg-[#131316] border border-[rgba(212,168,83,0.15)] overflow-hidden glow-gold">
                 {/* Glass effect overlay */}
                 <div className="absolute inset-0 rounded-3xl" style={{ background: "rgba(19,19,22,0.7)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)" }} />
                 <div className="absolute inset-0 bg-dots opacity-20 rounded-3xl" />
@@ -805,7 +809,7 @@ export default function AboutPage() {
 
       {/* ────────────── 6. ENGAGEMENT MODELS SECTION ────────────── */}
       <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             label="How We Work Together"

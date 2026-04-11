@@ -493,7 +493,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
 
       {/* ────────────────── 2. FEATURED PROJECT ─────────────────── */}
       <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
@@ -620,10 +620,10 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
 
       {/* ──────────────────── 3. PROJECT GRID ───────────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
+      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
         {/* Background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[rgba(212,168,83,0.02)] rounded-full blur-[120px] pointer-events-none" />
 
@@ -645,7 +645,7 @@ export default function PortfolioPage() {
                     <TabsTrigger
                       key={tab.key}
                       value={tab.key}
-                      className="data-[state=active]:bg-[rgba(212,168,83,0.15)] data-[state=active]:text-[#D4A853] text-[rgba(245,245,245,0.5)] px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+                      className="data-[state=active]:bg-[rgba(212,168,83,0.1)] data-[state=active]:border-[rgba(212,168,83,0.3)] data-[state=active]:text-[#D4A853] text-[rgba(245,245,245,0.5)] px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
                     >
                       {tab.label}
                     </TabsTrigger>
@@ -669,7 +669,7 @@ export default function PortfolioPage() {
                       .map((project) => (
                         <StaggerItem key={project.name}>
                           <div
-                            className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] overflow-hidden card-hover-gold cursor-pointer"
+                            className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] overflow-hidden card-hover-gold cursor-pointer hover:shadow-[0_0_30px_rgba(212,168,83,0.08)] transition-shadow duration-300"
                             onClick={() => setSelectedProject(project)}
                           >
                             {/* Gradient placeholder header */}
@@ -723,12 +723,12 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
 
       {/* ───────────────────── 4. RESULTS SECTION ───────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B] bg-dots">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+      <section className="relative py-20 md:py-28 bg-[#0A0A0B] bg-dots section-gold-tint">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
 
         {/* Center glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[rgba(212,168,83,0.035)] rounded-full blur-[100px] pointer-events-none" />
@@ -767,10 +767,10 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
 
       {/* ──────────────────── 5. CTA SECTION ───────────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
+      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection direction="up">
             <div className="relative overflow-hidden rounded-3xl border-gradient-gold">

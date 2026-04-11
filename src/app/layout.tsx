@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
   title: "Carter Digitals — High-Agility Digital Infrastructure & AI-Enabled Solutions",
@@ -38,9 +39,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="antialiased bg-[#0A0A0B] text-[#F5F5F5]">
-        {children}
-        <Toaster />
+      <body className="antialiased bg-[#0A0A0B] text-[#F5F5F5] transition-colors duration-500">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange={false}
+        >
+          {children}
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

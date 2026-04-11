@@ -204,17 +204,18 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
 
       {/* ────────────────── 2. CONTACT GRID ─────────────────────── */}
       <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[600px] bg-[rgba(212,168,83,0.025)] rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[600px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[120px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16">
             {/* Left column - Contact Form (3 cols) */}
             <div className="lg:col-span-3">
               <AnimatedSection delay={0.1} direction="left">
-                <div className="rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-6 md:p-8">
+                <div className="rounded-2xl bg-[#131316] border border-[rgba(212,168,83,0.1)] p-6 md:p-8 shadow-[0_0_40px_rgba(212,168,83,0.05)]">
                   <h2
                     className="text-2xl md:text-3xl font-bold text-white mb-2"
                     style={{ fontFamily: "'Space Grotesk', sans-serif" }}
@@ -240,7 +241,7 @@ export default function ContactPage() {
                             value={formData.name}
                             onChange={(e) => handleChange("name", e.target.value)}
                             placeholder="Your full name"
-                            className="pl-10 bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.08)] text-white placeholder:text-[rgba(245,245,245,0.25)] focus:border-[rgba(212,168,83,0.4)] focus:ring-[rgba(212,168,83,0.1)] rounded-xl h-11"
+                            className="pl-10 bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.08)] text-white placeholder:text-[rgba(245,245,245,0.25)] focus:border-[rgba(212,168,83,0.5)] focus:ring-1 focus:ring-[rgba(212,168,83,0.2)] focus:shadow-[0_0_20px_rgba(212,168,83,0.05)] rounded-xl h-11"
                           />
                         </div>
                       </div>
@@ -257,7 +258,7 @@ export default function ContactPage() {
                             value={formData.email}
                             onChange={(e) => handleChange("email", e.target.value)}
                             placeholder="you@company.co.za"
-                            className="pl-10 bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.08)] text-white placeholder:text-[rgba(245,245,245,0.25)] focus:border-[rgba(212,168,83,0.4)] focus:ring-[rgba(212,168,83,0.1)] rounded-xl h-11"
+                            className="pl-10 bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.08)] text-white placeholder:text-[rgba(245,245,245,0.25)] focus:border-[rgba(212,168,83,0.5)] focus:ring-1 focus:ring-[rgba(212,168,83,0.2)] focus:shadow-[0_0_20px_rgba(212,168,83,0.05)] rounded-xl h-11"
                           />
                         </div>
                       </div>
@@ -276,7 +277,7 @@ export default function ContactPage() {
                             value={formData.phone}
                             onChange={(e) => handleChange("phone", e.target.value)}
                             placeholder="072 402 6893"
-                            className="pl-10 bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.08)] text-white placeholder:text-[rgba(245,245,245,0.25)] focus:border-[rgba(212,168,83,0.4)] focus:ring-[rgba(212,168,83,0.1)] rounded-xl h-11"
+                            className="pl-10 bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.08)] text-white placeholder:text-[rgba(245,245,245,0.25)] focus:border-[rgba(212,168,83,0.5)] focus:ring-1 focus:ring-[rgba(212,168,83,0.2)] focus:shadow-[0_0_20px_rgba(212,168,83,0.05)] rounded-xl h-11"
                           />
                         </div>
                       </div>
@@ -291,7 +292,7 @@ export default function ContactPage() {
                             value={formData.company}
                             onChange={(e) => handleChange("company", e.target.value)}
                             placeholder="Your company name"
-                            className="pl-10 bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.08)] text-white placeholder:text-[rgba(245,245,245,0.25)] focus:border-[rgba(212,168,83,0.4)] focus:ring-[rgba(212,168,83,0.1)] rounded-xl h-11"
+                            className="pl-10 bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.08)] text-white placeholder:text-[rgba(245,245,245,0.25)] focus:border-[rgba(212,168,83,0.5)] focus:ring-1 focus:ring-[rgba(212,168,83,0.2)] focus:shadow-[0_0_20px_rgba(212,168,83,0.05)] rounded-xl h-11"
                           />
                         </div>
                       </div>
@@ -307,7 +308,7 @@ export default function ContactPage() {
                           value={formData.service}
                           onValueChange={(value) => handleChange("service", value)}
                         >
-                          <SelectTrigger className="bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.08)] text-white focus:border-[rgba(212,168,83,0.4)] focus:ring-[rgba(212,168,83,0.1)] rounded-xl h-11">
+                          <SelectTrigger className="bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.08)] text-white focus:border-[rgba(212,168,83,0.5)] focus:ring-1 focus:ring-[rgba(212,168,83,0.2)] focus:shadow-[0_0_20px_rgba(212,168,83,0.05)] rounded-xl h-11">
                             <SelectValue placeholder="Select a service" />
                           </SelectTrigger>
                           <SelectContent className="bg-[#1A1A1F] border-[rgba(255,255,255,0.08)]">
@@ -331,7 +332,7 @@ export default function ContactPage() {
                           value={formData.budget}
                           onValueChange={(value) => handleChange("budget", value)}
                         >
-                          <SelectTrigger className="bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.08)] text-white focus:border-[rgba(212,168,83,0.4)] focus:ring-[rgba(212,168,83,0.1)] rounded-xl h-11">
+                          <SelectTrigger className="bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.08)] text-white focus:border-[rgba(212,168,83,0.5)] focus:ring-1 focus:ring-[rgba(212,168,83,0.2)] focus:shadow-[0_0_20px_rgba(212,168,83,0.05)] rounded-xl h-11">
                             <SelectValue placeholder="Select budget range" />
                           </SelectTrigger>
                           <SelectContent className="bg-[#1A1A1F] border-[rgba(255,255,255,0.08)]">
@@ -361,7 +362,7 @@ export default function ContactPage() {
                         onChange={(e) => handleChange("message", e.target.value)}
                         placeholder="Tell us about your project, goals, and timeline..."
                         rows={5}
-                        className="bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.08)] text-white placeholder:text-[rgba(245,245,245,0.25)] focus:border-[rgba(212,168,83,0.4)] focus:ring-[rgba(212,168,83,0.1)] rounded-xl resize-none"
+                        className="bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.08)] text-white placeholder:text-[rgba(245,245,245,0.25)] focus:border-[rgba(212,168,83,0.5)] focus:ring-1 focus:ring-[rgba(212,168,83,0.2)] focus:shadow-[0_0_20px_rgba(212,168,83,0.05)] rounded-xl resize-none"
                       />
                     </div>
 
@@ -456,7 +457,7 @@ export default function ContactPage() {
 
                   {/* Business hours card */}
                   <AnimatedSection delay={0.4} direction="right">
-                    <div className="rounded-xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-5">
+                    <div className="rounded-xl bg-gradient-to-br from-[rgba(212,168,83,0.03)] to-[#131316] border border-[rgba(212,168,83,0.1)] p-5 shadow-[0_0_20px_rgba(212,168,83,0.04)]">
                       <div className="flex items-center gap-3 mb-4">
                         <div className="w-10 h-10 shrink-0 rounded-lg bg-[rgba(212,168,83,0.1)] border border-[rgba(212,168,83,0.15)] flex items-center justify-center">
                           <Clock className="w-5 h-5 text-[#D4A853]" />
@@ -493,7 +494,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
 
       {/* ───────────────── 3. MAP / LOCATION SECTION ─────────────── */}
       <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
@@ -624,10 +625,10 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
 
       {/* ──────────────────── 4. TRUST SECTION ──────────────────── */}
-      <section className="relative py-12 md:py-16 bg-[#0A0A0B]">
+      <section className="relative py-12 md:py-16 bg-[#0A0A0B] section-gold-tint">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection direction="up">
             <div className="flex flex-col items-center text-center">
@@ -652,23 +653,23 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
 
       {/* ─────────────── 5. RESPONSE PROMISE SECTION ─────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
+      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
         {/* Background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[rgba(212,168,83,0.02)] rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[120px] pointer-events-none" />
 
         <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection direction="up">
-            <div className="relative overflow-hidden rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-8 md:p-10">
+            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[rgba(212,168,83,0.04)] via-[#131316] to-[rgba(212,168,83,0.02)] border border-[rgba(212,168,83,0.12)] p-8 md:p-10 shadow-[0_0_30px_rgba(212,168,83,0.06)]">
               {/* Background accents */}
               <div className="absolute top-0 right-0 w-40 h-40 bg-[rgba(212,168,83,0.04)] rounded-full blur-[60px] pointer-events-none" />
               <div className="absolute bottom-0 left-0 w-32 h-32 bg-[rgba(212,168,83,0.03)] rounded-full blur-[50px] pointer-events-none" />
 
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-12 h-12 rounded-xl bg-[rgba(212,168,83,0.1)] border border-[rgba(212,168,83,0.15)] flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[rgba(212,168,83,0.15)] to-[rgba(212,168,83,0.05)] border border-[rgba(212,168,83,0.15)] flex items-center justify-center">
                     <Heart className="w-6 h-6 text-[#D4A853]" />
                   </div>
                   <h2

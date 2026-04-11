@@ -357,10 +357,10 @@ export default function PackagesPage() {
         </div>
       </section>
 
-      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
 
       {/* ────────────────── 2. SME PACKAGES TABS ─────────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
+      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
         {/* Background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[rgba(212,168,83,0.025)] rounded-full blur-[120px] pointer-events-none" />
 
@@ -426,10 +426,13 @@ export default function PackagesPage() {
         </div>
       </section>
 
-      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
 
       {/* ────────────────── 3. ADD-ON SERVICES ──────────────────── */}
       <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
+        {/* Gold glow orb */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[300px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             label="Extras"
@@ -442,7 +445,7 @@ export default function PackagesPage() {
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-6" staggerDelay={0.1}>
             {addons.map((addon) => (
               <StaggerItem key={addon.title}>
-                <div className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-6 card-hover-gold">
+                <div className="group relative h-full rounded-2xl bg-[rgba(212,168,83,0.02)] border border-[rgba(212,168,83,0.08)] backdrop-blur-sm p-6 card-hover-gold">
                   {/* Gold top accent */}
                   <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4A853] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -481,7 +484,7 @@ export default function PackagesPage() {
         </div>
       </section>
 
-      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
 
       {/* ──────────────────── 4. FAQ SECTION ───────────────────── */}
       <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
@@ -497,13 +500,13 @@ export default function PackagesPage() {
           />
 
           <AnimatedSection delay={0.2} direction="up">
-            <div className="rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-4 md:p-6">
+            <div className="rounded-2xl bg-[#131316] border border-[rgba(212,168,83,0.1)] p-4 md:p-6 shadow-[0_0_40px_rgba(212,168,83,0.05)]">
               <Accordion type="single" collapsible className="w-full">
                 {faqs.map((faq, idx) => (
                   <AccordionItem
                     key={idx}
                     value={`faq-${idx}`}
-                    className="border-[rgba(255,255,255,0.06)]"
+                    className="border-[rgba(255,255,255,0.06)] data-[state=open]:border-[rgba(212,168,83,0.2)] data-[state=open]:bg-[rgba(212,168,83,0.02)] transition-colors duration-300"
                   >
                     <AccordionTrigger className="text-left text-sm md:text-base font-medium text-[rgba(245,245,245,0.8)] hover:text-white hover:no-underline py-4 transition-colors duration-200">
                       {faq.question}
@@ -519,10 +522,10 @@ export default function PackagesPage() {
         </div>
       </section>
 
-      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+      <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
 
       {/* ──────────────────── 5. CTA SECTION ───────────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
+      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection direction="up">
             <div className="relative overflow-hidden rounded-3xl border-gradient-gold">

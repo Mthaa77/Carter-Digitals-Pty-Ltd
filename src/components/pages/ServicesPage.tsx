@@ -310,14 +310,14 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ──────────── 2. FLAGSHIP SERVICE — WEBSITE DEV ─────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+      {/* ──────────── 2. FLAGSHIP SERVICE — WEBSITE DEV ─────────── */
+      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection direction="up" delay={0.1}>
-            <div className="relative rounded-3xl bg-[#131316] border-2 border-[rgba(212,168,83,0.2)] overflow-hidden">
+            <div className="relative rounded-3xl bg-[#131316] border-2 border-[rgba(212,168,83,0.25)] overflow-hidden">
               {/* Gold border glow */}
-              <div className="absolute inset-0 rounded-3xl glow-gold pointer-events-none" />
+              <div className="absolute inset-0 rounded-3xl shadow-[0_0_60px_rgba(212,168,83,0.12)] pointer-events-none" />
               <div className="absolute inset-0 bg-dots opacity-20" />
               <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4A853] to-transparent" />
 
@@ -400,7 +400,7 @@ export default function ServicesPage() {
 
       {/* ────────────────── 3. CORE SERVICES GRID ──────────────── */}
       <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
         {/* Background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[rgba(212,168,83,0.025)] rounded-full blur-[120px] pointer-events-none" />
 
@@ -452,8 +452,10 @@ export default function ServicesPage() {
       </section>
 
       {/* ─────────────────── 4. PROCESS SECTION ─────────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
+        {/* Gold glow orb */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[300px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             label="Our Process"
@@ -470,7 +472,7 @@ export default function ServicesPage() {
                   <AccordionItem
                     key={phase.num}
                     value={`phase-${phase.num}`}
-                    className="rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] overflow-hidden px-6 data-[state=open]:border-[rgba(212,168,83,0.2)] data-[state=open]:bg-[rgba(19,19,22,0.8)] transition-colors duration-300"
+                    className="rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] overflow-hidden px-6 data-[state=open]:border-[rgba(212,168,83,0.25)] data-[state=open]:bg-[rgba(19,19,22,0.8)] transition-colors duration-300"
                   >
                     <AccordionTrigger className="hover:no-underline py-5 [&>svg]:text-[#D4A853]">
                       <div className="flex items-center gap-4 text-left">
@@ -515,7 +517,7 @@ export default function ServicesPage() {
 
       {/* ────────────────── 5. ADD-ON SERVICES ─────────────────── */}
       <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
         {/* Background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-[rgba(212,168,83,0.02)] rounded-full blur-[120px] pointer-events-none" />
 
@@ -579,8 +581,8 @@ export default function ServicesPage() {
       </section>
 
       {/* ──────────── 6. SERVICES COMPARISON TABLE ────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[rgba(212,168,83,0.02)] rounded-full blur-[120px] pointer-events-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -803,8 +805,8 @@ export default function ServicesPage() {
       </section>
 
       {/* ──────────── 7. STAY CONNECTED / NEWSLETTER ────────────── */}
-      <section className="relative py-16 md:py-20 bg-[#0A0A0B]">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+      <section className="relative py-16 md:py-20 bg-[#0A0A0B] section-gold-tint">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection direction="up">
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[rgba(212,168,83,0.1)] via-[#131316] to-[rgba(212,168,83,0.05)] border border-[rgba(212,168,83,0.15)] p-8 md:p-10">
@@ -855,7 +857,7 @@ export default function ServicesPage() {
 
       {/* ───────────────────── 8. CTA SECTION ──────────────────── */}
       <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.15)] to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection direction="up">
             <div className="relative overflow-hidden rounded-3xl border border-gradient-gold">

@@ -127,12 +127,14 @@ export function AnimatedCounter({
   prefix = "",
   duration = 2000,
   className = "",
+  decimals = 0,
 }: {
   target: number;
   suffix?: string;
   prefix?: string;
   duration?: number;
   className?: string;
+  decimals?: number;
 }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
@@ -146,20 +148,26 @@ export function AnimatedCounter({
       const animate = () => {
         const elapsed = Date.now() - startTime;
         const progress = Math.min(elapsed / duration, 1);
+        // Ease-out cubic for smooth deceleration
         const eased = 1 - Math.pow(1 - progress, 3);
-        setCount(Math.round(target * eased));
+        const raw = target * eased;
+        setCount(decimals > 0 ? raw : Math.round(raw));
         if (progress < 1) {
           requestAnimationFrame(animate);
+        } else {
+          setCount(decimals > 0 ? target : Math.round(target));
         }
       };
       requestAnimationFrame(animate);
     }
-  }, [isInView, target, duration]);
+  }, [isInView, target, duration, decimals]);
+
+  const displayValue = decimals > 0 ? count.toFixed(decimals) : Math.round(count);
 
   return (
     <span ref={ref} className={className}>
       {prefix}
-      {count}
+      {displayValue}
       {suffix}
     </span>
   );
