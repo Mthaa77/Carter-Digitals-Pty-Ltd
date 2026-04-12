@@ -169,72 +169,111 @@ export default function AboutPage() {
       {/* ───────────────────── 1. PAGE HERO ───────────────────── */}
       <section className="relative py-24 md:py-36 bg-[#0A0A0B]">
         {/* Background grid */}
-        <div className="absolute inset-0 bg-grid" />
+        <div className="absolute inset-0 bg-grid pattern-grid-animated" />
+
+        {/* ── Parallax background layers ── */}
+        {/* Large gold glow orb — speed 0.15 */}
+        <ParallaxSection speed={0.15} direction="up" className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[rgba(212,168,83,0.06)] rounded-full blur-[120px]" />
+        </ParallaxSection>
+
+        {/* Small floating geometric shapes — speed 0.08 */}
+        <ParallaxSection speed={0.08} direction="up" className="absolute inset-0 pointer-events-none">
+          <motion.div
+            animate={{ rotate: 45 }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[20%] left-[10%] w-8 h-8 rounded-lg border border-[rgba(212,168,83,0.1)] bg-[rgba(212,168,83,0.03)]"
+          />
+          <motion.div
+            animate={{ rotate: -30 }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[30%] right-[15%] w-6 h-6 rounded-full border border-[rgba(212,168,83,0.08)] bg-[rgba(212,168,83,0.02)]"
+          />
+          <motion.div
+            animate={{ rotate: 60 }}
+            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-[25%] left-[20%] w-10 h-10 rounded-sm border border-[rgba(212,168,83,0.06)] bg-[rgba(212,168,83,0.02)]"
+          />
+          <motion.div
+            animate={{ rotate: -45 }}
+            transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-[20%] right-[10%] w-5 h-5 rounded border border-[rgba(212,168,83,0.1)] bg-[rgba(212,168,83,0.03)]"
+          />
+        </ParallaxSection>
+
+        {/* Grid/dot pattern overlay — speed 0.05 */}
+        <ParallaxSection speed={0.05} direction="up" className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 bg-dots opacity-20" />
+        </ParallaxSection>
+
+        {/* Gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0B] via-transparent to-[#0A0A0B]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[rgba(212,168,83,0.03)] via-transparent to-[rgba(212,168,83,0.02)]" />
 
-        {/* Radial glow */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[rgba(212,168,83,0.04)] rounded-full blur-[120px] pointer-events-none" />
+        {/* Content with subtle parallax — speed 0.03 */}
+        <ParallaxSection speed={0.03} direction="up">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <AnimatedSection delay={0.1} direction="up">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[rgba(212,168,83,0.08)] border border-[rgba(212,168,83,0.15)] mb-8">
+                <Sparkles className="w-4 h-4 text-[#D4A853]" />
+                <span className="text-sm font-medium text-[#D4A853]">
+                  Our Story
+                </span>
+              </div>
+            </AnimatedSection>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <AnimatedSection delay={0.1} direction="up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[rgba(212,168,83,0.08)] border border-[rgba(212,168,83,0.15)] mb-8">
-              <Sparkles className="w-4 h-4 text-[#D4A853]" />
-              <span className="text-sm font-medium text-[#D4A853]">
-                Our Story
-              </span>
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.2} direction="up">
-            <h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight font-display"
-            >
-              <span className="text-[#F5F5F5]">About Carter </span>
-              <span className="text-gradient-gold">Digitals</span>
-            </h1>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.35} direction="up">
-            <p
-              className="mt-4 text-xl md:text-2xl font-medium text-[rgba(245,245,245,0.5)] tracking-wide font-display"
-            >
-              Built Different. Built African. Built to Win.
-            </p>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.5} direction="up">
-            <p className="mt-6 text-base md:text-lg text-[rgba(245,245,245,0.55)] max-w-2xl mx-auto leading-relaxed">
-              Carter Digitals (Pty) Ltd is a Pretoria-based digital services
-              studio operating out of Soshanguve — building production-ready
-              digital infrastructure for South Africa&apos;s schools, SMEs, law
-              firms, medical practices, and government institutions.
-            </p>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.65} direction="up">
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                onClick={() => handleNavClick("contact")}
-                size="lg"
-                className="bg-gradient-to-r from-[#D4A853] to-[#B8922F] hover:from-[#E8C97A] hover:to-[#D4A853] text-[#0A0A0B] font-semibold px-8 py-6 text-base rounded-xl shadow-lg shadow-[rgba(212,168,83,0.25)] hover:shadow-[rgba(212,168,83,0.35)] transition-all duration-300 group"
+            <AnimatedSection delay={0.2} direction="up">
+              <h1
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight font-display"
               >
-                Start Your Project
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button
-                onClick={() => handleNavClick("services")}
-                size="lg"
-                variant="outline"
-                className="border-[rgba(255,255,255,0.15)] bg-transparent hover:bg-white/5 text-white font-semibold px-8 py-6 text-base rounded-xl transition-all duration-300 group"
+                <span className="text-[#F5F5F5]">About Carter </span>
+                <span className="text-gradient-gold">Digitals</span>
+              </h1>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.35} direction="up">
+              <p
+                className="mt-4 text-xl md:text-2xl font-medium text-[rgba(245,245,245,0.5)] tracking-wide font-display"
               >
-                View Our Services
-                <ChevronRight className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </div>
-          </AnimatedSection>
-        </div>
+                Built Different. Built African. Built to Win.
+              </p>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.5} direction="up">
+              <p className="mt-6 text-base md:text-lg text-[rgba(245,245,245,0.55)] max-w-2xl mx-auto leading-relaxed">
+                Carter Digitals (Pty) Ltd is a Pretoria-based digital services
+                studio operating out of Soshanguve — building production-ready
+                digital infrastructure for South Africa&apos;s schools, SMEs, law
+                firms, medical practices, and government institutions.
+              </p>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.65} direction="up">
+              <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button
+                  onClick={() => handleNavClick("contact")}
+                  size="lg"
+                  className="bg-gradient-to-r from-[#D4A853] to-[#B8922F] hover:from-[#E8C97A] hover:to-[#D4A853] text-[#0A0A0B] font-semibold px-8 py-6 text-base rounded-xl shadow-lg shadow-[rgba(212,168,83,0.25)] hover:shadow-[rgba(212,168,83,0.35)] transition-all duration-300 group"
+                >
+                  Start Your Project
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                <Button
+                  onClick={() => handleNavClick("services")}
+                  size="lg"
+                  variant="outline"
+                  className="border-[rgba(255,255,255,0.15)] bg-transparent hover:bg-white/5 text-white font-semibold px-8 py-6 text-base rounded-xl transition-all duration-300 group"
+                >
+                  View Our Services
+                  <ChevronRight className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </div>
+            </AnimatedSection>
+          </div>
+        </ParallaxSection>
+
+        {/* Gold gradient fade at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0A0A0B] via-[rgba(10,10,11,0.6)] to-transparent pointer-events-none" />
       </section>
 
       <div className="h-px section-divider-gold" />
@@ -242,6 +281,9 @@ export default function AboutPage() {
       {/* ────────────────── 2. OUR STORY SECTION ───────────────── */}
       <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
         <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
+        {/* Ambient floating orbs */}
+        <div className="ambient-orb ambient-orb-float w-[300px] h-[300px] bg-[rgba(212,168,83,0.03)] top-[10%] right-[-5%]" style={{animationDelay: '0s'}} />
+        <div className="ambient-orb ambient-orb-float w-[200px] h-[200px] bg-[rgba(212,168,83,0.04)] bottom-[10%] left-[-3%]" style={{animationDelay: '7s'}} />
         {/* Gold radial glow orb behind two-column layout */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] bg-[rgba(212,168,83,0.07)] rounded-full blur-[160px] pointer-events-none" />
         {/* Secondary gold accent glow */}
@@ -362,6 +404,7 @@ export default function AboutPage() {
       </section>
 
       {/* ────────────────── 3. MISSION & VALUES ─────────────────── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div className="gold-glow-line mx-auto max-w-xs rounded-full" /></div>
       <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
         <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
         {/* Background glow */}
@@ -407,6 +450,7 @@ export default function AboutPage() {
       </section>
 
       {/* ────────────────── 4. FOUNDER SECTION ──────────────────── */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div className="gold-glow-line mx-auto max-w-xs rounded-full" /></div>
       <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint grain-texture">
         <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
         {/* Gold gradient overlay */}

@@ -1258,3 +1258,154 @@ Stage Summary:
 6. Implement real-time chat via WebSocket
 7. Add more micro-interactions: cursor trail effects, scroll-triggered particles
 8. Create an admin dashboard for content management
+
+---
+
+Task IDs: 5-6-7-8
+Agent: full-stack-developer
+Tasks: Page Transition Skeleton, Parallax Heroes, Animated Project Filter, Services Stats
+
+## Task 5: Page Transition Loading Skeleton
+
+**File created:** `src/components/shared/PageTransitionSkeleton.tsx`
+
+- Created a skeleton loading state component that shows briefly (~300ms) during page transitions
+- Features realistic skeleton layout mimicking page structure:
+  - Top hero skeleton (h-48 with shimmer)
+  - 2-3 content card skeletons (h-32 with shimmer, staggered delays)
+  - Gold accent shimmer bar at top using `animate-shimmer-gold` class
+- Uses Framer Motion for fade in/out with opacity + y translate
+- Only shows during non-initial page transitions (tracked via `initialLoadRef`)
+
+**File modified:** `src/app/page.tsx`
+- Added `showSkeleton` state and `initialLoadRef` ref to track initial load
+- Integrated `PageTransitionSkeleton` inside `AnimatePresence` before `PageComponent`
+- Skeleton appears briefly during transitions, hidden after 500ms
+- Added `useRef` to imports
+
+## Task 6: Parallax Hero Sections for Inner Pages
+
+**Files modified:** `AboutPage.tsx`, `ServicesPage.tsx`, `PortfolioPage.tsx`, `PackagesPage.tsx`, `ContactPage.tsx`
+
+- Enhanced hero sections of all 5 inner pages with parallax background layers:
+  - **Large gold glow orb** (speed: 0.15) — subtle movement creating depth
+  - **Small floating geometric shapes** (speed: 0.08) — 4 rotating shapes (rounded-lg, rounded-full, rounded-sm, rounded) with infinite rotation animations at varying speeds (18-25s)
+  - **Grid/dot pattern overlay** (speed: 0.05) — `bg-dots` at 20% opacity
+  - **Hero text** wrapped in ParallaxSection (speed: 0.03) — slowest movement for subtle depth effect
+  - **Gold gradient fade** at bottom of each hero section for smooth content transition
+- All layers use `pointer-events-none` to avoid blocking interaction
+- `ParallaxSection` already imported in About/Services; added import to Portfolio/Packages/Contact
+- Added `motion` import to ServicesPage (was missing for the new parallax shapes)
+
+## Task 7: Animated Project Filter
+
+**File modified:** `src/components/pages/PortfolioPage.tsx`
+
+- Replaced static shadcn Tabs filter with animated Framer Motion version:
+  - **Count badges** next to each filter tab showing project count (e.g., "Education (2)", "Business (5)")
+  - **Animated gold underline indicator** using `motion.div` with `layoutId="filterUnderline"` that slides to active tab with spring physics
+  - **AnimatePresence** with `mode="popLayout"` for smooth card filtering
+  - Cards fade in/scale up (0.95 → 1) and fade out/scale down (1 → 0.95) at 200ms duration
+  - `motion.div layout` wrapper for smooth grid reflow during filter transitions
+- Removed `StaggerContainer`/`StaggerItem` in favor of `motion.div` for filter animation
+- TabsList made `relative` to contain the animated underline indicator
+
+## Task 8: Services Page Animated Stats
+
+**File modified:** `src/components/pages/ServicesPage.tsx`
+
+- Added new "The Numbers Behind Our Impact" section between Core Services and Process sections
+- 4 animated stat items in responsive 2×2 (mobile) / 4-column (desktop) grid:
+  - 150+ Projects Delivered (CircularProgress value: 100, #D4A853, CheckCircle icon)
+  - 98% Client Satisfaction (CircularProgress value: 98, #E8C97A, Heart icon)
+  - 35+ Active Retainers (CircularProgress value: 90, #D4A853, Users icon)
+  - 5-7 Day Average Delivery (CircularProgress value: 85, #E8C97A, Clock icon)
+- Each stat has: animated circular progress ring (130px, 5px stroke), large gold gradient number, label text, SVG icon
+- Wrapped in `AnimatedSection` > `StaggerContainer` + `StaggerItem` for scroll-triggered stagger
+- 3 gold radial glow orbs behind the section (140px, 120px, 100px blur)
+- `.section-divider-gold` above and below the section
+- Added `CircularProgress` import
+
+### Quality Verification
+- ✅ ESLint: Zero errors
+- ✅ All existing functionality preserved across all 6 pages
+- ✅ Responsive: All new features adapt to mobile/tablet/desktop
+- ✅ Performance: Parallax uses useScroll + useTransform (GPU accelerated)
+- ✅ Consistency: All new code matches existing dark theme + gold accent design system
+
+---
+## [2025-07-13] Cron Review Round 5 — Ambient Effects, New Features & Styling Polish
+
+### Current Project Status Assessment
+- **Status**: 6-page premium SPA fully functional, zero build errors, zero lint errors
+- **Build**: Clean SWC/Turbopack compilation, ESLint zero errors, HTTP 200 on all routes
+- **Console Errors**: Zero across all 6 pages (verified via agent-browser on Home, About, Services, Portfolio, Packages, Contact)
+- **Components**: 26+ shared components
+- **Previous Session Issues**: The PortfolioPage SWC parser error from the dev log was transient (hot-reload artifact) — lint is clean, all pages render correctly
+
+### Features Added (4)
+
+**1. Page Transition Loading Skeleton (PageTransitionSkeleton.tsx)**
+- Created `src/components/shared/PageTransitionSkeleton.tsx` — gold shimmer skeleton loading state
+- Shows briefly (~300-500ms) between page transitions
+- Contains: hero placeholder, 3 content card skeletons, gold accent shimmer bar
+- Fades in/out with Framer Motion
+- Integrated into `page.tsx` — only shows during non-initial page transitions
+
+**2. Parallax Hero Sections for All 5 Inner Pages**
+- Added 3 parallax background layers to each inner page hero:
+  - Large gold glow orb (speed: 0.15)
+  - Rotating geometric shapes (speed: 0.08) — squares, circles, triangles
+  - Dot pattern overlay (speed: 0.05)
+  - Hero text at 0.03 speed (subtle parallax)
+  - Gold gradient fade at bottom of each hero
+- Files modified: AboutPage, ServicesPage, PortfolioPage, PackagesPage, ContactPage
+
+**3. Animated Project Filter with Count Badges (PortfolioPage.tsx)**
+- Filter tabs now show project count badges: "All 8", "Education 1", "Business 5", etc.
+- Added sliding gold underline indicator with Framer Motion `layoutId` spring physics
+- Cards animate with scale/fade transitions (200ms) when filtering
+- Uses AnimatePresence with layout prop for smooth reflow
+
+**4. Services Page Animated Stats Section**
+- New section "The Numbers Behind Our Impact" between Core Services and Process
+- 4 CircularProgress stats: 150+ Projects, 98% Satisfaction, 35+ Retainers, 5-7 Day Delivery
+- Uses existing CircularProgress component from shared/
+- Staggered scroll entrance animations
+- Gold radial glow orbs behind section
+- Gold glow accent divider above section
+
+### Styling Enhancements
+
+**1. New CSS Utilities (globals.css)**
+- `.gold-glow-line` — Animated pulsing gold gradient divider (2px, 3s infinite pulse)
+- `.gold-corner-accent` — Decorative gold corner brackets with hover brightening (pseudo-elements)
+- `.pattern-grid-animated` — Slowly shifting gold grid pattern background (30s infinite)
+- `.ambient-orb` + `.ambient-orb-float` — Floating blurred gold orbs (20s infinite float animation)
+- `@keyframes goldGlowPulse` — Glow pulse for gold-glow-line
+- `@keyframes ambientFloat` — Float animation for ambient orbs
+- `@keyframes gridShift` — Grid position shift for animated pattern
+
+**2. Applied Ambient Effects to All Pages**
+- **All 5 inner pages**: `.pattern-grid-animated` added to hero section backgrounds
+- **AboutPage**: 2 ambient floating orbs in Our Story section, gold-glow-line dividers between Mission, Founder sections
+- **ServicesPage**: Ambient orb in Flagship section, gold-glow-line divider before Stats section
+- **PortfolioPage**: Ambient orb in Featured Project section
+- **ContactPage**: Animated grid pattern in hero
+
+### Quality Verification
+- ESLint: Zero errors
+- SWC/Turbopack: Clean compilation
+- All 6 pages tested via agent-browser: zero console errors
+- New features verified: Stats section renders with CircularProgress, filter tabs show count badges, parallax heroes animate
+- No Next.js dev overlay issue badges
+
+### Recommended Next Steps
+1. Add real image assets to portfolio lightbox (replace gradient placeholders)
+2. Implement email sending on contact form (Resend API)
+3. Add structured data (JSON-LD) for SEO
+4. Create blog/news section
+5. Add dark/light mode refinement and testing
+6. Implement WebSocket real-time chat
+7. Add more ambient particle effects to homepage
+8. Create admin dashboard for content management

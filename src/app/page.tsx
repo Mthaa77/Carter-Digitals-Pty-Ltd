@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useCallback, useState, useSyncExternalStore } from "react";
+import { useEffect, useCallback, useState, useRef, useSyncExternalStore } from "react";
 import { AnimatePresence, motion, useMotionValue, useSpring } from "framer-motion";
 import { useNavigation } from "@/lib/navigation";
 import { Navbar } from "@/components/layout/Navbar";
@@ -16,6 +16,7 @@ import { ScrollNavDots } from "@/components/shared/ScrollNavDots";
 import { LiveChatIndicator } from "@/components/shared/LiveChatIndicator";
 import { LiveStatus } from "@/components/shared/LiveStatus";
 import { toast } from "sonner";
+import { PageTransitionSkeleton } from "@/components/shared/PageTransitionSkeleton";
 import HomePage from "@/components/pages/HomePage";
 import AboutPage from "@/components/pages/AboutPage";
 import ServicesPage from "@/components/pages/ServicesPage";
@@ -62,6 +63,8 @@ export default function Page() {
 
   const hasLoaded = loadedFromStorage || loadingComplete;
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [showSkeleton, setShowSkeleton] = useState(false);
+  const initialLoadRef = useRef(true);
 
   // ─── Page transition progress bar ───
   const progressValue = useMotionValue(0);
@@ -73,6 +76,10 @@ export default function Page() {
 
   const startTransitionProgress = useCallback(() => {
     setIsTransitioning(true);
+    // Show skeleton only on non-initial page transitions
+    if (!initialLoadRef.current) {
+      setShowSkeleton(true);
+    }
     progressValue.set(0);
     // Animate to 70% quickly
     requestAnimationFrame(() => {
@@ -82,9 +89,10 @@ export default function Page() {
     setTimeout(() => {
       progressValue.set(100);
     }, 200);
-    // Hide bar after completion
+    // Hide skeleton and bar after completion
     setTimeout(() => {
       setIsTransitioning(false);
+      setShowSkeleton(false);
       progressValue.set(0);
     }, 500);
   }, [progressValue]);
@@ -155,6 +163,14 @@ export default function Page() {
 
   const PageComponent = pageComponents[currentPage];
 
+  // Mark initial load as complete after first page mount
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      initialLoadRef.current = false;
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
   // Update hash on navigation + smooth scroll to top
   useEffect(() => {
     if (currentPage !== "home") {
@@ -187,6 +203,17 @@ export default function Page() {
       <Navbar />
       <main className="flex-1">
         <AnimatePresence mode="wait">
+          {showSkeleton && (
+            <motion.div
+              key="skeleton"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.15, ease: [0.25, 0.4, 0.25, 1] }}
+            >
+              <PageTransitionSkeleton />
+            </motion.div>
+          )}
           <motion.div
             key={currentPage}
             variants={pageVariants}

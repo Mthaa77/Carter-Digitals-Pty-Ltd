@@ -23,6 +23,7 @@ import {
   StaggerItem,
 } from "@/components/shared/AnimatedSection";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { ParallaxSection } from "@/components/shared/ParallaxSection";
 import { useNavigation } from "@/lib/navigation";
 
 /* ──────────────────────── SME packages ─────────────────────────── */
@@ -281,47 +282,88 @@ export default function PackagesPage() {
       {/* ───────────────────── 1. PAGE HERO ───────────────────── */}
       <section className="relative py-28 md:py-40 bg-[#0A0A0B]">
         {/* Background */}
-        <div className="absolute inset-0 bg-grid" />
+        <div className="absolute inset-0 bg-grid pattern-grid-animated" />
+
+        {/* ── Parallax background layers ── */}
+        {/* Large gold glow orb — speed 0.15 */}
+        <ParallaxSection speed={0.15} direction="up" className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[rgba(212,168,83,0.06)] rounded-full blur-[120px]" />
+          <div className="absolute top-[55%] left-[15%] w-[300px] h-[300px] bg-[rgba(212,168,83,0.04)] rounded-full blur-[100px]" />
+        </ParallaxSection>
+
+        {/* Small floating geometric shapes — speed 0.08 */}
+        <ParallaxSection speed={0.08} direction="up" className="absolute inset-0 pointer-events-none">
+          <motion.div
+            animate={{ rotate: 45 }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[20%] left-[10%] w-8 h-8 rounded-lg border border-[rgba(212,168,83,0.1)] bg-[rgba(212,168,83,0.03)]"
+          />
+          <motion.div
+            animate={{ rotate: -30 }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[25%] right-[8%] w-6 h-6 rounded-full border border-[rgba(212,168,83,0.08)] bg-[rgba(212,168,83,0.02)]"
+          />
+          <motion.div
+            animate={{ rotate: 60 }}
+            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-[30%] left-[22%] w-10 h-10 rounded-sm border border-[rgba(212,168,83,0.06)] bg-[rgba(212,168,83,0.02)]"
+          />
+          <motion.div
+            animate={{ rotate: -45 }}
+            transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-[20%] right-[12%] w-5 h-5 rounded border border-[rgba(212,168,83,0.1)] bg-[rgba(212,168,83,0.03)]"
+          />
+        </ParallaxSection>
+
+        {/* Grid/dot pattern overlay — speed 0.05 */}
+        <ParallaxSection speed={0.05} direction="up" className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 bg-dots opacity-20" />
+        </ParallaxSection>
+
+        {/* Gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0B] via-transparent to-[#0A0A0B]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[rgba(212,168,83,0.03)] via-transparent to-[rgba(212,168,83,0.02)]" />
 
-        {/* Radial glow */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[rgba(212,168,83,0.04)] rounded-full blur-[120px] pointer-events-none" />
+        {/* Content with subtle parallax — speed 0.03 */}
+        <ParallaxSection speed={0.03} direction="up">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <AnimatedSection delay={0.1} direction="up">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[rgba(212,168,83,0.08)] border border-[rgba(212,168,83,0.15)] mb-8">
+                <CircleDollarSign className="w-4 h-4 text-[#D4A853]" />
+                <span className="text-sm font-medium text-[#D4A853]">
+                  Transparent Pricing
+                </span>
+              </div>
+            </AnimatedSection>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <AnimatedSection delay={0.1} direction="up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[rgba(212,168,83,0.08)] border border-[rgba(212,168,83,0.15)] mb-8">
-              <CircleDollarSign className="w-4 h-4 text-[#D4A853]" />
-              <span className="text-sm font-medium text-[#D4A853]">
-                Transparent Pricing
-              </span>
-            </div>
-          </AnimatedSection>
+            <AnimatedSection delay={0.2} direction="up">
+              <h1
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight font-display"
+              >
+                <span className="text-gradient-gold">Packages & Pricing</span>
+              </h1>
+            </AnimatedSection>
 
-          <AnimatedSection delay={0.2} direction="up">
-            <h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight font-display"
-            >
-              <span className="text-gradient-gold">Packages & Pricing</span>
-            </h1>
-          </AnimatedSection>
+            <AnimatedSection delay={0.35} direction="up">
+              <p
+                className="mt-4 text-xl md:text-2xl text-[rgba(245,245,245,0.5)] font-medium font-display"
+              >
+                Pick Your Package. Go Live in 5-7 Days.
+              </p>
+            </AnimatedSection>
 
-          <AnimatedSection delay={0.35} direction="up">
-            <p
-              className="mt-4 text-xl md:text-2xl text-[rgba(245,245,245,0.5)] font-medium font-display"
-            >
-              Pick Your Package. Go Live in 5-7 Days.
-            </p>
-          </AnimatedSection>
+            <AnimatedSection delay={0.5} direction="up">
+              <p className="mt-6 text-base md:text-lg text-[rgba(245,245,245,0.6)] max-w-2xl mx-auto leading-relaxed">
+                No lock-in contracts. No hidden fees. All packages include free
+                Year 1 hosting and domain. Simple, honest pricing built for South
+                African businesses and institutions.
+              </p>
+            </AnimatedSection>
+          </div>
+        </ParallaxSection>
 
-          <AnimatedSection delay={0.5} direction="up">
-            <p className="mt-6 text-base md:text-lg text-[rgba(245,245,245,0.6)] max-w-2xl mx-auto leading-relaxed">
-              No lock-in contracts. No hidden fees. All packages include free 
-              Year 1 hosting and domain. Simple, honest pricing built for South 
-              African businesses and institutions.
-            </p>
-          </AnimatedSection>
-        </div>
+        {/* Gold gradient fade at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0A0A0B] via-[rgba(10,10,11,0.6)] to-transparent pointer-events-none" />
       </section>
 
       <div className="h-px section-divider-gold" />

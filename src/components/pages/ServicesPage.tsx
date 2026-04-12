@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import {
   ArrowRight,
   Globe,
@@ -52,6 +53,7 @@ import {
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { ParallaxSection } from "@/components/shared/ParallaxSection";
 import { TiltCard } from "@/components/shared/TiltCard";
+import { CircularProgress } from "@/components/shared/CircularProgress";
 import { useNavigation } from "@/lib/navigation";
 import { toast } from "sonner";
 
@@ -241,76 +243,118 @@ export default function ServicesPage() {
       {/* ----------------- 1. PAGE HERO ----------------- */}
       <section className="relative py-24 md:py-36 bg-[#0A0A0B]">
         {/* Background grid */}
-        <div className="absolute inset-0 bg-grid" />
+        <div className="absolute inset-0 bg-grid pattern-grid-animated" />
+
+        {/* ── Parallax background layers ── */}
+        {/* Large gold glow orb — speed 0.15 */}
+        <ParallaxSection speed={0.15} direction="up" className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[rgba(212,168,83,0.06)] rounded-full blur-[120px]" />
+          <div className="absolute top-[60%] left-[20%] w-[300px] h-[300px] bg-[rgba(212,168,83,0.04)] rounded-full blur-[100px]" />
+        </ParallaxSection>
+
+        {/* Small floating geometric shapes — speed 0.08 */}
+        <ParallaxSection speed={0.08} direction="up" className="absolute inset-0 pointer-events-none">
+          <motion.div
+            animate={{ rotate: 45 }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[25%] left-[8%] w-8 h-8 rounded-lg border border-[rgba(212,168,83,0.1)] bg-[rgba(212,168,83,0.03)]"
+          />
+          <motion.div
+            animate={{ rotate: -30 }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[20%] right-[12%] w-6 h-6 rounded-full border border-[rgba(212,168,83,0.08)] bg-[rgba(212,168,83,0.02)]"
+          />
+          <motion.div
+            animate={{ rotate: 60 }}
+            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-[30%] left-[25%] w-10 h-10 rounded-sm border border-[rgba(212,168,83,0.06)] bg-[rgba(212,168,83,0.02)]"
+          />
+          <motion.div
+            animate={{ rotate: -45 }}
+            transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-[25%] right-[8%] w-5 h-5 rounded border border-[rgba(212,168,83,0.1)] bg-[rgba(212,168,83,0.03)]"
+          />
+        </ParallaxSection>
+
+        {/* Grid/dot pattern overlay — speed 0.05 */}
+        <ParallaxSection speed={0.05} direction="up" className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 bg-dots opacity-20" />
+        </ParallaxSection>
+
+        {/* Gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0B] via-transparent to-[#0A0A0B]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[rgba(212,168,83,0.03)] via-transparent to-[rgba(212,168,83,0.02)]" />
 
-        {/* Radial glow */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[rgba(212,168,83,0.04)] rounded-full blur-[120px] pointer-events-none" />
+        {/* Content with subtle parallax — speed 0.03 */}
+        <ParallaxSection speed={0.03} direction="up">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <AnimatedSection delay={0.1} direction="up">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[rgba(212,168,83,0.08)] border border-[rgba(212,168,83,0.15)] mb-8">
+                <Zap className="w-4 h-4 text-[#D4A853]" />
+                <span className="text-sm font-medium text-[#D4A853]">
+                  What We Deliver
+                </span>
+              </div>
+            </AnimatedSection>
 
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <AnimatedSection delay={0.1} direction="up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[rgba(212,168,83,0.08)] border border-[rgba(212,168,83,0.15)] mb-8">
-              <Zap className="w-4 h-4 text-[#D4A853]" />
-              <span className="text-sm font-medium text-[#D4A853]">
-                What We Deliver
-              </span>
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.2} direction="up">
-            <h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight" font-display
-            >
-              <span className="text-[#F5F5F5]">Our </span>
-              <span className="text-gradient-gold">Services</span>
-            </h1>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.35} direction="up">
-            <p
-              className="mt-4 text-xl md:text-2xl font-medium text-[rgba(245,245,245,0.5)] tracking-wide font-display"
-            >
-              From a Single Page to a Full Platform
-            </p>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.5} direction="up">
-            <p className="mt-6 text-base md:text-lg text-[rgba(245,245,245,0.55)] max-w-2xl mx-auto leading-relaxed">
-              We design and deliver production-ready digital infrastructure --
-              from high-performance websites to AI-powered business systems.
-              Everything you need to compete, grow, and lead in the digital age.
-            </p>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.65} direction="up">
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                onClick={() => handleNavClick("contact")}
-                size="lg"
-                className="bg-gradient-to-r from-[#D4A853] to-[#B8922F] hover:from-[#E8C97A] hover:to-[#D4A853] text-[#0A0A0B] font-semibold px-8 py-6 text-base rounded-xl shadow-lg shadow-[rgba(212,168,83,0.25)] hover:shadow-[rgba(212,168,83,0.35)] transition-all duration-300 group"
+            <AnimatedSection delay={0.2} direction="up">
+              <h1
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight font-display"
               >
-                Start Your Project
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button
-                onClick={() => handleNavClick("packages")}
-                size="lg"
-                variant="outline"
-                className="border-[rgba(255,255,255,0.15)] bg-transparent hover:bg-white/5 text-white font-semibold px-8 py-6 text-base rounded-xl transition-all duration-300 group"
+                <span className="text-[#F5F5F5]">Our </span>
+                <span className="text-gradient-gold">Services</span>
+              </h1>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.35} direction="up">
+              <p
+                className="mt-4 text-xl md:text-2xl font-medium text-[rgba(245,245,245,0.5)] tracking-wide font-display"
               >
-                View Packages
-                <ChevronRight className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </div>
-          </AnimatedSection>
-        </div>
+                From a Single Page to a Full Platform
+              </p>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.5} direction="up">
+              <p className="mt-6 text-base md:text-lg text-[rgba(245,245,245,0.55)] max-w-2xl mx-auto leading-relaxed">
+                We design and deliver production-ready digital infrastructure --
+                from high-performance websites to AI-powered business systems.
+                Everything you need to compete, grow, and lead in the digital age.
+              </p>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.65} direction="up">
+              <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button
+                  onClick={() => handleNavClick("contact")}
+                  size="lg"
+                  className="bg-gradient-to-r from-[#D4A853] to-[#B8922F] hover:from-[#E8C97A] hover:to-[#D4A853] text-[#0A0A0B] font-semibold px-8 py-6 text-base rounded-xl shadow-lg shadow-[rgba(212,168,83,0.25)] hover:shadow-[rgba(212,168,83,0.35)] transition-all duration-300 group"
+                >
+                  Start Your Project
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                <Button
+                  onClick={() => handleNavClick("packages")}
+                  size="lg"
+                  variant="outline"
+                  className="border-[rgba(255,255,255,0.15)] bg-transparent hover:bg-white/5 text-white font-semibold px-8 py-6 text-base rounded-xl transition-all duration-300 group"
+                >
+                  View Packages
+                  <ChevronRight className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </div>
+            </AnimatedSection>
+          </div>
+        </ParallaxSection>
+
+        {/* Gold gradient fade at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0A0A0B] via-[rgba(10,10,11,0.6)] to-transparent pointer-events-none" />
       </section>
 
       {/* ---------- 2. FLAGSHIP SERVICE -- WEBSITE DEV ---------- */}
       <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint grain-texture">
         <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
+        {/* Ambient orbs */}
+        <div className="ambient-orb ambient-orb-float w-[250px] h-[250px] bg-[rgba(212,168,83,0.03)] top-[20%] right-[-5%]" style={{animationDelay: '3s'}} />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection direction="up" delay={0.1}>
             <div className="relative rounded-3xl bg-[#131316] border-2 border-[rgba(212,168,83,0.25)] overflow-hidden">
@@ -447,6 +491,150 @@ export default function ServicesPage() {
           </StaggerContainer>
         </div>
       </section>
+
+      {/* Gold glow accent divider */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3"><div className="gold-glow-line mx-auto max-w-xs rounded-full" /></div>
+
+      {/* ----------------- 3.5 ANIMATED STATS SECTION ----------------- */}
+      <AnimatedSection direction="up">
+        <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
+          <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
+          {/* Gold radial glow orbs behind section */}
+          <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-[rgba(212,168,83,0.05)] rounded-full blur-[140px] pointer-events-none" />
+          <div className="absolute bottom-1/4 right-1/4 w-[350px] h-[350px] bg-[rgba(212,168,83,0.04)] rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[100px] pointer-events-none" />
+
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <SectionHeading
+              label="By The Numbers"
+              title="The Numbers Behind Our"
+              titleHighlight="Impact"
+              description="Real metrics from real projects. Hard numbers that reflect our commitment to quality, speed, and client satisfaction."
+              align="center"
+            />
+
+            <StaggerContainer
+              className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
+              staggerDelay={0.15}
+            >
+              <StaggerItem>
+                <div className="flex flex-col items-center">
+                  <CircularProgress
+                    value={100}
+                    label="Projects Delivered"
+                    suffix="+"
+                    icon={
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#D4A853]">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                      </svg>
+                    }
+                    size={130}
+                    strokeWidth={5}
+                    duration={2000}
+                    color="#D4A853"
+                  />
+                  <div className="mt-3">
+                    <p className="text-2xl md:text-3xl font-extrabold text-gradient-gold font-display text-center">
+                      150+
+                    </p>
+                    <p className="text-sm text-[rgba(245,245,245,0.5)] font-medium text-center mt-1">
+                      Projects Delivered
+                    </p>
+                  </div>
+                </div>
+              </StaggerItem>
+
+              <StaggerItem>
+                <div className="flex flex-col items-center">
+                  <CircularProgress
+                    value={98}
+                    label="Client Satisfaction"
+                    suffix="%"
+                    icon={
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#D4A853]">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                      </svg>
+                    }
+                    size={130}
+                    strokeWidth={5}
+                    duration={2200}
+                    color="#E8C97A"
+                  />
+                  <div className="mt-3">
+                    <p className="text-2xl md:text-3xl font-extrabold text-gradient-gold font-display text-center">
+                      98%
+                    </p>
+                    <p className="text-sm text-[rgba(245,245,245,0.5)] font-medium text-center mt-1">
+                      Client Satisfaction
+                    </p>
+                  </div>
+                </div>
+              </StaggerItem>
+
+              <StaggerItem>
+                <div className="flex flex-col items-center">
+                  <CircularProgress
+                    value={90}
+                    label="Active Retainers"
+                    suffix="+"
+                    icon={
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#D4A853]">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                      </svg>
+                    }
+                    size={130}
+                    strokeWidth={5}
+                    duration={2000}
+                    color="#D4A853"
+                  />
+                  <div className="mt-3">
+                    <p className="text-2xl md:text-3xl font-extrabold text-gradient-gold font-display text-center">
+                      35+
+                    </p>
+                    <p className="text-sm text-[rgba(245,245,245,0.5)] font-medium text-center mt-1">
+                      Active Retainers
+                    </p>
+                  </div>
+                </div>
+              </StaggerItem>
+
+              <StaggerItem>
+                <div className="flex flex-col items-center">
+                  <CircularProgress
+                    value={85}
+                    label="Average Delivery"
+                    suffix=""
+                    icon={
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#D4A853]">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                      </svg>
+                    }
+                    size={130}
+                    strokeWidth={5}
+                    duration={2000}
+                    color="#E8C97A"
+                  />
+                  <div className="mt-3">
+                    <p className="text-2xl md:text-3xl font-extrabold text-gradient-gold font-display text-center">
+                      5-7
+                    </p>
+                    <p className="text-sm text-[rgba(245,245,245,0.5)] font-medium text-center mt-1">
+                      Day Average Delivery
+                    </p>
+                  </div>
+                </div>
+              </StaggerItem>
+            </StaggerContainer>
+          </div>
+
+          <div className="absolute bottom-0 left-0 right-0 h-px section-divider-gold" />
+        </section>
+      </AnimatedSection>
 
       {/* ----------------- 4. PROCESS SECTION ----------------- */}
       <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">

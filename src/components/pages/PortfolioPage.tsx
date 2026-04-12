@@ -38,6 +38,7 @@ import {
 } from "@/components/shared/AnimatedSection";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { useNavigation } from "@/lib/navigation";
+import { ParallaxSection } from "@/components/shared/ParallaxSection";
 import ImageLightbox from "@/components/shared/ImageLightbox";
 import type { LightboxImage } from "@/components/shared/ImageLightbox";
 
@@ -546,47 +547,88 @@ export default function PortfolioPage() {
       {/* ───────────────────── 1. PAGE HERO ───────────────────── */}
       <section className="relative py-28 md:py-40 bg-[#0A0A0B]">
         {/* Background */}
-        <div className="absolute inset-0 bg-grid" />
+        <div className="absolute inset-0 bg-grid pattern-grid-animated" />
+
+        {/* ── Parallax background layers ── */}
+        {/* Large gold glow orb — speed 0.15 */}
+        <ParallaxSection speed={0.15} direction="up" className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[rgba(212,168,83,0.06)] rounded-full blur-[120px]" />
+          <div className="absolute top-[50%] right-[15%] w-[250px] h-[250px] bg-[rgba(212,168,83,0.04)] rounded-full blur-[80px]" />
+        </ParallaxSection>
+
+        {/* Small floating geometric shapes — speed 0.08 */}
+        <ParallaxSection speed={0.08} direction="up" className="absolute inset-0 pointer-events-none">
+          <motion.div
+            animate={{ rotate: 45 }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[22%] left-[12%] w-8 h-8 rounded-lg border border-[rgba(212,168,83,0.1)] bg-[rgba(212,168,83,0.03)]"
+          />
+          <motion.div
+            animate={{ rotate: -30 }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="absolute top-[18%] right-[10%] w-6 h-6 rounded-full border border-[rgba(212,168,83,0.08)] bg-[rgba(212,168,83,0.02)]"
+          />
+          <motion.div
+            animate={{ rotate: 60 }}
+            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-[28%] left-[18%] w-10 h-10 rounded-sm border border-[rgba(212,168,83,0.06)] bg-[rgba(212,168,83,0.02)]"
+          />
+          <motion.div
+            animate={{ rotate: -45 }}
+            transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-[22%] right-[14%] w-5 h-5 rounded border border-[rgba(212,168,83,0.1)] bg-[rgba(212,168,83,0.03)]"
+          />
+        </ParallaxSection>
+
+        {/* Grid/dot pattern overlay — speed 0.05 */}
+        <ParallaxSection speed={0.05} direction="up" className="absolute inset-0 pointer-events-none">
+          <div className="absolute inset-0 bg-dots opacity-20" />
+        </ParallaxSection>
+
+        {/* Gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0B] via-transparent to-[#0A0A0B]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[rgba(212,168,83,0.03)] via-transparent to-[rgba(212,168,83,0.02)]" />
 
-        {/* Radial glow */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[rgba(212,168,83,0.04)] rounded-full blur-[120px] pointer-events-none" />
+        {/* Content with subtle parallax — speed 0.03 */}
+        <ParallaxSection speed={0.03} direction="up">
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <AnimatedSection delay={0.1} direction="up">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[rgba(212,168,83,0.08)] border border-[rgba(212,168,83,0.15)] mb-8">
+                <Sparkles className="w-4 h-4 text-[#D4A853]" />
+                <span className="text-sm font-medium text-[#D4A853]">
+                  Case Studies & Work
+                </span>
+              </div>
+            </AnimatedSection>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <AnimatedSection delay={0.1} direction="up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[rgba(212,168,83,0.08)] border border-[rgba(212,168,83,0.15)] mb-8">
-              <Sparkles className="w-4 h-4 text-[#D4A853]" />
-              <span className="text-sm font-medium text-[#D4A853]">
-                Case Studies & Work
-              </span>
-            </div>
-          </AnimatedSection>
+            <AnimatedSection delay={0.2} direction="up">
+              <h1
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight font-display"
+              >
+                <span className="text-gradient-gold">Our Work</span>
+              </h1>
+            </AnimatedSection>
 
-          <AnimatedSection delay={0.2} direction="up">
-            <h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight font-display"
-            >
-              <span className="text-gradient-gold">Our Work</span>
-            </h1>
-          </AnimatedSection>
+            <AnimatedSection delay={0.35} direction="up">
+              <p
+                className="mt-4 text-xl md:text-2xl text-[rgba(245,245,245,0.5)] font-medium font-display"
+              >
+                Results That Speak Louder Than Pitches
+              </p>
+            </AnimatedSection>
 
-          <AnimatedSection delay={0.35} direction="up">
-            <p
-              className="mt-4 text-xl md:text-2xl text-[rgba(245,245,245,0.5)] font-medium font-display"
-            >
-              Results That Speak Louder Than Pitches
-            </p>
-          </AnimatedSection>
+            <AnimatedSection delay={0.5} direction="up">
+              <p className="mt-6 text-base md:text-lg text-[rgba(245,245,245,0.6)] max-w-2xl mx-auto leading-relaxed">
+                We don&apos;t just talk about what we can do — we show you. Browse our portfolio of real-world 
+                projects built for South African schools, businesses, and organisations that needed 
+                digital infrastructure that actually works.
+              </p>
+            </AnimatedSection>
+          </div>
+        </ParallaxSection>
 
-          <AnimatedSection delay={0.5} direction="up">
-            <p className="mt-6 text-base md:text-lg text-[rgba(245,245,245,0.6)] max-w-2xl mx-auto leading-relaxed">
-              We don&apos;t just talk about what we can do — we show you. Browse our portfolio of real-world 
-              projects built for South African schools, businesses, and organisations that needed 
-              digital infrastructure that actually works.
-            </p>
-          </AnimatedSection>
-        </div>
+        {/* Gold gradient fade at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0A0A0B] via-[rgba(10,10,11,0.6)] to-transparent pointer-events-none" />
       </section>
 
       <div className="section-divider-gold" />
@@ -596,6 +638,8 @@ export default function PortfolioPage() {
         {/* Gold radial glow orb behind featured card */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gold-gradient-radial pointer-events-none z-0" />
         <div className="absolute top-1/3 left-1/4 w-[400px] h-[300px] bg-[rgba(212,168,83,0.05)] rounded-full blur-[100px] pointer-events-none z-0" />
+        {/* Ambient orbs */}
+        <div className="ambient-orb ambient-orb-float w-[300px] h-[300px] bg-[rgba(212,168,83,0.03)] top-[15%] left-[-5%]" style={{animationDelay: '2s'}} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection direction="up">
@@ -746,86 +790,109 @@ export default function PortfolioPage() {
           {/* Filter tabs */}
           <AnimatedSection delay={0.2} direction="up">
             <Tabs defaultValue="all" className="w-full">
-              <div className="flex justify-center mb-10">
-                <TabsList className="bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)] rounded-xl p-1 h-auto">
-                  {categoryTabs.map((tab) => (
-                    <TabsTrigger
-                      key={tab.key}
-                      value={tab.key}
-                      className="data-[state=active]:bg-[rgba(212,168,83,0.1)] data-[state=active]:border-[rgba(212,168,83,0.3)] data-[state=active]:text-[#D4A853] text-[rgba(245,245,245,0.5)] px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
-                    >
-                      {tab.label}
-                    </TabsTrigger>
-                  ))}
+              <div className="flex justify-center mb-10 relative">
+                <TabsList className="bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)] rounded-xl p-1 h-auto relative">
+                  {categoryTabs.map((tab) => {
+                    const count = tab.key === "all"
+                      ? projectCards.length
+                      : projectCards.filter((p) => p.categoryKey === tab.key).length;
+                    return (
+                      <TabsTrigger
+                        key={tab.key}
+                        value={tab.key}
+                        className="data-[state=active]:bg-[rgba(212,168,83,0.1)] data-[state=active]:border-[rgba(212,168,83,0.3)] data-[state=active]:text-[#D4A853] text-[rgba(245,245,245,0.5)] px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 relative"
+                      >
+                        <span>{tab.label}</span>
+                        <span className="ml-1.5 inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 rounded-full text-[10px] font-bold bg-[rgba(212,168,83,0.08)] text-[rgba(212,168,83,0.7)] data-[state=active]:bg-[rgba(212,168,83,0.2)] data-[state=active]:text-[#D4A853] transition-colors duration-200">
+                          {count}
+                        </span>
+                      </TabsTrigger>
+                    );
+                  })}
+                  {/* Animated gold underline indicator */}
+                  <motion.div
+                    layoutId="filterUnderline"
+                    className="absolute bottom-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4A853] to-transparent rounded-full"
+                    transition={{ type: "spring", stiffness: 300, damping: 30, duration: 0.2 }}
+                    style={{ width: "60px" }}
+                  />
                 </TabsList>
               </div>
 
-              {/* Tab contents */}
+              {/* Tab contents with animated filter */}
               {categoryTabs.map((tab) => (
                 <TabsContent key={tab.key} value={tab.key} className="mt-0">
-                  <StaggerContainer
+                  <motion.div
+                    layout
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-                    staggerDelay={0.08}
-                    once={false}
                   >
-                    {projectCards
-                      .filter(
-                        (p) =>
-                          tab.key === "all" || p.categoryKey === tab.key
-                      )
-                      .map((project) => (
-                        <StaggerItem key={project.name}>
-                          <div
-                            className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] overflow-hidden card-hover-gold hover-lift cursor-pointer hover:shadow-[0_0_30px_rgba(212,168,83,0.08)] transition-shadow duration-300"
-                            onClick={() => setSelectedProject(project)}
+                    <AnimatePresence mode="popLayout">
+                      {projectCards
+                        .filter(
+                          (p) =>
+                            tab.key === "all" || p.categoryKey === tab.key
+                        )
+                        .map((project) => (
+                          <motion.div
+                            key={project.name}
+                            layout
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.95 }}
+                            transition={{ duration: 0.2, ease: [0.25, 0.4, 0.25, 1] }}
                           >
-                            {/* Gold shimmer overlay on hover */}
-                            <div className="absolute inset-0 z-20 animate-shimmer-gold opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-
-                            {/* Gradient placeholder header */}
                             <div
-                              className={`relative h-40 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}
+                              className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] overflow-hidden card-hover-gold hover-lift cursor-pointer hover:shadow-[0_0_30px_rgba(212,168,83,0.08)] transition-shadow duration-300"
+                              onClick={() => setSelectedProject(project)}
                             >
-                              <project.icon className="w-12 h-12 text-[rgba(212,168,83,0.25)] group-hover:text-[rgba(212,168,83,0.4)] transition-colors duration-300" />
-                              {/* Subtle gradient overlay for depth */}
-                              <div className="absolute inset-0 bg-gradient-to-t from-[#131316] via-[rgba(0,0,0,0.1)] to-transparent" />
-                              {/* Category badge with gold-tinted background */}
-                              <div className="absolute top-3 right-3">
-                                <Badge className="bg-[rgba(212,168,83,0.12)] backdrop-blur-sm text-[#E8C97A] border-[rgba(212,168,83,0.2)] text-[10px] font-medium px-2.5 py-0.5">
-                                  {project.category}
-                                </Badge>
-                              </div>
-                            </div>
+                              {/* Gold shimmer overlay on hover */}
+                              <div className="absolute inset-0 z-20 animate-shimmer-gold opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-                            {/* Content */}
-                            <div className="p-5">
-                              <h3
-                                className="text-base font-semibold text-white mb-2 group-hover:text-[#E8C97A] transition-colors duration-300 font-display"
+                              {/* Gradient placeholder header */}
+                              <div
+                                className={`relative h-40 bg-gradient-to-br ${project.gradient} flex items-center justify-center`}
                               >
-                                {project.name}
-                              </h3>
-                              <p className="text-sm text-[rgba(245,245,245,0.5)] leading-relaxed mb-4">
-                                {project.description}
-                              </p>
-                              {/* Tech badges */}
-                              <div className="flex flex-wrap gap-1.5">
-                                {project.tech.map((t) => (
-                                  <span
-                                    key={t}
-                                    className="text-[10px] font-medium px-2 py-1 rounded-md bg-[rgba(255,255,255,0.04)] text-[rgba(245,245,245,0.4)] border border-[rgba(255,255,255,0.05)]"
-                                  >
-                                    {t}
-                                  </span>
-                                ))}
+                                <project.icon className="w-12 h-12 text-[rgba(212,168,83,0.25)] group-hover:text-[rgba(212,168,83,0.4)] transition-colors duration-300" />
+                                {/* Subtle gradient overlay for depth */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#131316] via-[rgba(0,0,0,0.1)] to-transparent" />
+                                {/* Category badge with gold-tinted background */}
+                                <div className="absolute top-3 right-3">
+                                  <Badge className="bg-[rgba(212,168,83,0.12)] backdrop-blur-sm text-[#E8C97A] border-[rgba(212,168,83,0.2)] text-[10px] font-medium px-2.5 py-0.5">
+                                    {project.category}
+                                  </Badge>
+                                </div>
                               </div>
-                            </div>
 
-                            {/* Hover gold top accent */}
-                            <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4A853] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                          </div>
-                        </StaggerItem>
-                      ))}
-                  </StaggerContainer>
+                              {/* Content */}
+                              <div className="p-5">
+                                <h3
+                                  className="text-base font-semibold text-white mb-2 group-hover:text-[#E8C97A] transition-colors duration-300 font-display"
+                                >
+                                  {project.name}
+                                </h3>
+                                <p className="text-sm text-[rgba(245,245,245,0.5)] leading-relaxed mb-4">
+                                  {project.description}
+                                </p>
+                                {/* Tech badges */}
+                                <div className="flex flex-wrap gap-1.5">
+                                  {project.tech.map((t) => (
+                                    <span
+                                      key={t}
+                                      className="text-[10px] font-medium px-2 py-1 rounded-md bg-[rgba(255,255,255,0.04)] text-[rgba(245,245,245,0.4)] border border-[rgba(255,255,255,0.05)]"
+                                    >
+                                      {t}
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+
+                              {/* Hover gold top accent */}
+                              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4A853] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            </div>
+                          </motion.div>
+                        ))}
+                    </AnimatePresence>
+                  </motion.div>
                 </TabsContent>
               ))}
             </Tabs>
