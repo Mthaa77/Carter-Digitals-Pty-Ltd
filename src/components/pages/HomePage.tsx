@@ -575,7 +575,7 @@ export default function HomePage() {
                   <div className="absolute -inset-8 bg-[rgba(212,168,83,0.06)] rounded-full blur-[80px] pointer-events-none" />
                   <div className="relative hero-logo-frame animate-logo-glow rounded-3xl p-6 md:p-8">
                     <div className="relative w-[220px] h-[220px] md:w-[300px] md:h-[300px] rounded-2xl overflow-hidden">
-                      <Image src="/images/carter-digitals-logo.jpg" alt="Carter Digitals Logo" fill className="object-contain" unoptimized />
+                      <Image src="/images/carter-digitals-logo.png" alt="Carter Digitals Logo" fill className="object-contain" priority />
                     </div>
                   </div>
                   {/* Decorative gold accent line below logo */}

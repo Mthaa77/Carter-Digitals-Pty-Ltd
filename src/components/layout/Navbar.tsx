@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Menu,
@@ -317,13 +318,8 @@ export function Navbar() {
               onClick={() => handleNavClick("home")}
               className="flex items-center gap-3 group relative"
             >
-              <div className="animate-pulse-glow relative w-10 h-10 rounded-xl bg-gradient-to-br from-[#D4A853] to-[#B8922F] flex items-center justify-center shadow-lg shadow-[rgba(212,168,83,0.2)] group-hover:shadow-[rgba(212,168,83,0.4)] transition-shadow duration-300">
-                <span
-                  className="text-[#0A0A0B] font-bold text-lg tracking-tight"
-                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                >
-                  C
-                </span>
+              <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-[rgba(212,168,83,0.2)] group-hover:shadow-[rgba(212,168,83,0.4)] transition-shadow duration-300">
+                <Image src="/images/carter-digitals-logo.png" alt="Carter Digitals" fill className="object-cover rounded-xl" />
                 {/* Gold shimmer on hover */}
                 <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-shimmer-gold pointer-events-none" />
               </div>
@@ -480,13 +476,8 @@ export function Navbar() {
                   onClick={() => handleNavClick("home")}
                   className="flex items-center gap-3 group"
                 >
-                  <div className="animate-pulse-glow relative w-10 h-10 rounded-xl bg-gradient-to-br from-[#D4A853] to-[#B8922F] flex items-center justify-center shadow-lg shadow-[rgba(212,168,83,0.2)]">
-                    <span
-                      className="text-[#0A0A0B] font-bold text-lg tracking-tight"
-                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                    >
-                      C
-                    </span>
+                  <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-lg shadow-[rgba(212,168,83,0.2)]">
+                    <Image src="/images/carter-digitals-logo.png" alt="Carter Digitals" fill className="object-cover rounded-xl" />
                   </div>
                   <div className="flex flex-col">
                     <span

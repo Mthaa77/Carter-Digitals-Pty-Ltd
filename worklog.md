@@ -1727,3 +1727,23 @@ Major website upgrade integrating company materials from uploaded documents (Com
 3. Add dark/light mode toggle refinement
 4. Create sitemap.xml and robots.txt for SEO
 5. Add blog/news section with CMS integration
+
+---
+Task ID: 7
+Agent: main
+Task: Replace logo in Hero section and add logo to Header navbar
+
+Work Log:
+- Copied uploaded logo file (3D_rendered_elements_202604011346.png, 2400x1792px, JPEG format) to /public/images/carter-digitals-logo.png
+- Updated Hero section in HomePage.tsx: replaced `/images/carter-digitals-logo.jpg` with `/images/carter-digitals-logo.png`, added `priority` prop for faster loading, removed `unoptimized` prop
+- Updated Navbar.tsx: added `Image` import from next/image
+- Replaced desktop header logo (gold square "C" letter icon) with actual logo image (10x10 rounded-xl with object-cover)
+- Replaced mobile drawer logo (gold square "C" letter icon) with actual logo image (same styling)
+- Both logo instances maintain gold shadow, shimmer hover effect, and rounded corners
+
+Stage Summary:
+- Official logo now displayed in both Hero section (large, 220x220/300x300px) and Navbar (40x40px icon)
+- ESLint: Zero errors
+- Dev server: Clean compilation, HTTP 200 responses
+- Files modified: src/components/pages/HomePage.tsx, src/components/layout/Navbar.tsx
+- File added: /public/images/carter-digitals-logo.png
