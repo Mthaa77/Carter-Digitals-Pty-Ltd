@@ -99,12 +99,7 @@ const engagementModels = [
     description: "Continuous optimisation on a predictable monthly basis. We become an extension of your team — iterating, improving, and scaling your digital presence.",
     bestFor: "Growing businesses needing regular updates, new features, and strategic guidance",
   },
-  {
-    icon: Rocket,
-    title: "Prototype-to-Production",
-    description: "Fully functional pilot before full-scale rollout. Test your concept in the real world, gather feedback, then scale with confidence.",
-    bestFor: "Innovators testing new digital products or internal systems",
-  },
+
 ];
 
 /* ──────────────────── credentials data ─────────────────────────── */
@@ -571,11 +566,20 @@ export default function AboutPage() {
                 {/* Bio */}
                 <div className="space-y-4 text-[rgba(245,245,245,0.6)] leading-[1.8] mb-8">
                   <p>
-                    Kabelo is a full-stack developer and enterprise cloud
-                    architect with deep expertise in building production-grade
-                    digital systems. His work spans the full spectrum — from
-                    high-performance websites to AI-augmented business
-                    applications deployed on Google Cloud Platform.
+                    Kabelo Kadiaka is the founder and director of Carter Digitals
+                    — a digital services studio rooted in Pretoria&apos;s
+                    Soshanguve and built to serve South Africa&apos;s
+                    forward-thinking institutions. With deep expertise spanning
+                    full-stack web development, enterprise cloud architecture on
+                    GCP, and AI-augmented systems engineering, Kabelo delivers
+                    enterprise-grade output at startup speed.
+                  </p>
+                  <p>
+                    Carter Digitals is named in tribute to a close friend who
+                    passed away in April 2021. The company exists as a living
+                    monument to that friendship — and every project delivered,
+                    every client served, and every line of code written honours
+                    that bond.
                   </p>
                   <p>
                     With hands-on experience in Next.js, React, Python/FastAPI,

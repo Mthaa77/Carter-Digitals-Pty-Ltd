@@ -110,7 +110,7 @@ const coreServices = [
   },
   {
     icon: Printer,
-    title: "Flyers, Posters & Print",
+    title: "Flyers, Posters & Print Media",
     description: "Event flyers, A5/A4 service posters, promotional banners.",
   },
   {

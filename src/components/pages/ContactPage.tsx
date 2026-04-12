@@ -93,6 +93,7 @@ const trustBadges = [
   { label: "100% Black-Owned", icon: CheckCircle },
   { label: "POPIA Compliant", icon: Shield },
   { label: "CSD Registered", icon: CheckCircle },
+  { label: "CIPC: 2025/907839/07", icon: CheckCircle },
 ];
 
 /* ──────────────────────── location info cards ──────────────────── */

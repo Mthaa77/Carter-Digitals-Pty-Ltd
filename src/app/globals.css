@@ -358,6 +358,100 @@
   animation-play-state: paused;
 }
 
+/* Reverse marquee infinite scroll (right-to-left) */
+@keyframes marqueeReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee-reverse {
+  animation: marqueeReverse 35s linear infinite;
+}
+
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Scroll down indicator bounce */
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+
+.animate-scroll-bounce {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+/* Gold particle field for hero */
+@keyframes particleDrift {
+  0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-120px) translateX(20px); opacity: 0; }
+}
+
+.animate-particle-drift {
+  animation: particleDrift 6s ease-in-out infinite;
+}
+
+/* Glass morphism frame for hero logo */
+.hero-logo-frame {
+  background: rgba(19, 19, 22, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 168, 83, 0.2);
+  box-shadow: 0 0 60px rgba(212, 168, 83, 0.08), 0 0 120px rgba(212, 168, 83, 0.04);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-logo-frame:hover {
+  border-color: rgba(212, 168, 83, 0.35);
+  box-shadow: 0 0 80px rgba(212, 168, 83, 0.12), 0 0 160px rgba(212, 168, 83, 0.06);
+}
+
+/* Gold glow pulse behind logo */
+@keyframes logoGlowPulse {
+  0%, 100% { box-shadow: 0 0 60px rgba(212, 168, 83, 0.08), 0 0 120px rgba(212, 168, 83, 0.04); }
+  50% { box-shadow: 0 0 80px rgba(212, 168, 83, 0.15), 0 0 160px rgba(212, 168, 83, 0.07); }
+}
+
+.animate-logo-glow {
+  animation: logoGlowPulse 4s ease-in-out infinite;
+}
+
+/* Ticker fade mask */
+.ticker-fade-mask {
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+/* Ticker vertical fade */
+.ticker-vertical-fade {
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+}
+
+/* Light mode overrides for new hero elements */
+.light .hero-logo-frame {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(184, 146, 47, 0.2);
+  box-shadow: 0 0 60px rgba(184, 146, 47, 0.06), 0 0 120px rgba(184, 146, 47, 0.03);
+}
+
+.light .hero-logo-frame:hover {
+  border-color: rgba(184, 146, 47, 0.35);
+  box-shadow: 0 0 80px rgba(184, 146, 47, 0.1), 0 0 160px rgba(184, 146, 47, 0.05);
+}
+
+.light .animate-logo-glow {
+  animation: logoGlowPulseLight 4s ease-in-out infinite;
+}
+
+@keyframes logoGlowPulseLight {
+  0%, 100% { box-shadow: 0 0 60px rgba(184, 146, 47, 0.05), 0 0 120px rgba(184, 146, 47, 0.02); }
+  50% { box-shadow: 0 0 80px rgba(184, 146, 47, 0.1), 0 0 160px rgba(184, 146, 47, 0.05); }
+}
+
 /* Custom cursor */
 .cursor-none * {
   cursor: none !important;

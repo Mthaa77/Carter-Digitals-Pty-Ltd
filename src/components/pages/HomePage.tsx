@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -37,6 +38,8 @@ import {
   Headphones,
   Target,
   Play,
+  Rocket,
+  ChevronDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -348,6 +351,68 @@ function ResultsBar({ label, percentage }: { label: string; percentage: number }
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   GOLD PARTICLES DATA
+   ═══════════════════════════════════════════════════════════════ */
+const goldParticles = Array.from({ length: 20 }, (_, i) => ({
+  id: i,
+  size: Math.random() * 3 + 1,
+  x: `${Math.random() * 100}%`,
+  y: `${Math.random() * 100}%`,
+  delay: Math.random() * 5,
+  duration: Math.random() * 4 + 4,
+  opacity: Math.random() * 0.5 + 0.2,
+}));
+
+/* ═══════════════════════════════════════════════════════════════
+   LIVE TICKER COMPONENT
+   ═══════════════════════════════════════════════════════════════ */
+const tickerRow1Items = [
+  "Rise & Shine Academy", "135% B-BBEE Recognition", "Mogale & Associates", "5-7 Day Delivery",
+  "Gateway Hospitality", "99.9% Uptime", "Soshanguve Secondary", "50+ Projects Delivered",
+  "Tshwane Municipality", "100% Black-Owned", "Nkosi Advisory", "POPIA Compliant",
+];
+const tickerRow2Items = [
+  "Next.js", "React", "CSD Registered", "Python/FastAPI", "PostgreSQL",
+  "Level 1 Contributor", "Vercel", "AI-Powered", "Google Cloud", "Tailwind CSS",
+  "POPIA Compliant", "TypeScript",
+];
+
+function LiveTicker() {
+  return (
+    <section className="relative w-full bg-[#0A0A0B] overflow-hidden ticker-vertical-fade" aria-label="Live achievements ticker">
+      {/* Subtle gold gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[rgba(212,168,83,0.08)] via-[rgba(212,168,83,0.12)] to-[rgba(212,168,83,0.08)]" />
+      <div className="relative z-10 py-4 md:py-5 space-y-2 md:space-y-3">
+        {/* Top row — scrolls left-to-right */}
+        <div className="relative overflow-hidden ticker-fade-mask">
+          <div className="flex animate-marquee-reverse whitespace-nowrap">
+            {[...tickerRow1Items, ...tickerRow1Items].map((item, i) => (
+              <div key={`t1-${i}`} className="flex items-center gap-2 px-4 md:px-6 shrink-0">
+                <CheckCircle className="w-3 h-3 text-[#D4A853] shrink-0 opacity-70" />
+                <span className="text-[10px] md:text-xs font-semibold tracking-[0.12em] uppercase text-[rgba(212,168,83,0.65)]">{item}</span>
+                <span className="text-[#D4A853] opacity-40 ml-1">◆</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Bottom row — scrolls right-to-left (standard) */}
+        <div className="relative overflow-hidden ticker-fade-mask">
+          <div className="flex animate-marquee whitespace-nowrap" style={{ animationDuration: "32s" }}>
+            {[...tickerRow2Items, ...tickerRow2Items].map((item, i) => (
+              <div key={`t2-${i}`} className="flex items-center gap-2 px-4 md:px-6 shrink-0">
+                <Sparkles className="w-3 h-3 text-[#D4A853] shrink-0 opacity-70" />
+                <span className="text-[10px] md:text-xs font-semibold tracking-[0.12em] uppercase text-[rgba(212,168,83,0.65)]">{item}</span>
+                <span className="text-[#D4A853] opacity-40 ml-1">◆</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
    HOME PAGE COMPONENT
    ═══════════════════════════════════════════════════════════════ */
 export default function HomePage() {
@@ -413,11 +478,13 @@ export default function HomePage() {
   return (
     <main className="relative overflow-hidden">
       {/* ════════════════════ 1. HERO SECTION ════════════════════ */}
-      <section className="relative min-h-screen flex flex-col justify-center bg-[#0A0A0B]">
+      <section className="relative min-h-screen flex flex-col justify-center bg-[#0A0A0B] overflow-hidden">
+        {/* Background layers */}
         <div className="absolute inset-0 bg-grid" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0B] via-transparent to-[#0A0A0B]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[rgba(212,168,83,0.03)] via-transparent to-[rgba(212,168,83,0.02)]" />
 
+        {/* Floating shapes with parallax */}
         <ParallaxSection speed={0.1} direction="up" className="absolute inset-0 pointer-events-none">
           {floatingShapes.map((shape, i) => (
             <motion.div key={i} className={`absolute border border-[rgba(212,168,83,0.15)] animate-morph-blob ${i % 2 === 0 ? 'bg-[rgba(212,168,83,0.02)]' : ''}`}
@@ -428,61 +495,100 @@ export default function HomePage() {
           ))}
         </ParallaxSection>
 
+        {/* Ambient gold glow orbs */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[rgba(212,168,83,0.04)] rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[100px] pointer-events-none" />
         <ParallaxSection speed={0.1} direction="up" className="absolute pointer-events-none">
           <div className="absolute bottom-1/3 left-1/4 w-[500px] h-[500px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[150px]" />
         </ParallaxSection>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 md:pt-40 md:pb-28">
-          <div className="max-w-4xl">
-            <AnimatedSection delay={0.1} direction="up">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[rgba(212,168,83,0.08)] border border-[rgba(212,168,83,0.15)] mb-8">
-                <Sparkles className="w-4 h-4 text-[#D4A853]" />
-                <span className="text-xs font-medium text-[#D4A853] tracking-[0.15em] uppercase">Pretoria&apos;s Premier Digital Studio</span>
-              </div>
-            </AnimatedSection>
+        {/* Gold particle field */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {goldParticles.map((p) => (
+            <div key={p.id} className="absolute rounded-full bg-[#D4A853] animate-particle-drift"
+              style={{
+                width: p.size, height: p.size, left: p.x, top: p.y,
+                opacity: p.opacity, animationDelay: `${p.delay}s`, animationDuration: `${p.duration}s`,
+              }} />
+          ))}
+        </div>
 
-            <AnimatedSection delay={0.2} direction="up">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                <span className="text-[#F5F5F5]">We Build Digital</span>
-                <br />
-                <span className="text-gradient-gold animate-gradient-text">
-                  <TypingText words={["Infrastructure.", "Credibility.", "Futures.", "Experiences."]} />
-                </span>
-                <br />
-                <span className="text-[#F5F5F5]">Built to Win.</span>
-              </h1>
-            </AnimatedSection>
+        {/* Kabelo character watermark (bottom-right, partially overlapping) */}
+        <div className="absolute bottom-0 right-0 z-0 pointer-events-none hidden lg:block">
+          <div className="relative w-[320px] h-[400px] opacity-[0.15] rounded-2xl overflow-hidden"
+            style={{ maskImage: "linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%)", WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%)" }}>
+            <Image src="/images/kabelo-character.png" alt="" fill className="object-cover object-top" unoptimized />
+          </div>
+        </div>
 
-            <AnimatedSection delay={0.4} direction="up">
-              <p className="mt-6 md:mt-8 text-lg md:text-xl text-[rgba(245,245,245,0.6)] max-w-2xl leading-[1.8]">
-                We design and deploy high-performance digital infrastructure for South Africa&apos;s schools, SMEs, law firms, medical practices, and government institutions — in days, not months.
-              </p>
-            </AnimatedSection>
+        {/* Main hero content — two-column layout */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 md:pt-36 md:pb-20 w-full flex-1 flex items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
+            {/* Left column — text content */}
+            <div className="max-w-2xl">
+              <AnimatedSection delay={0.1} direction="up">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[rgba(212,168,83,0.08)] border border-[rgba(212,168,83,0.15)] mb-8">
+                  <Rocket className="w-4 h-4 text-[#D4A853]" />
+                  <span className="text-xs font-medium text-[#D4A853] tracking-[0.15em] uppercase">High-Agility Digital Infrastructure</span>
+                </div>
+              </AnimatedSection>
 
-            <AnimatedSection delay={0.6} direction="up">
-              <div className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4">
-                <MagneticButton strength={0.2}>
-                  <Button onClick={() => handleNavClick("contact")} size="lg"
-                    className="bg-gradient-to-r from-[#D4A853] to-[#B8922F] hover:from-[#E8C97A] hover:to-[#D4A853] text-[#0A0A0B] font-semibold px-8 py-6 text-base rounded-xl shadow-lg shadow-[rgba(212,168,83,0.25)] hover:shadow-[rgba(212,168,83,0.35)] transition-all duration-300 group">
-                    Start Your Project <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </MagneticButton>
-                <MagneticButton strength={0.2}>
-                  <Button onClick={() => handleNavClick("services")} size="lg" variant="outline"
-                    className="border-[rgba(255,255,255,0.15)] bg-transparent hover:bg-white/5 text-white font-semibold px-8 py-6 text-base rounded-xl transition-all duration-300 group">
-                    View Our Work <ChevronRight className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </MagneticButton>
-              </div>
-            </AnimatedSection>
+              <AnimatedSection delay={0.2} direction="up">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-extrabold leading-[1.05] tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                  <span className="text-gradient-gold animate-gradient-text">Built Different.</span>
+                  <br />
+                  <span className="text-gradient-gold animate-gradient-text">Built African.</span>
+                  <br />
+                  <span className="text-[#F5F5F5]">Built to Win.</span>
+                </h1>
+              </AnimatedSection>
+
+              <AnimatedSection delay={0.4} direction="up">
+                <p className="mt-6 md:mt-8 text-lg md:text-xl text-[rgba(245,245,245,0.55)] max-w-xl leading-[1.8]">
+                  South Africa&apos;s forward-thinking institutions don&apos;t need another digital vendor. They need a builder — someone who delivers on time and leaves institutions stronger.
+                </p>
+              </AnimatedSection>
+
+              <AnimatedSection delay={0.6} direction="up">
+                <div className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4">
+                  <MagneticButton strength={0.2}>
+                    <Button onClick={() => handleNavClick("contact")} size="lg"
+                      className="bg-gradient-to-r from-[#D4A853] to-[#B8922F] hover:from-[#E8C97A] hover:to-[#D4A853] text-[#0A0A0B] font-semibold px-8 py-6 text-base rounded-xl shadow-lg shadow-[rgba(212,168,83,0.25)] hover:shadow-[rgba(212,168,83,0.35)] transition-all duration-300 group">
+                      Start Your Project <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </MagneticButton>
+                  <MagneticButton strength={0.2}>
+                    <Button onClick={() => handleNavClick("services")} size="lg" variant="outline"
+                      className="border-[rgba(255,255,255,0.15)] bg-transparent hover:bg-white/5 text-white font-semibold px-8 py-6 text-base rounded-xl transition-all duration-300 group">
+                      View Our Work <ChevronRight className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" />
+                    </Button>
+                  </MagneticButton>
+                </div>
+              </AnimatedSection>
+            </div>
+
+            {/* Right column — logo in glass-morphism frame */}
+            <div className="flex justify-center lg:justify-end order-first lg:order-last">
+              <AnimatedSection delay={0.3} direction="up">
+                <div className="relative">
+                  {/* Ambient glow behind logo */}
+                  <div className="absolute -inset-8 bg-[rgba(212,168,83,0.06)] rounded-full blur-[80px] pointer-events-none" />
+                  <div className="relative hero-logo-frame animate-logo-glow rounded-3xl p-6 md:p-8">
+                    <div className="relative w-[220px] h-[220px] md:w-[300px] md:h-[300px] rounded-2xl overflow-hidden">
+                      <Image src="/images/carter-digitals-logo.jpg" alt="Carter Digitals Logo" fill className="object-contain" unoptimized />
+                    </div>
+                  </div>
+                  {/* Decorative gold accent line below logo */}
+                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-24 h-[2px] bg-gradient-to-r from-transparent via-[#D4A853] to-transparent opacity-50" />
+                </div>
+              </AnimatedSection>
+            </div>
           </div>
         </div>
 
         {/* Trust badges strip */}
         <div className="relative z-10 mt-auto">
-          <div className="border-t border-[rgba(255,255,255,0.06)] bg-[rgba(10,10,11,0.8)] backdrop-blur-sm">
+          <div className="border-t border-[rgba(212,168,83,0.08)] bg-[rgba(10,10,11,0.8)] backdrop-blur-md">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
               <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 md:gap-x-10">
                 {trustBadges.map((badge) => (
@@ -495,7 +601,16 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+
+        {/* Scroll down indicator */}
+        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-scroll-bounce">
+          <span className="text-[10px] font-medium tracking-[0.2em] uppercase text-[rgba(245,245,245,0.3)]">Scroll</span>
+          <ChevronDown className="w-5 h-5 text-[rgba(212,168,83,0.5)]" />
+        </div>
       </section>
+
+      {/* ════════════════ 1.5 LIVE TICKER ════════════════ */}
+      <LiveTicker />
 
       {/* ════════════════ 2. ABOUT PREVIEW — BENTO GRID ════════════════ */}
       <section className="relative py-24 md:py-32 bg-[#0A0A0B]">
