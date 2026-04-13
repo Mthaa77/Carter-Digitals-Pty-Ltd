@@ -206,7 +206,7 @@ function PricingCard({
       {/* Package name */}
       <div className="mb-6">
         <h3
-          className="text-xl font-bold text-gradient-gold mb-1" font-display
+          className="text-xl font-bold text-gradient-gold mb-1 font-['Space_Grotesk']"
         >
           {pkg.name}
         </h3>
