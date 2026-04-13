@@ -372,7 +372,7 @@ function ProjectDetailDialog({
     <>
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
-        className="max-w-2xl bg-[#0F0F12] border-[rgba(212,168,83,0.15)] p-0 overflow-hidden rounded-2xl"
+        className="max-w-2xl bg-background border-[rgba(212,168,83,0.15)] p-0 overflow-hidden rounded-2xl"
         style={{
           backdropFilter: "blur(0px)",
         }}
@@ -385,7 +385,7 @@ function ProjectDetailDialog({
 
           {/* Category badge */}
           <div className="absolute top-4 left-4 z-10">
-            <Badge className="bg-[rgba(10,10,11,0.7)] backdrop-blur-sm text-[rgba(245,245,245,0.8)] border-[rgba(255,255,255,0.1)] text-xs font-medium px-3 py-1">
+            <Badge className="bg-[rgba(10,10,11,0.7)] backdrop-blur-sm text-foreground/80 border-[rgba(255,255,255,0.1)] text-xs font-medium px-3 py-1">
               {project.category}
             </Badge>
           </div>
@@ -393,7 +393,7 @@ function ProjectDetailDialog({
           {/* Close button */}
           <button
             onClick={() => onOpenChange(false)}
-            className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-[rgba(10,10,11,0.7)] backdrop-blur-sm border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-[rgba(245,245,245,0.6)] hover:text-white hover:bg-[rgba(10,10,11,0.9)] transition-all duration-200"
+            className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-[rgba(10,10,11,0.7)] backdrop-blur-sm border border-[rgba(255,255,255,0.1)] flex items-center justify-center text-foreground/60 hover:text-foreground hover:bg-[rgba(10,10,11,0.9)] transition-all duration-200"
           >
             <X className="w-4 h-4" />
           </button>
@@ -403,42 +403,42 @@ function ProjectDetailDialog({
         <div className="px-6 md:px-8 pb-6 md:pb-8 -mt-4">
           {/* Title */}
           <h2
-            className="text-2xl md:text-3xl font-bold text-white mb-3 leading-tight font-display"
+            className="text-2xl md:text-3xl font-bold text-foreground mb-3 leading-tight font-display"
           >
             {project.name}
           </h2>
 
           {/* Full description */}
-          <p className="text-sm md:text-base text-[rgba(245,245,245,0.6)] leading-relaxed mb-6">
+          <p className="text-sm md:text-base text-foreground/60 leading-relaxed mb-6">
             {project.fullDescription}
           </p>
 
           {/* Stats grid */}
-          <div className="grid grid-cols-3 gap-4 mb-6 p-4 rounded-xl bg-[rgba(255,255,255,0.03)] border border-[rgba(255,255,255,0.05)]">
+          <div className="grid grid-cols-3 gap-4 mb-6 p-4 rounded-xl bg-muted border border-border">
             <div className="text-center">
               <div className="flex items-center justify-center mb-1.5">
                 <User className="w-3.5 h-3.5 text-[#D4A853] mr-1.5" />
-                <span className="text-[10px] uppercase tracking-wider text-[rgba(245,245,245,0.4)] font-semibold">Client</span>
+                <span className="text-[10px] uppercase tracking-wider text-muted-foreground/60 font-semibold">Client</span>
               </div>
-              <p className="text-xs md:text-sm font-medium text-[rgba(245,245,245,0.8)] leading-tight">
+              <p className="text-xs md:text-sm font-medium text-foreground/80 leading-tight">
                 {project.client}
               </p>
             </div>
-            <div className="text-center border-x border-[rgba(255,255,255,0.05)]">
+            <div className="text-center border-x border-border">
               <div className="flex items-center justify-center mb-1.5">
                 <Clock className="w-3.5 h-3.5 text-[#D4A853] mr-1.5" />
-                <span className="text-[10px] uppercase tracking-wider text-[rgba(245,245,245,0.4)] font-semibold">Duration</span>
+                <span className="text-[10px] uppercase tracking-wider text-muted-foreground/60 font-semibold">Duration</span>
               </div>
-              <p className="text-xs md:text-sm font-medium text-[rgba(245,245,245,0.8)] leading-tight">
+              <p className="text-xs md:text-sm font-medium text-foreground/80 leading-tight">
                 {project.duration}
               </p>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center mb-1.5">
                 <Calendar className="w-3.5 h-3.5 text-[#D4A853] mr-1.5" />
-                <span className="text-[10px] uppercase tracking-wider text-[rgba(245,245,245,0.4)] font-semibold">Year</span>
+                <span className="text-[10px] uppercase tracking-wider text-muted-foreground/60 font-semibold">Year</span>
               </div>
-              <p className="text-xs md:text-sm font-medium text-[rgba(245,245,245,0.8)] leading-tight">
+              <p className="text-xs md:text-sm font-medium text-foreground/80 leading-tight">
                 {project.year}
               </p>
             </div>
@@ -447,7 +447,7 @@ function ProjectDetailDialog({
           {/* Results */}
           <div className="mb-6">
             <h3
-              className="text-sm font-semibold text-[rgba(245,245,245,0.5)] uppercase tracking-wider mb-3 font-display"
+              className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3 font-display"
             >
               Results
             </h3>
@@ -455,7 +455,7 @@ function ProjectDetailDialog({
               {project.results.map((result) => (
                 <div key={result} className="flex items-start gap-3">
                   <CheckCircle className="w-4 h-4 text-[#D4A853] shrink-0 mt-0.5" />
-                  <span className="text-sm text-[rgba(245,245,245,0.65)] leading-relaxed">
+                  <span className="text-sm text-foreground/65 leading-relaxed">
                     {result}
                   </span>
                 </div>
@@ -466,7 +466,7 @@ function ProjectDetailDialog({
           {/* Tech stack */}
           <div className="mb-6">
             <h3
-              className="text-sm font-semibold text-[rgba(245,245,245,0.5)] uppercase tracking-wider mb-3 font-display"
+              className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-3 font-display"
             >
               Tech Stack
             </h3>
@@ -482,7 +482,7 @@ function ProjectDetailDialog({
             </div>
           </div>
 
-          <Separator className="bg-[rgba(255,255,255,0.06)] mb-6" />
+          <Separator className="bg-muted/60 mb-6" />
 
           {/* Footer actions */}
           <div className="flex flex-col sm:flex-row gap-3">
@@ -497,7 +497,7 @@ function ProjectDetailDialog({
               <Button
                 variant="outline"
                 asChild
-                className="flex-1 border-[rgba(255,255,255,0.12)] bg-transparent hover:bg-white/5 text-white font-semibold py-5 text-sm rounded-xl transition-all duration-300 group"
+                className="flex-1 border-[rgba(255,255,255,0.12)] bg-transparent hover:bg-white/5 text-foreground font-semibold py-5 text-sm rounded-xl transition-all duration-300 group"
               >
                 <a href={project.url} target="_blank" rel="noopener noreferrer">
                   View Live Site
@@ -554,7 +554,7 @@ export default function PortfolioPage() {
   return (
     <main className="relative overflow-hidden">
       {/* ───────────────────── 1. PAGE HERO ───────────────────── */}
-      <section className="relative py-28 md:py-40 bg-[#0A0A0B]">
+      <section className="relative py-28 md:py-40 bg-background">
         <CosmicDecorations variant="cosmic-ring" intensity="subtle" />
         {/* Background */}
         <div className="absolute inset-0 bg-grid pattern-grid-animated" />
@@ -621,14 +621,14 @@ export default function PortfolioPage() {
 
             <AnimatedSection delay={0.35} direction="up">
               <p
-                className="mt-4 text-xl md:text-2xl text-[rgba(245,245,245,0.65)] font-medium font-display"
+                className="mt-4 text-xl md:text-2xl text-foreground/65 font-medium font-display"
               >
                 Results That Speak Louder Than Pitches
               </p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.5} direction="up">
-              <p className="mt-6 text-base md:text-lg text-[rgba(245,245,245,0.6)] max-w-2xl mx-auto leading-relaxed">
+              <p className="mt-6 text-base md:text-lg text-foreground/60 max-w-2xl mx-auto leading-relaxed">
                 We don&apos;t just talk about what we can do — we show you. Browse our portfolio of real-world 
                 projects built for South African schools, businesses, and organisations that needed 
                 digital infrastructure that actually works.
@@ -644,7 +644,7 @@ export default function PortfolioPage() {
       <div className="section-divider-gold" />
 
       {/* ────────────────── 2. FEATURED PROJECT ─────────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint grain-texture">
+      <section className="relative py-20 md:py-28 bg-background section-gold-tint grain-texture">
         {/* Gold radial glow orb behind featured card */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-gold-gradient-radial pointer-events-none z-0" />
         <div className="absolute top-1/3 left-1/4 w-[400px] h-[300px] bg-[rgba(212,168,83,0.05)] rounded-full blur-[100px] pointer-events-none z-0" />
@@ -680,18 +680,18 @@ export default function PortfolioPage() {
                         <Building2 className="w-3 h-3 mr-1.5" />
                         {featuredProject.category}
                       </Badge>
-                      <Badge className="bg-[rgba(255,255,255,0.06)] text-[rgba(245,245,245,0.7)] border-[rgba(255,255,255,0.08)] text-xs font-medium px-3 py-1">
+                      <Badge className="bg-muted/60 text-foreground/70 border-[rgba(255,255,255,0.08)] text-xs font-medium px-3 py-1">
                         Featured Project
                       </Badge>
                     </div>
 
                     <h2
-                      className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight font-display"
+                      className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4 leading-tight font-display"
                     >
                       {featuredProject.name}
                     </h2>
 
-                    <p className="text-base md:text-lg text-[rgba(245,245,245,0.6)] leading-relaxed mb-8">
+                    <p className="text-base md:text-lg text-foreground/60 leading-relaxed mb-8">
                       {featuredProject.description}
                     </p>
 
@@ -718,7 +718,7 @@ export default function PortfolioPage() {
                           <ExternalLink className="w-4 h-4 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                         </a>
                       </Button>
-                      <span className="text-xs text-[rgba(245,245,245,0.3)]">
+                      <span className="text-xs text-muted-foreground/40">
                         Click card for details →
                       </span>
                     </div>
@@ -726,7 +726,7 @@ export default function PortfolioPage() {
 
                   {/* Right: Preview placeholder */}
                   <div className="relative">
-                    <div className="rounded-2xl bg-gradient-to-br from-[#1A1A1F] to-[#131316] border border-[rgba(255,255,255,0.06)] p-4">
+                    <div className="rounded-2xl bg-gradient-to-br from-[#1A1A1F] to-[#131316] border border-border p-4">
                       <div className="rounded-xl bg-gradient-to-br from-[rgba(212,168,83,0.1)] via-[#131316] to-[rgba(212,168,83,0.05)] aspect-video flex flex-col items-center justify-center gap-4 overflow-hidden">
                         {/* Mock browser bar */}
                         <div className="w-full px-4 pt-3">
@@ -736,7 +736,7 @@ export default function PortfolioPage() {
                               <div className="w-2.5 h-2.5 rounded-full bg-[rgba(255,255,255,0.1)]" />
                               <div className="w-2.5 h-2.5 rounded-full bg-[rgba(255,255,255,0.1)]" />
                             </div>
-                            <div className="flex-1 h-6 rounded-md bg-[rgba(255,255,255,0.04)] flex items-center px-3">
+                            <div className="flex-1 h-6 rounded-md bg-muted/50 flex items-center px-3">
                               <span className="text-[10px] text-[rgba(245,245,245,0.25)] font-mono">
                                 sosha-automotive.org
                               </span>
@@ -746,9 +746,9 @@ export default function PortfolioPage() {
                         {/* Mock content */}
                         <div className="flex-1 w-full px-8 flex flex-col gap-3">
                           <div className="h-6 w-3/4 rounded bg-[rgba(212,168,83,0.12)]" />
-                          <div className="h-3 w-full rounded bg-[rgba(255,255,255,0.04)]" />
-                          <div className="h-3 w-5/6 rounded bg-[rgba(255,255,255,0.04)]" />
-                          <div className="h-3 w-2/3 rounded bg-[rgba(255,255,255,0.04)]" />
+                          <div className="h-3 w-full rounded bg-muted/50" />
+                          <div className="h-3 w-5/6 rounded bg-muted/50" />
+                          <div className="h-3 w-2/3 rounded bg-muted/50" />
                           <div className="mt-4 grid grid-cols-3 gap-3">
                             <div className="h-16 rounded-lg bg-[rgba(212,168,83,0.08)]" />
                             <div className="h-16 rounded-lg bg-[rgba(212,168,83,0.08)]" />
@@ -764,7 +764,7 @@ export default function PortfolioPage() {
                       transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                       className="absolute -top-4 -right-4 md:-top-6 md:-right-6"
                     >
-                      <div className="px-3 py-2 rounded-xl bg-[#131316] border border-[rgba(212,168,83,0.2)] shadow-lg shadow-[rgba(0,0,0,0.3)]">
+                      <div className="px-3 py-2 rounded-xl bg-card border border-[rgba(212,168,83,0.2)] shadow-lg shadow-[rgba(0,0,0,0.3)]">
                         <div className="flex items-center gap-2">
                           <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
                           <span className="text-xs font-semibold text-[#D4A853]">Live</span>
@@ -782,7 +782,7 @@ export default function PortfolioPage() {
       <div className="section-divider-gold" />
 
       {/* ──────────────────── 3. PROJECT GRID ───────────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+      <section className="relative py-20 md:py-28 bg-background section-gold-tint">
         <CosmicDecorations variant="stardust" intensity="subtle" />
         {/* Background glow orbs */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[120px] pointer-events-none" />
@@ -802,7 +802,7 @@ export default function PortfolioPage() {
           <AnimatedSection delay={0.2} direction="up">
             <Tabs defaultValue="all" className="w-full">
               <div className="flex justify-center mb-10 relative">
-                <TabsList className="bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)] rounded-xl p-1 h-auto relative">
+                <TabsList className="bg-muted/50 border border-border rounded-xl p-1 h-auto relative">
                   {categoryTabs.map((tab) => {
                     const count = tab.key === "all"
                       ? projectCards.length
@@ -811,7 +811,7 @@ export default function PortfolioPage() {
                       <TabsTrigger
                         key={tab.key}
                         value={tab.key}
-                        className="data-[state=active]:bg-[rgba(212,168,83,0.1)] data-[state=active]:border-[rgba(212,168,83,0.3)] data-[state=active]:text-[#D4A853] text-[rgba(245,245,245,0.5)] px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 relative"
+                        className="data-[state=active]:bg-[rgba(212,168,83,0.1)] data-[state=active]:border-[rgba(212,168,83,0.3)] data-[state=active]:text-[#D4A853] text-muted-foreground px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 relative"
                       >
                         <span>{tab.label}</span>
                         <span className="ml-1.5 inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 rounded-full text-[10px] font-bold bg-[rgba(212,168,83,0.08)] text-[rgba(212,168,83,0.7)] data-[state=active]:bg-[rgba(212,168,83,0.2)] data-[state=active]:text-[#D4A853] transition-colors duration-200">
@@ -853,7 +853,7 @@ export default function PortfolioPage() {
                             transition={{ duration: 0.2, ease: [0.25, 0.4, 0.25, 1] }}
                           >
                             <div
-                              className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] overflow-hidden card-hover-gold hover-lift cursor-pointer hover:shadow-[0_0_30px_rgba(212,168,83,0.08)] transition-shadow duration-300 card-shine-sweep"
+                              className="group relative h-full rounded-2xl bg-card border border-border overflow-hidden card-hover-gold hover-lift cursor-pointer hover:shadow-[0_0_30px_rgba(212,168,83,0.08)] transition-shadow duration-300 card-shine-sweep"
                               onClick={() => setSelectedProject(project)}
                             >
                               {/* Gold shimmer overlay on hover */}
@@ -877,11 +877,11 @@ export default function PortfolioPage() {
                               {/* Content */}
                               <div className="p-5">
                                 <h3
-                                  className="text-base font-semibold text-white mb-2 group-hover:text-[#E8C97A] transition-colors duration-300 font-display"
+                                  className="text-base font-semibold text-foreground mb-2 group-hover:text-[#E8C97A] transition-colors duration-300 font-display"
                                 >
                                   {project.name}
                                 </h3>
-                                <p className="text-sm text-[rgba(245,245,245,0.5)] leading-relaxed mb-4">
+                                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                                   {project.description}
                                 </p>
                                 {/* Tech badges */}
@@ -889,7 +889,7 @@ export default function PortfolioPage() {
                                   {project.tech.map((t) => (
                                     <span
                                       key={t}
-                                      className="text-[10px] font-medium px-2 py-1 rounded-md bg-[rgba(255,255,255,0.04)] text-[rgba(245,245,245,0.4)] border border-[rgba(255,255,255,0.05)]"
+                                      className="text-[10px] font-medium px-2 py-1 rounded-md bg-muted/50 text-muted-foreground/60 border border-border"
                                     >
                                       {t}
                                     </span>
@@ -914,7 +914,7 @@ export default function PortfolioPage() {
       <div className="section-divider-gold" />
 
       {/* ───────────────────── 4. RESULTS SECTION ───────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B] bg-dots section-gold-tint">
+      <section className="relative py-20 md:py-28 bg-background bg-dots section-gold-tint">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
 
@@ -935,7 +935,7 @@ export default function PortfolioPage() {
           <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8" staggerDelay={0.15}>
             {stats.map((stat) => (
               <StaggerItem key={stat.label}>
-                <div className="text-center p-6 rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] card-hover">
+                <div className="text-center p-6 rounded-2xl bg-card border border-border card-hover">
                   <div
                     className="text-4xl md:text-5xl font-bold text-gradient-gold counter-glow mb-2 font-display"
                   >
@@ -946,7 +946,7 @@ export default function PortfolioPage() {
                       duration={stat.decimal ? 2500 : 2000}
                     />
                   </div>
-                  <p className="text-sm md:text-base text-[rgba(245,245,245,0.5)] font-medium">
+                  <p className="text-sm md:text-base text-muted-foreground font-medium">
                     {stat.label}
                   </p>
                 </div>
@@ -959,7 +959,7 @@ export default function PortfolioPage() {
       <div className="section-divider-gold" />
 
       {/* ──────────────────── 5. CTA SECTION ───────────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+      <section className="relative py-20 md:py-28 bg-background section-gold-tint">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection direction="up">
             <div className="relative overflow-hidden rounded-3xl gold-border-animated">
@@ -983,7 +983,7 @@ export default function PortfolioPage() {
 
               <div className="relative z-10 px-6 py-14 md:px-16 md:py-20 lg:px-24 lg:py-24 text-center">
                 <h2
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight font-display text-glow-gold"
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight font-display text-glow-gold"
                 >
                   Have a Project in Mind?
                 </h2>
@@ -1006,14 +1006,14 @@ export default function PortfolioPage() {
                     onClick={() => handleNavClick("packages")}
                     size="lg"
                     variant="outline"
-                    className="border-[rgba(255,255,255,0.15)] bg-transparent hover:bg-white/5 text-white font-semibold px-10 py-6 text-base rounded-xl transition-all duration-300 group"
+                    className="border-[rgba(255,255,255,0.15)] bg-transparent hover:bg-white/5 text-foreground font-semibold px-10 py-6 text-base rounded-xl transition-all duration-300 group"
                   >
                     View Packages
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </div>
 
-                <p className="mt-6 text-xs text-[rgba(245,245,245,0.3)]">
+                <p className="mt-6 text-xs text-muted-foreground/40">
                   Free 30-minute discovery call · No obligation · Response within 2 hours
                 </p>
               </div>

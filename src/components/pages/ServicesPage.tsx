@@ -242,7 +242,7 @@ export default function ServicesPage() {
   return (
     <main className="relative overflow-hidden">
       {/* ----------------- 1. PAGE HERO ----------------- */}
-      <section className="relative py-24 md:py-36 bg-[#0A0A0B]">
+      <section className="relative py-24 md:py-36 bg-background">
         {/* Background grid */}
         <div className="absolute inset-0 bg-grid pattern-grid-animated" />
 
@@ -302,7 +302,7 @@ export default function ServicesPage() {
               <h1
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight font-display"
               >
-                <span className="text-[#F5F5F5]">Our </span>
+                <span className="text-foreground">Our </span>
                 <span className="text-gradient-gold">Services</span>
               </h1>
             </AnimatedSection>
@@ -316,7 +316,7 @@ export default function ServicesPage() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.5} direction="up">
-              <p className="mt-6 text-base md:text-lg text-[rgba(245,245,245,0.55)] max-w-2xl mx-auto leading-relaxed">
+              <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 We design and deliver production-ready digital infrastructure --
                 from high-performance websites to AI-powered business systems.
                 Everything you need to compete, grow, and lead in the digital age.
@@ -337,7 +337,7 @@ export default function ServicesPage() {
                   onClick={() => handleNavClick("packages")}
                   size="lg"
                   variant="outline"
-                  className="border-[rgba(255,255,255,0.15)] bg-transparent hover:bg-white/5 text-white font-semibold px-8 py-6 text-base rounded-xl transition-all duration-300 group"
+                  className="border-[rgba(255,255,255,0.15)] bg-transparent hover:bg-white/5 text-foreground font-semibold px-8 py-6 text-base rounded-xl transition-all duration-300 group"
                 >
                   View Packages
                   <ChevronRight className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" />
@@ -352,14 +352,14 @@ export default function ServicesPage() {
       </section>
 
       {/* ---------- 2. FLAGSHIP SERVICE -- WEBSITE DEV ---------- */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint grain-texture">
+      <section className="relative py-20 md:py-28 bg-background section-gold-tint grain-texture">
         <CosmicDecorations variant="nebula" intensity="subtle" />
         <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
         {/* Ambient orbs */}
         <div className="ambient-orb ambient-orb-float w-[250px] h-[250px] bg-[rgba(212,168,83,0.03)] top-[20%] right-[-5%]" style={{animationDelay: '3s'}} />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection direction="up" delay={0.1}>
-            <div className="relative rounded-3xl bg-[#131316] border-2 border-[rgba(212,168,83,0.25)] overflow-hidden">
+            <div className="relative rounded-3xl bg-card border-2 border-[rgba(212,168,83,0.25)] overflow-hidden">
               {/* Gold border glow */}
               <div className="absolute inset-0 rounded-3xl shadow-[0_0_60px_rgba(212,168,83,0.15)] pointer-events-none" />
               <div className="absolute inset-0 bg-dots opacity-20" />
@@ -389,7 +389,7 @@ export default function ServicesPage() {
                       Your Digital Foundation
                     </p>
 
-                    <div className="space-y-4 text-[rgba(245,245,245,0.6)] leading-relaxed">
+                    <div className="space-y-4 text-foreground/60 leading-relaxed">
                       <p>
                         Your website isn&#39;t marketing -- it&#39;s
                         infrastructure. It&#39;s the first place clients,
@@ -411,7 +411,7 @@ export default function ServicesPage() {
                   <ParallaxSection speed={0.1} direction="up">
                     <div>
                       <h3
-                        className="text-xl font-bold text-white mb-6 font-display"
+                        className="text-xl font-bold text-foreground mb-6 font-display"
                       >
                         Why Next.js & Vercel?
                       </h3>
@@ -444,7 +444,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ----------------- 3. CORE SERVICES GRID ----------------- */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+      <section className="relative py-20 md:py-28 bg-background section-gold-tint">
         <CosmicDecorations variant="constellation" intensity="subtle" />
         <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
         {/* Background glow */}
@@ -466,7 +466,7 @@ export default function ServicesPage() {
             {coreServices.map((service) => (
               <StaggerItem key={service.title}>
                 <TiltCard className="h-full" tiltStrength={4}>
-                  <div className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-6 card-hover-gold hover:border-[rgba(212,168,83,0.2)] hover-lift overflow-hidden card-shine-sweep">
+                  <div className="group relative h-full rounded-2xl bg-card border border-[rgba(255,255,255,0.06)] p-6 card-hover-gold hover:border-[rgba(212,168,83,0.2)] hover-lift overflow-hidden card-shine-sweep">
                     {/* Gold shimmer on hover */}
                     <div className="absolute inset-0 animate-shimmer-gold opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
 
@@ -478,13 +478,13 @@ export default function ServicesPage() {
 
                       {/* Title */}
                       <h3
-                        className="text-lg font-semibold text-white mb-2.5 font-display"
+                        className="text-lg font-semibold text-foreground mb-2.5 font-display"
                       >
                         {service.title}
                       </h3>
 
                       {/* Description */}
-                      <p className="text-sm text-[rgba(245,245,245,0.5)] leading-relaxed">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         {service.description}
                       </p>
                     </div>
@@ -501,7 +501,7 @@ export default function ServicesPage() {
 
       {/* ----------------- 3.5 ANIMATED STATS SECTION ----------------- */}
       <AnimatedSection direction="up">
-        <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
+        <section className="relative py-20 md:py-28 bg-background">
           <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
           {/* Gold radial glow orbs behind section */}
           <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-[rgba(212,168,83,0.05)] rounded-full blur-[140px] pointer-events-none" />
@@ -542,7 +542,7 @@ export default function ServicesPage() {
                     <p className="text-2xl md:text-3xl font-extrabold text-gradient-gold font-display text-center">
                       150+
                     </p>
-                    <p className="text-sm text-[rgba(245,245,245,0.5)] font-medium text-center mt-1">
+                    <p className="text-sm text-muted-foreground font-medium text-center mt-1">
                       Projects Delivered
                     </p>
                   </div>
@@ -569,7 +569,7 @@ export default function ServicesPage() {
                     <p className="text-2xl md:text-3xl font-extrabold text-gradient-gold font-display text-center">
                       98%
                     </p>
-                    <p className="text-sm text-[rgba(245,245,245,0.5)] font-medium text-center mt-1">
+                    <p className="text-sm text-muted-foreground font-medium text-center mt-1">
                       Client Satisfaction
                     </p>
                   </div>
@@ -599,7 +599,7 @@ export default function ServicesPage() {
                     <p className="text-2xl md:text-3xl font-extrabold text-gradient-gold font-display text-center">
                       35+
                     </p>
-                    <p className="text-sm text-[rgba(245,245,245,0.5)] font-medium text-center mt-1">
+                    <p className="text-sm text-muted-foreground font-medium text-center mt-1">
                       Active Retainers
                     </p>
                   </div>
@@ -627,7 +627,7 @@ export default function ServicesPage() {
                     <p className="text-2xl md:text-3xl font-extrabold text-gradient-gold font-display text-center">
                       5-7
                     </p>
-                    <p className="text-sm text-[rgba(245,245,245,0.5)] font-medium text-center mt-1">
+                    <p className="text-sm text-muted-foreground font-medium text-center mt-1">
                       Day Average Delivery
                     </p>
                   </div>
@@ -641,7 +641,7 @@ export default function ServicesPage() {
       </AnimatedSection>
 
       {/* ----------------- 4. PROCESS SECTION ----------------- */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+      <section className="relative py-20 md:py-28 bg-background section-gold-tint">
         <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
         {/* Gold glow orb */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[300px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[100px] pointer-events-none" />
@@ -661,7 +661,7 @@ export default function ServicesPage() {
                   <AccordionItem
                     key={phase.num}
                     value={`phase-${phase.num}`}
-                    className="rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] overflow-hidden px-6 data-[state=open]:border-[rgba(212,168,83,0.25)] data-[state=open]:bg-[rgba(19,19,22,0.8)] transition-colors duration-300"
+                    className="rounded-2xl bg-card border border-[rgba(255,255,255,0.06)] overflow-hidden px-6 data-[state=open]:border-[rgba(212,168,83,0.25)] data-[state=open]:bg-[rgba(19,19,22,0.8)] transition-colors duration-300"
                   >
                     <AccordionTrigger className="hover:no-underline py-5 [&>svg]:text-[#D4A853]">
                       <div className="flex items-center gap-4 text-left">
@@ -676,7 +676,7 @@ export default function ServicesPage() {
                         <div className="flex items-center gap-3 flex-wrap">
                           <phase.icon className="w-5 h-5 text-[rgba(212,168,83,0.6)] hidden sm:block" />
                           <span
-                            className="text-base md:text-lg font-semibold text-white font-display"
+                            className="text-base md:text-lg font-semibold text-foreground font-display"
                           >
                             {phase.title}
                           </span>
@@ -689,7 +689,7 @@ export default function ServicesPage() {
                     </AccordionTrigger>
                     <AccordionContent className="pb-5">
                       <div className="ml-[60px] sm:ml-[76px]">
-                        <p className="text-sm md:text-base text-[rgba(245,245,245,0.55)] leading-relaxed">
+                        <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                           {phase.description}
                         </p>
                       </div>
@@ -703,7 +703,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ----------------- 5. ADD-ON SERVICES ----------------- */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+      <section className="relative py-20 md:py-28 bg-background section-gold-tint">
         <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
         {/* Background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-[rgba(212,168,83,0.02)] rounded-full blur-[120px] pointer-events-none" />
@@ -723,7 +723,7 @@ export default function ServicesPage() {
           >
             {addOns.map((addon) => (
               <StaggerItem key={addon.title}>
-                <div className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-6 md:p-8 card-hover-gold overflow-hidden flex flex-col">
+                <div className="group relative h-full rounded-2xl bg-card border border-[rgba(255,255,255,0.06)] p-6 md:p-8 card-hover-gold overflow-hidden flex flex-col">
                   {/* Gold top accent */}
                   <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4A853] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -733,7 +733,7 @@ export default function ServicesPage() {
                     </div>
                     <div className="flex-1">
                       <h3
-                        className="text-lg font-bold text-white mb-1 font-display"
+                        className="text-lg font-bold text-foreground mb-1 font-display"
                       >
                         {addon.title}
                       </h3>
@@ -744,9 +744,9 @@ export default function ServicesPage() {
                           {addon.price}
                         </span>
                         {addon.altPrice && (
-                          <span className="text-sm text-[rgba(245,245,245,0.4)]">
+                          <span className="text-sm text-muted-foreground/60">
                             or{" "}
-                            <span className="text-[rgba(245,245,245,0.6)] font-medium">
+                            <span className="text-foreground/60 font-medium">
                               {addon.altPrice}
                             </span>
                           </span>
@@ -755,7 +755,7 @@ export default function ServicesPage() {
                     </div>
                   </div>
 
-                  <p className="text-sm text-[rgba(245,245,245,0.5)] leading-relaxed flex-1">
+                  <p className="text-sm text-muted-foreground leading-relaxed flex-1">
                     {addon.description}
                   </p>
                 </div>
@@ -766,7 +766,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ---------- 6. SERVICES COMPARISON TABLE ---------- */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+      <section className="relative py-20 md:py-28 bg-background section-gold-tint">
         <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[rgba(212,168,83,0.02)] rounded-full blur-[120px] pointer-events-none" />
 
@@ -786,15 +786,15 @@ export default function ServicesPage() {
                 <div className="rounded-2xl border border-[rgba(255,255,255,0.06)] overflow-hidden">
                   {/* Header Row */}
                   <div className="grid grid-cols-4">
-                    <div className="p-4 md:p-5 bg-[#131316] border-b border-[rgba(255,255,255,0.06)]" />
-                    <div className="p-4 md:p-5 bg-[#131316] border-b border-[rgba(255,255,255,0.06)] border-l border-[rgba(255,255,255,0.04)] text-center">
-                      <Globe className="w-6 h-6 text-[rgba(245,245,245,0.5)] mx-auto mb-2" />
+                    <div className="p-4 md:p-5 bg-card border-b border-[rgba(255,255,255,0.06)]" />
+                    <div className="p-4 md:p-5 bg-card border-b border-[rgba(255,255,255,0.06)] border-l border-[rgba(255,255,255,0.04)] text-center">
+                      <Globe className="w-6 h-6 text-muted-foreground mx-auto mb-2" />
                       <h4
-                        className="text-sm md:text-base font-bold text-white font-display"
+                        className="text-sm md:text-base font-bold text-foreground font-display"
                       >
                         Website Development
                       </h4>
-                      <p className="text-[11px] text-[rgba(245,245,245,0.4)] mt-1">
+                      <p className="text-[11px] text-muted-foreground/60 mt-1">
                         Professional online presence
                       </p>
                     </div>
@@ -808,7 +808,7 @@ export default function ServicesPage() {
                       </div>
                       <Code className="w-6 h-6 text-[#D4A853] mx-auto mb-2 mt-2" />
                       <h4
-                        className="text-sm md:text-base font-bold text-white font-display"
+                        className="text-sm md:text-base font-bold text-foreground font-display"
                       >
                         Web Applications
                       </h4>
@@ -816,14 +816,14 @@ export default function ServicesPage() {
                         Custom software solutions
                       </p>
                     </div>
-                    <div className="p-4 md:p-5 bg-[#131316] border-b border-[rgba(255,255,255,0.06)] border-l border-[rgba(255,255,255,0.04)] text-center">
-                      <Bot className="w-6 h-6 text-[rgba(245,245,245,0.5)] mx-auto mb-2" />
+                    <div className="p-4 md:p-5 bg-card border-b border-[rgba(255,255,255,0.06)] border-l border-[rgba(255,255,255,0.04)] text-center">
+                      <Bot className="w-6 h-6 text-muted-foreground mx-auto mb-2" />
                       <h4
-                        className="text-sm md:text-base font-bold text-white font-display"
+                        className="text-sm md:text-base font-bold text-foreground font-display"
                       >
                         AI & Automation
                       </h4>
-                      <p className="text-[11px] text-[rgba(245,245,245,0.4)] mt-1">
+                      <p className="text-[11px] text-muted-foreground/60 mt-1">
                         Intelligent technology
                       </p>
                     </div>
@@ -878,12 +878,12 @@ export default function ServicesPage() {
                     <div
                       key={row.label}
                       className={`grid grid-cols-4 ${
-                        rowIdx % 2 === 0 ? "bg-[#131316]" : "bg-[#151519]"
+                        rowIdx % 2 === 0 ? "bg-card" : "bg-[#151519]"
                       }`}
                     >
                       {/* Label cell */}
                       <div className="p-4 md:p-5 border-b border-[rgba(255,255,255,0.03)]">
-                        <span className="text-xs md:text-sm font-semibold text-[rgba(245,245,245,0.6)] uppercase tracking-wider">
+                        <span className="text-xs md:text-sm font-semibold text-foreground/60 uppercase tracking-wider">
                           {row.label}
                         </span>
                       </div>
@@ -914,7 +914,7 @@ export default function ServicesPage() {
                                   <span
                                     className={`text-sm ${
                                       isRecommended
-                                        ? "text-[rgba(245,245,245,0.4)]"
+                                        ? "text-muted-foreground/60"
                                         : "text-[rgba(245,245,245,0.3)]"
                                     }`}
                                   >
@@ -928,10 +928,10 @@ export default function ServicesPage() {
                                   row.highlight && isRecommended
                                     ? "text-gradient-gold text-base font-bold"
                                     : row.highlight
-                                      ? "text-white font-semibold"
+                                      ? "text-foreground font-semibold"
                                       : isRecommended
                                         ? "text-[rgba(245,245,245,0.8)]"
-                                        : "text-[rgba(245,245,245,0.55)]"
+                                        : "text-muted-foreground"
                                 }`}
                               >
                                 {val}
@@ -951,7 +951,7 @@ export default function ServicesPage() {
                         onClick={() => handleNavClick("packages")}
                         variant="outline"
                         size="sm"
-                        className="border-[rgba(255,255,255,0.12)] bg-transparent hover:bg-white/5 text-white text-xs rounded-lg px-4 py-2 transition-all duration-300"
+                        className="border-[rgba(255,255,255,0.12)] bg-transparent hover:bg-white/5 text-foreground text-xs rounded-lg px-4 py-2 transition-all duration-300"
                       >
                         View Packages
                         <ChevronRight className="w-3 h-3 ml-1" />
@@ -972,7 +972,7 @@ export default function ServicesPage() {
                         onClick={() => handleNavClick("contact")}
                         variant="outline"
                         size="sm"
-                        className="border-[rgba(255,255,255,0.12)] bg-transparent hover:bg-white/5 text-white text-xs rounded-lg px-4 py-2 transition-all duration-300"
+                        className="border-[rgba(255,255,255,0.12)] bg-transparent hover:bg-white/5 text-foreground text-xs rounded-lg px-4 py-2 transition-all duration-300"
                       >
                         Learn More
                         <ChevronRight className="w-3 h-3 ml-1" />
@@ -987,7 +987,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ---------- 7. STAY CONNECTED / NEWSLETTER ---------- */}
-      <section className="relative py-16 md:py-20 bg-[#0A0A0B] section-gold-tint">
+      <section className="relative py-16 md:py-20 bg-background section-gold-tint">
         <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection direction="up">
@@ -999,11 +999,11 @@ export default function ServicesPage() {
               <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
                 <div className="flex-1">
                   <h3
-                    className="text-xl md:text-2xl font-bold text-white mb-2 font-display"
+                    className="text-xl md:text-2xl font-bold text-foreground mb-2 font-display"
                   >
                     Stay Ahead of the Curve
                   </h3>
-                  <p className="text-sm text-[rgba(245,245,245,0.5)] leading-relaxed">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     Get monthly insights on digital trends, AI developments, and
                     web strategy tips -- tailored for South African businesses and
                     institutions.
@@ -1013,7 +1013,7 @@ export default function ServicesPage() {
                   <div className="flex gap-3">
                     <Input
                       placeholder="Enter your email"
-                      className="flex-1 bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.08)] text-white placeholder:text-[rgba(245,245,245,0.25)] focus:border-[rgba(212,168,83,0.4)] rounded-xl h-11"
+                      className="flex-1 bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.08)] text-foreground placeholder:text-[rgba(245,245,245,0.25)] focus:border-[rgba(212,168,83,0.4)] rounded-xl h-11"
                     />
                     <Button
                       onClick={() =>
@@ -1037,7 +1037,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ----------------- 8. CTA SECTION ----------------- */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B]">
+      <section className="relative py-20 md:py-28 bg-background">
         <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection direction="up">
@@ -1058,13 +1058,13 @@ export default function ServicesPage() {
 
                 {/* Quote */}
                 <blockquote
-                  className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight max-w-3xl mx-auto font-display"
+                  className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4 leading-tight max-w-3xl mx-auto font-display"
                 >
                   &#8220;In the time it takes most agencies to finish their
                   proposal, we&#39;ve already launched your site.&#8221;
                 </blockquote>
 
-                <p className="text-base md:text-lg text-[rgba(245,245,245,0.5)] max-w-xl mx-auto leading-relaxed mb-10">
+                <p className="text-base md:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed mb-10">
                   Stop waiting. Start building. Carter Digitals delivers
                   production-ready digital infrastructure in 5-7 business days.
                 </p>
@@ -1083,7 +1083,7 @@ export default function ServicesPage() {
                     onClick={() => handleNavClick("packages")}
                     size="lg"
                     variant="outline"
-                    className="border-[rgba(255,255,255,0.15)] bg-transparent hover:bg-white/5 text-white font-semibold px-8 py-6 text-base rounded-xl transition-all duration-300 group"
+                    className="border-[rgba(255,255,255,0.15)] bg-transparent hover:bg-white/5 text-foreground font-semibold px-8 py-6 text-base rounded-xl transition-all duration-300 group"
                   >
                     View Packages & Pricing
                     <ChevronRight className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" />

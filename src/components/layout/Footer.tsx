@@ -60,7 +60,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-gradient-to-b from-[#060607] via-[#080809] to-[#060607] border-t border-[rgba(255,255,255,0.05)] section-gold-tint">
+    <footer className="relative bg-[#0F0F12] border-t border-border section-gold-tint">
       {/* Top gradient line */}
       <div className="h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.4)] to-transparent" />
 
@@ -84,13 +84,13 @@ export function Footer() {
               <div className="absolute top-0 right-0 w-80 h-80 bg-[rgba(212,168,83,0.05)] rounded-full blur-3xl" />
               <div className="relative z-10 max-w-2xl">
                 <h3
-                  className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4"
+                  className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-4"
                   style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >
                   Ready to Build Something{" "}
                   <span className="text-gradient-gold">Extraordinary?</span>
                 </h3>
-                <p className="text-[rgba(245,245,245,0.6)] text-base md:text-lg mb-8 leading-relaxed">
+                <p className="text-muted-foreground text-base md:text-lg mb-8 leading-relaxed">
                   No obligation. A 30-minute discovery call. Just clarity on what we can build
                   together — and what it will take to get you there.
                 </p>
@@ -107,7 +107,7 @@ export function Footer() {
                     href="https://wa.me/27724026893"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-8 py-6 text-base font-semibold rounded-lg border border-[rgba(212,168,83,0.25)] text-white hover:bg-[rgba(212,168,83,0.1)] hover:border-[rgba(212,168,83,0.4)] transition-all duration-300"
+                    className="inline-flex items-center justify-center px-8 py-6 text-base font-semibold rounded-lg border border-[rgba(212,168,83,0.25)] text-foreground hover:bg-[rgba(212,168,83,0.1)] hover:border-[rgba(212,168,83,0.4)] transition-all duration-300"
                   >
                     WhatsApp Us
                   </a>
@@ -118,7 +118,7 @@ export function Footer() {
         </div>
       </div>
 
-      <Separator className="bg-[rgba(255,255,255,0.05)]" />
+      <Separator className="bg-border" />
 
       {/* Main Footer */}
       <div className="py-12 md:py-16">
@@ -139,7 +139,7 @@ export function Footer() {
                 </div>
                 <div className="flex flex-col">
                   <span
-                    className="text-lg font-bold tracking-tight text-white leading-none"
+                    className="text-lg font-bold tracking-tight text-foreground leading-none"
                     style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                   >
                     Carter
@@ -152,7 +152,7 @@ export function Footer() {
 
               {/* Brand description in glass-gold card */}
               <div className="glass-gold rounded-xl p-4 mb-6 max-w-sm">
-                <p className="text-[rgba(245,245,245,0.5)] text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   High-agility digital infrastructure &amp; AI-enabled solutions for South Africa&apos;s
                   forward-thinking institutions.
                 </p>
@@ -162,7 +162,7 @@ export function Footer() {
               </div>
 
               {/* Contact info with gold icon hover glow */}
-              <div className="space-y-3 text-sm text-[rgba(245,245,245,0.5)]">
+              <div className="space-y-3 text-sm text-muted-foreground">
                 <a
                   href="mailto:kabelokadiaka4@gmail.com"
                   className="flex items-center gap-2 hover:text-[#D4A853] transition-all duration-300 group"
@@ -202,7 +202,7 @@ export function Footer() {
                   <li key={link.label}>
                     <button
                       onClick={() => handleNavClick(link.page)}
-                      className="text-sm text-[rgba(245,245,245,0.5)] hover:text-[#D4A853] transition-all duration-300 hover:translate-x-1 inline-block"
+                      className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 hover:translate-x-1 inline-block"
                       style={{ transitionDelay: `${i * 50}ms` }}
                     >
                       {link.label}
@@ -224,7 +224,7 @@ export function Footer() {
                   <li key={link.label}>
                     <button
                       onClick={() => handleNavClick(link.page)}
-                      className="text-sm text-[rgba(245,245,245,0.5)] hover:text-[#D4A853] transition-all duration-300 hover:translate-x-1 inline-block"
+                      className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 hover:translate-x-1 inline-block"
                       style={{ transitionDelay: `${i * 50}ms` }}
                     >
                       {link.label}
@@ -246,7 +246,7 @@ export function Footer() {
                   <li key={link.label}>
                     <button
                       onClick={() => handleNavClick(link.page)}
-                      className="text-sm text-[rgba(245,245,245,0.5)] hover:text-[#D4A853] transition-all duration-300 hover:translate-x-1 inline-block"
+                      className="text-sm text-muted-foreground hover:text-foreground transition-all duration-300 hover:translate-x-1 inline-block"
                       style={{ transitionDelay: `${i * 50}ms` }}
                     >
                       {link.label}
@@ -259,7 +259,7 @@ export function Footer() {
         </div>
       </div>
 
-      <Separator className="bg-[rgba(255,255,255,0.05)]" />
+      <Separator className="bg-border" />
 
       {/* Social Proof Strip — Trusted By */}
       <div className="py-8">
@@ -272,7 +272,7 @@ export function Footer() {
               <div key={client.name} className="flex items-center gap-3">
                 <div className="glass-gold rounded-lg px-4 py-2.5 flex items-center gap-2.5 transition-all duration-300 hover:bg-[rgba(212,168,83,0.1)] hover:border-[rgba(212,168,83,0.3)] group cursor-default hover-lift">
                   <client.icon className="w-4 h-4 text-[rgba(212,168,83,0.4)] group-hover:text-[#D4A853] transition-colors duration-300" />
-                  <span className="text-xs font-medium text-[rgba(245,245,245,0.5)] group-hover:text-[rgba(245,245,245,0.8)] transition-colors duration-300 whitespace-nowrap">
+                  <span className="text-xs font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300 whitespace-nowrap">
                     {client.name}
                   </span>
                 </div>
@@ -299,7 +299,7 @@ export function Footer() {
                 href="https://www.linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="card-hover-gold text-[rgba(245,245,245,0.35)] hover:text-[#D4A853] transition-all duration-300 p-2 rounded-lg"
+                className="card-hover-gold text-muted-foreground hover:text-foreground transition-all duration-300 p-2 rounded-lg"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
@@ -309,7 +309,7 @@ export function Footer() {
                 href="https://www.instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="card-hover-gold text-[rgba(245,245,255,0.35)] hover:text-[#D4A853] transition-all duration-300 p-2 rounded-lg"
+                className="card-hover-gold text-muted-foreground hover:text-foreground transition-all duration-300 p-2 rounded-lg"
                 aria-label="Instagram"
               >
                 <Instagram className="w-4 h-4" />
@@ -319,7 +319,7 @@ export function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="card-hover-gold text-[rgba(245,245,255,0.35)] hover:text-[#D4A853] transition-all duration-300 p-2 rounded-lg"
+                className="card-hover-gold text-muted-foreground hover:text-foreground transition-all duration-300 p-2 rounded-lg"
                 aria-label="X / Twitter"
               >
                 <Twitter className="w-4 h-4" />

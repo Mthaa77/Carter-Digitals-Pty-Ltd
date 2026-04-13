@@ -1919,3 +1919,19 @@ Stage Summary:
 - Light theme is warm, colourful, and engaging with gold accent colours
 - Dark theme completely untouched
 - ✅ ESLint: Zero errors
+---
+Task ID: light-mode-inner-polish
+Agent: general-purpose
+Task: Enhance Navbar, Footer, and Testimonials for premium light mode
+
+Work Log:
+- Updated Navbar.tsx: replaced 10 hardcoded dark colors with semantic tokens (text-foreground, text-muted-foreground, bg-background, bg-border)
+- Updated Footer.tsx: replaced 14 hardcoded dark colors with semantic tokens, kept dark footer background for premium look
+- Updated InteractiveTestimonials.tsx: replaced 16 hardcoded dark colors with semantic tokens
+- All components now seamlessly adapt between dark and light modes via CSS variables
+- Lint passes clean
+
+Stage Summary:
+- Navbar, Footer, and Testimonials fully light-mode compatible
+- Dark mode completely untouched
+- ✅ ESLint: Zero errors

@@ -190,8 +190,8 @@ function PricingCard({
     <div
       className={`relative h-full rounded-2xl ${
         pkg.popular
-          ? "bg-[#131316] border-2 border-[rgba(212,168,83,0.3)] glow-gold md:-mt-4 md:mb-[-16px] z-10 gold-border-animated"
-          : "bg-[#131316] border border-[rgba(255,255,255,0.06)]"
+          ? "bg-card border-2 border-[rgba(212,168,83,0.3)] glow-gold md:-mt-4 md:mb-[-16px] z-10 gold-border-animated"
+          : "bg-card border border-border"
       } p-6 md:p-8 glass-gold card-hover-gold flex flex-col card-idle-pulse`}
     >
       {/* Popular badge */}
@@ -210,7 +210,7 @@ function PricingCard({
         >
           {pkg.name}
         </h3>
-        <p className="text-sm text-[rgba(245,245,245,0.4)] italic">
+        <p className="text-sm text-muted-foreground/60 italic">
           &ldquo;{pkg.tagline}&rdquo;
         </p>
       </div>
@@ -218,15 +218,15 @@ function PricingCard({
       {/* Price */}
       <div className="mb-6">
         <span
-          className="text-3xl md:text-4xl font-bold text-white font-display"
+          className="text-3xl md:text-4xl font-bold text-foreground font-display"
         >
           {pkg.price}
         </span>
-        <span className="text-sm text-[rgba(245,245,245,0.4)] ml-1">
+        <span className="text-sm text-muted-foreground/60 ml-1">
           once-off
         </span>
         <div className="mt-1">
-          <span className="text-xs text-[rgba(245,245,245,0.35)]">
+          <span className="text-xs text-muted-foreground/50">
             + {pkg.retainer} optional retainer
           </span>
         </div>
@@ -239,7 +239,7 @@ function PricingCard({
         {pkg.features.map((feature) => (
           <li
             key={feature}
-            className="flex items-start gap-3 text-sm text-[rgba(245,245,245,0.6)]"
+            className="flex items-start gap-3 text-sm text-foreground/60"
           >
             <CheckCircle className="w-4 h-4 text-[#D4A853] shrink-0 mt-0.5" />
             <span>{feature}</span>
@@ -257,7 +257,7 @@ function PricingCard({
         className={`w-full font-semibold py-5 rounded-xl transition-all duration-300 group ${
           pkg.popular
             ? "bg-gradient-to-r from-[#D4A853] to-[#B8922F] hover:from-[#E8C97A] hover:to-[#D4A853] text-[#0A0A0B] shadow-lg shadow-[rgba(212,168,83,0.2)] hover:shadow-[rgba(212,168,83,0.3)]"
-            : "border-[rgba(255,255,255,0.12)] bg-transparent hover:bg-white/5 text-white"
+            : "border-[rgba(255,255,255,0.12)] bg-transparent hover:bg-white/5 text-foreground"
         }`}
       >
         Get Started
@@ -281,7 +281,7 @@ export default function PackagesPage() {
   return (
     <main className="relative overflow-hidden">
       {/* ───────────────────── 1. PAGE HERO ───────────────────── */}
-      <section className="relative py-28 md:py-40 bg-[#0A0A0B]">
+      <section className="relative py-28 md:py-40 bg-background">
         {/* Background */}
         <div className="absolute inset-0 bg-grid pattern-grid-animated" />
 
@@ -354,7 +354,7 @@ export default function PackagesPage() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.5} direction="up">
-              <p className="mt-6 text-base md:text-lg text-[rgba(245,245,245,0.6)] max-w-2xl mx-auto leading-relaxed">
+              <p className="mt-6 text-base md:text-lg text-foreground/60 max-w-2xl mx-auto leading-relaxed">
                 No lock-in contracts. No hidden fees. All packages include free
                 Year 1 hosting and domain. Simple, honest pricing built for South
                 African businesses and institutions.
@@ -370,7 +370,7 @@ export default function PackagesPage() {
       <div className="h-px section-divider-gold" />
 
       {/* ────────────────── 2. SME PACKAGES TABS ─────────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+      <section className="relative py-20 md:py-28 bg-background section-gold-tint">
         <CosmicDecorations variant="nebula" intensity="subtle" />
         {/* Background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[rgba(212,168,83,0.025)] rounded-full blur-[120px] pointer-events-none" />
@@ -387,16 +387,16 @@ export default function PackagesPage() {
           <AnimatedSection delay={0.2} direction="up">
             <Tabs defaultValue="sme" className="w-full">
               <div className="flex justify-center mb-12">
-                <TabsList className="bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.06)] rounded-xl p-1 h-auto">
+                <TabsList className="bg-[rgba(255,255,255,0.04)] border border-border rounded-xl p-1 h-auto">
                   <TabsTrigger
                     value="sme"
-                    className="data-[state=active]:bg-[rgba(212,168,83,0.15)] data-[state=active]:text-[#D4A853] text-[rgba(245,245,245,0.5)] px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-200"
+                    className="data-[state=active]:bg-[rgba(212,168,83,0.15)] data-[state=active]:text-[#D4A853] text-muted-foreground px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-200"
                   >
                     Small Business
                   </TabsTrigger>
                   <TabsTrigger
                     value="school"
-                    className="data-[state=active]:bg-[rgba(212,168,83,0.15)] data-[state=active]:text-[#D4A853] text-[rgba(245,245,245,0.5)] px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-200"
+                    className="data-[state=active]:bg-[rgba(212,168,83,0.15)] data-[state=active]:text-[#D4A853] text-muted-foreground px-6 py-2.5 rounded-lg text-sm font-medium transition-all duration-200"
                   >
                     School
                   </TabsTrigger>
@@ -440,7 +440,7 @@ export default function PackagesPage() {
       <div className="h-px section-divider-gold" />
 
       {/* ────────────────── 3. ADD-ON SERVICES ──────────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+      <section className="relative py-20 md:py-28 bg-background section-gold-tint">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[300px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[100px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
@@ -464,11 +464,11 @@ export default function PackagesPage() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <h3
-                        className="text-base font-semibold text-white mb-1.5 font-display"
+                        className="text-base font-semibold text-foreground mb-1.5 font-display"
                       >
                         {addon.title}
                       </h3>
-                      <p className="text-sm text-[rgba(245,245,245,0.5)] leading-relaxed mb-3">
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-3">
                         {addon.description}
                       </p>
                       <div className="flex flex-wrap gap-2">
@@ -478,7 +478,7 @@ export default function PackagesPage() {
                           </Badge>
                         )}
                         {addon.monthly && (
-                          <Badge className="bg-[rgba(255,255,255,0.05)] text-[rgba(245,245,245,0.6)] border-[rgba(255,255,255,0.08)] text-xs font-medium px-2.5 py-0.5">
+                          <Badge className="bg-[rgba(255,255,255,0.05)] text-foreground/60 border-[rgba(255,255,255,0.08)] text-xs font-medium px-2.5 py-0.5">
                             {addon.monthly}
                           </Badge>
                         )}
@@ -495,7 +495,7 @@ export default function PackagesPage() {
       <div className="h-px section-divider-gold" />
 
       {/* ──────────────────── 4. FAQ SECTION ───────────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+      <section className="relative py-20 md:py-28 bg-background section-gold-tint">
         <CosmicDecorations variant="aurora" intensity="subtle" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[rgba(212,168,83,0.02)] rounded-full blur-[120px] pointer-events-none" />
 
@@ -519,7 +519,7 @@ export default function PackagesPage() {
       <div className="h-px section-divider-gold" />
 
       {/* ──────────────────── 5. CTA SECTION ───────────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+      <section className="relative py-20 md:py-28 bg-background section-gold-tint">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection direction="up">
             <div className="relative overflow-hidden rounded-3xl gold-border-animated">
@@ -542,12 +542,12 @@ export default function PackagesPage() {
 
               <div className="relative z-10 px-6 py-14 md:px-16 md:py-20 lg:px-24 lg:py-24 text-center">
                 <h2
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight font-display"
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 leading-tight font-display"
                 >
                   Ready to Get Started?
                 </h2>
 
-                <p className="text-base md:text-lg text-[rgba(245,245,245,0.55)] max-w-2xl mx-auto leading-relaxed mb-10">
+                <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-10">
                   No obligation. A 30-minute discovery call where we learn about 
                   your goals and outline a clear path forward — whether you work 
                   with us or not.
@@ -565,7 +565,7 @@ export default function PackagesPage() {
                   </Button>
                 </div>
 
-                <p className="mt-6 text-xs text-[rgba(245,245,245,0.3)]">
+                <p className="mt-6 text-xs text-muted-foreground/40">
                   Free consultation · No commitment · Response within 2 hours
                 </p>
               </div>

@@ -163,7 +163,7 @@ export default function AboutPage() {
   return (
     <main className="relative overflow-hidden">
       {/* ───────────────────── 1. PAGE HERO ───────────────────── */}
-      <section className="relative py-24 md:py-36 bg-[#0A0A0B]">
+      <section className="relative py-24 md:py-36 bg-background">
         {/* Background grid */}
         <div className="absolute inset-0 bg-grid pattern-grid-animated" />
 
@@ -222,21 +222,21 @@ export default function AboutPage() {
               <h1
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight font-display"
               >
-                <span className="text-[#F5F5F5]">About Carter </span>
+                <span className="text-foreground">About Carter </span>
                 <span className="text-gradient-gold">Digitals</span>
               </h1>
             </AnimatedSection>
 
             <AnimatedSection delay={0.35} direction="up">
               <p
-                className="mt-4 text-xl md:text-2xl font-medium text-[rgba(245,245,245,0.5)] tracking-wide font-display"
+                className="mt-4 text-xl md:text-2xl font-medium text-muted-foreground tracking-wide font-display"
               >
                 Built Different. Built African. Built to Win.
               </p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.5} direction="up">
-              <p className="mt-6 text-base md:text-lg text-[rgba(245,245,245,0.55)] max-w-2xl mx-auto leading-relaxed">
+              <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 Carter Digitals (Pty) Ltd is a Pretoria-based digital services
                 studio operating out of Soshanguve — building production-ready
                 digital infrastructure for South Africa&apos;s schools, SMEs, law
@@ -258,7 +258,7 @@ export default function AboutPage() {
                   onClick={() => handleNavClick("services")}
                   size="lg"
                   variant="outline"
-                  className="border-[rgba(255,255,255,0.15)] bg-transparent hover:bg-white/5 text-white font-semibold px-8 py-6 text-base rounded-xl transition-all duration-300 group"
+                  className="border-[rgba(255,255,255,0.15)] bg-transparent hover:bg-white/5 text-foreground font-semibold px-8 py-6 text-base rounded-xl transition-all duration-300 group"
                 >
                   View Our Services
                   <ChevronRight className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" />
@@ -275,7 +275,7 @@ export default function AboutPage() {
       <div className="h-px section-divider-gold" />
 
       {/* ────────────────── 2. OUR STORY SECTION ───────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+      <section className="relative py-20 md:py-28 bg-background section-gold-tint">
         <CosmicDecorations variant="stardust" intensity="subtle" />
         <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
         {/* Ambient floating orbs */}
@@ -300,7 +300,7 @@ export default function AboutPage() {
                 <span className="text-gradient-gold">Purpose</span>
               </h2>
 
-              <div className="space-y-5 text-[rgba(245,245,245,0.6)] leading-[1.8]">
+              <div className="space-y-5 text-foreground/60 leading-[1.8]">
                 <p className="first-letter:text-[#D4A853] first-letter:text-3xl first-letter:font-bold first-letter:float-left first-letter:mr-2 first-letter:mt-1">
                   Carter Digitals was never meant to be just another digital
                   agency. Founded in 2023, this studio was named in tribute to a
@@ -330,7 +330,7 @@ export default function AboutPage() {
               <AnimatedSection direction="left" delay={0.2}>
                 <div className="relative">
                   {/* Main visual card */}
-                  <div className="relative rounded-3xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-8 md:p-10 overflow-hidden">
+                  <div className="relative rounded-3xl bg-card border border-border p-8 md:p-10 overflow-hidden">
                     <div className="absolute inset-0 bg-dots opacity-30" />
                     <div className="absolute -top-20 -right-20 w-[300px] h-[300px] bg-[rgba(212,168,83,0.04)] rounded-full blur-[100px] pointer-events-none" />
 
@@ -338,7 +338,7 @@ export default function AboutPage() {
                       {/* Decorative quote */}
                       <Quote className="w-12 h-12 text-[rgba(212,168,83,0.2)] mb-6" />
                       <blockquote
-                        className="text-lg md:text-xl font-medium text-[rgba(245,245,245,0.8)] leading-relaxed mb-6 font-display"
+                        className="text-lg md:text-xl font-medium text-foreground/80 leading-relaxed mb-6 font-display"
                       >
                         We don&apos;t ask you to trust our pitch. We ask you to
                         look at what we&apos;ve already built — and let the work
@@ -356,7 +356,7 @@ export default function AboutPage() {
                           { label: "Ownership", value: "100%" },
                         ].map((item) => (
                           <div key={item.label}>
-                            <p className="text-xs text-[rgba(245,245,245,0.4)] uppercase tracking-wider mb-1">
+                            <p className="text-xs text-muted-foreground/60 uppercase tracking-wider mb-1">
                               {item.label}
                             </p>
                             <p
@@ -402,7 +402,7 @@ export default function AboutPage() {
 
       {/* ────────────────── 3. MISSION & VALUES ─────────────────── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div className="gold-glow-line mx-auto max-w-xs rounded-full" /></div>
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+      <section className="relative py-20 md:py-28 bg-background section-gold-tint">
         <CosmicDecorations variant="aurora" intensity="subtle" />
         <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
         {/* Background glow */}
@@ -424,7 +424,7 @@ export default function AboutPage() {
             {values.map((value) => (
               <StaggerItem key={value.title}>
                 <TiltCard className="h-full" tiltStrength={4}>
-                  <div className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-6 card-hover-gold overflow-hidden">
+                  <div className="group relative h-full rounded-2xl bg-card border border-border p-6 card-hover-gold overflow-hidden">
                     {/* Gold top accent line */}
                     <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4A853] to-transparent opacity-60" />
 
@@ -432,11 +432,11 @@ export default function AboutPage() {
                       <value.icon className="w-6 h-6 text-[#D4A853]" />
                     </div>
                     <h3
-                      className="text-lg font-semibold text-white mb-3 font-display"
+                      className="text-lg font-semibold text-foreground mb-3 font-display"
                     >
                       {value.title}
                     </h3>
-                    <p className="text-sm text-[rgba(245,245,245,0.5)] leading-relaxed">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       {value.description}
                     </p>
                   </div>
@@ -449,7 +449,7 @@ export default function AboutPage() {
 
       {/* ────────────────── 4. FOUNDER SECTION ──────────────────── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4"><div className="gold-glow-line mx-auto max-w-xs rounded-full" /></div>
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint grain-texture">
+      <section className="relative py-20 md:py-28 bg-background section-gold-tint grain-texture">
         <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
         {/* Gold gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-[rgba(212,168,83,0.03)] via-[rgba(212,168,83,0.01)] to-transparent pointer-events-none" />
@@ -479,13 +479,13 @@ export default function AboutPage() {
                         </span>
                       </div>
                       {/* Status indicator */}
-                      <div className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-[#131316] border-2 border-[rgba(212,168,83,0.3)] flex items-center justify-center">
+                      <div className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-card border-2 border-[rgba(212,168,83,0.3)] flex items-center justify-center">
                         <Cpu className="w-4 h-4 text-[#D4A853]" />
                       </div>
                     </div>
 
                     <h3
-                      className="text-2xl font-bold text-white text-center font-display"
+                      className="text-2xl font-bold text-foreground text-center font-display"
                     >
                       Kabelo Kadiaka
                     </h3>
@@ -509,8 +509,8 @@ export default function AboutPage() {
                           key={tech.label}
                           className="flex flex-col items-center gap-1.5 py-2"
                         >
-                          <tech.icon className="w-5 h-5 text-[rgba(245,245,245,0.4)]" />
-                          <span className="text-[10px] text-[rgba(245,245,245,0.35)]">
+                          <tech.icon className="w-5 h-5 text-muted-foreground/60" />
+                          <span className="text-[10px] text-muted-foreground/50">
                             {tech.label}
                           </span>
                         </div>
@@ -567,7 +567,7 @@ export default function AboutPage() {
                 </div>
 
                 {/* Bio */}
-                <div className="space-y-4 text-[rgba(245,245,245,0.6)] leading-[1.8] mb-8">
+                <div className="space-y-4 text-foreground/60 leading-[1.8] mb-8">
                   <p>
                     Kabelo Kadiaka is the founder and director of Carter Digitals
                     — a digital services studio rooted in Pretoria&apos;s
@@ -599,14 +599,14 @@ export default function AboutPage() {
 
                 {/* Tech stack badges */}
                 <div className="mb-8">
-                  <p className="text-xs text-[rgba(245,245,245,0.4)] uppercase tracking-wider font-semibold mb-3">
+                  <p className="text-xs text-muted-foreground/60 uppercase tracking-wider font-semibold mb-3">
                     Tech Stack
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="inline-flex items-center px-3 py-1.5 rounded-lg bg-[#1A1A1F] border border-[rgba(255,255,255,0.06)] text-xs text-[rgba(245,245,245,0.6)] font-medium"
+                        className="inline-flex items-center px-3 py-1.5 rounded-lg bg-card border border-border text-xs text-foreground/60 font-medium"
                       >
                         {tech}
                       </span>
@@ -614,16 +614,16 @@ export default function AboutPage() {
                   </div>
                 </div>
 
-                <Separator className="bg-[rgba(255,255,255,0.06)] mb-6" />
+                <Separator className="bg-muted/60 mb-6" />
 
                 {/* Quote */}
                 <div>
                   <p
-                    className="text-lg md:text-xl font-semibold text-[rgba(245,245,245,0.8)] leading-relaxed mb-2 font-display"
+                    className="text-lg md:text-xl font-semibold text-foreground/80 leading-relaxed mb-2 font-display"
                   >
                     &ldquo;AI-Augmented. Human-Driven. Built to Deliver.&rdquo;
                   </p>
-                  <p className="text-sm text-[rgba(245,245,245,0.4)] italic">
+                  <p className="text-sm text-muted-foreground/60 italic">
                     Capability over credentials. Outcomes over promises.
                   </p>
                 </div>
@@ -635,7 +635,7 @@ export default function AboutPage() {
 
       {/* ──────────── 5a. COMPANY STATS BAR ───────────────────── */}
       <AnimatedSection direction="up">
-        <section className="relative py-16 md:py-20 bg-[#0A0A0B] section-gold-tint">
+        <section className="relative py-16 md:py-20 bg-background section-gold-tint">
           <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
           <div className="absolute inset-0 bg-dots opacity-40" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[120px] pointer-events-none" />
@@ -654,7 +654,7 @@ export default function AboutPage() {
                         duration={2000}
                       />
                     </div>
-                    <p className="text-sm text-[rgba(245,245,245,0.45)] font-medium tracking-wide">
+                    <p className="text-sm text-muted-foreground/50 font-medium tracking-wide">
                       {stat.label}
                     </p>
                   </div>
@@ -667,7 +667,7 @@ export default function AboutPage() {
 
       {/* ──────────── 5b. COMPANY MILESTONES TIMELINE ─────────────── */}
       <AnimatedSection direction="up">
-        <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+        <section className="relative py-20 md:py-28 bg-background section-gold-tint">
           <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[600px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[120px] pointer-events-none" />
 
@@ -698,7 +698,7 @@ export default function AboutPage() {
                         {/* Content card */}
                         <div className={`flex-1 pl-10 md:pl-0 ${isLeft ? "md:pr-12 md:text-right" : "md:pl-12 md:text-left"}`}>
                           <StaggerItem>
-                            <div className="group rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-6 card-hover-gold hover:border-[rgba(212,168,83,0.15)] transition-colors duration-300 hover-lift">
+                            <div className="group rounded-2xl bg-card border border-border p-6 card-hover-gold hover:border-[rgba(212,168,83,0.15)] transition-colors duration-300 hover-lift">
                               <div className={`flex items-center gap-3 mb-3 ${isLeft ? "md:flex-row-reverse" : ""}`}>
                                 <div className="w-10 h-10 rounded-xl bg-[rgba(212,168,83,0.1)] border border-[rgba(212,168,83,0.15)] flex items-center justify-center shrink-0 group-hover:bg-[rgba(212,168,83,0.15)] transition-colors duration-300">
                                   <milestone.icon className="w-5 h-5 text-[#D4A853]" />
@@ -708,13 +708,13 @@ export default function AboutPage() {
                                     {milestone.year}
                                   </span>
                                   <h3
-                                    className="text-lg font-bold text-white font-display"
+                                    className="text-lg font-bold text-foreground font-display"
                                   >
                                     {milestone.title}
                                   </h3>
                                 </div>
                               </div>
-                              <p className="text-sm text-[rgba(245,245,245,0.5)] leading-relaxed">
+                              <p className="text-sm text-muted-foreground leading-relaxed">
                                 {milestone.description}
                               </p>
                             </div>
@@ -722,12 +722,12 @@ export default function AboutPage() {
                         </div>
 
                         {/* Center dot — desktop only */}
-                        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-6 w-10 h-10 rounded-full bg-[#0A0A0B] border-2 border-[#D4A853] items-center justify-center z-10 shadow-lg shadow-[rgba(212,168,83,0.3)]">
+                        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-6 w-10 h-10 rounded-full bg-background border-2 border-[#D4A853] items-center justify-center z-10 shadow-lg shadow-[rgba(212,168,83,0.3)]">
                           <div className="w-4 h-4 rounded-full bg-[#D4A853]" />
                         </div>
 
                         {/* Mobile dot */}
-                        <div className="md:hidden absolute left-[5px] top-6 w-5 h-5 rounded-full bg-[#D4A853] border-2 border-[#0A0A0B] z-10 shadow-md shadow-[rgba(212,168,83,0.25)]" />
+                        <div className="md:hidden absolute left-[5px] top-6 w-5 h-5 rounded-full bg-[#D4A853] border-2 border-background z-10 shadow-md shadow-[rgba(212,168,83,0.25)]" />
 
                         {/* Spacer for alternating layout — desktop only */}
                         <div className="hidden md:block flex-1" />
@@ -742,7 +742,7 @@ export default function AboutPage() {
       </AnimatedSection>
 
       {/* ────────────────── 5c. MEET THE TEAM ──────────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+      <section className="relative py-20 md:py-28 bg-background section-gold-tint">
         <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
         {/* Gold glow orbs behind the section */}
         <div className="absolute top-1/4 left-[10%] w-[400px] h-[400px] bg-[rgba(212,168,83,0.05)] rounded-full blur-[140px] pointer-events-none" />
@@ -793,7 +793,7 @@ export default function AboutPage() {
               },
             ].map((member) => (
               <StaggerItem key={member.name}>
-                <div className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-6 card-hover-gold hover-lift card-idle-pulse overflow-hidden">
+                <div className="group relative h-full rounded-2xl bg-card border border-border p-6 card-hover-gold hover-lift card-idle-pulse overflow-hidden">
                   {/* Gold top accent line */}
                   <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4A853] to-transparent opacity-60" />
 
@@ -807,7 +807,7 @@ export default function AboutPage() {
                   </div>
 
                   {/* Name */}
-                  <h3 className="text-lg font-bold text-white text-center font-display mb-1">
+                  <h3 className="text-lg font-bold text-foreground text-center font-display mb-1">
                     {member.name}
                   </h3>
 
@@ -817,7 +817,7 @@ export default function AboutPage() {
                   </p>
 
                   {/* Description */}
-                  <p className="text-sm text-[rgba(245,245,245,0.5)] leading-relaxed text-center mb-4">
+                  <p className="text-sm text-muted-foreground leading-relaxed text-center mb-4">
                     {member.description}
                   </p>
 
@@ -840,7 +840,7 @@ export default function AboutPage() {
       </section>
 
       {/* ────────────────── 5. CREDENTIALS SECTION ──────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+      <section className="relative py-20 md:py-28 bg-background section-gold-tint">
         <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[rgba(212,168,83,0.02)] rounded-full blur-[120px] pointer-events-none" />
 
@@ -856,7 +856,7 @@ export default function AboutPage() {
           <AnimatedSection direction="up" delay={0.15}>
             <div className="relative max-w-3xl mx-auto">
               {/* Credentials card */}
-              <div className="rounded-3xl bg-[#131316] border border-[rgba(212,168,83,0.15)] overflow-hidden glow-gold">
+              <div className="rounded-3xl bg-card border border-[rgba(212,168,83,0.15)] overflow-hidden glow-gold">
                 {/* Glass effect overlay */}
                 <div className="absolute inset-0 rounded-3xl" style={{ background: "rgba(19,19,22,0.7)", backdropFilter: "blur(20px)", WebkitBackdropFilter: "blur(20px)" }} />
                 <div className="absolute inset-0 bg-dots opacity-20 rounded-3xl" />
@@ -869,11 +869,11 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h3
-                        className="text-xl font-bold text-white font-display"
+                        className="text-xl font-bold text-foreground font-display"
                       >
                         Company Credentials
                       </h3>
-                      <p className="text-sm text-[rgba(245,245,245,0.4)]">
+                      <p className="text-sm text-muted-foreground/60">
                         Carter Digitals (Pty) Ltd — Official Records
                       </p>
                     </div>
@@ -886,11 +886,11 @@ export default function AboutPage() {
                         <div className="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-4 py-4">
                           <div className="flex items-start gap-3 sm:w-[200px] shrink-0">
                             <CheckCircle className="w-4 h-4 text-[#D4A853] shrink-0 mt-0.5" />
-                            <span className="text-sm font-medium text-[rgba(245,245,245,0.5)] whitespace-nowrap">
+                            <span className="text-sm font-medium text-muted-foreground whitespace-nowrap">
                               {item.label}
                             </span>
                           </div>
-                          <span className="text-sm text-[#F5F5F5] font-medium leading-relaxed">
+                          <span className="text-sm text-foreground font-medium leading-relaxed">
                             {item.value}
                           </span>
                         </div>
@@ -906,10 +906,10 @@ export default function AboutPage() {
                     <div className="flex items-center gap-3">
                       <MapPin className="w-5 h-5 text-[#D4A853]" />
                       <div>
-                        <p className="text-sm text-[#F5F5F5] font-medium">
+                        <p className="text-sm text-foreground font-medium">
                           Soshanguve, Pretoria, Gauteng
                         </p>
-                        <p className="text-xs text-[rgba(245,245,245,0.4)]">
+                        <p className="text-xs text-muted-foreground/60">
                           Serving clients across South Africa
                         </p>
                       </div>
@@ -930,7 +930,7 @@ export default function AboutPage() {
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase bg-[rgba(212,168,83,0.1)] text-[#D4A853] border border-[rgba(212,168,83,0.2)]">
                 Trusted Across Sectors
               </span>
-              <h2 className="mt-6 text-2xl md:text-3xl font-bold text-white font-display">
+              <h2 className="mt-6 text-2xl md:text-3xl font-bold text-foreground font-display">
                 Institutions That <span className="text-gradient-gold">Believe In Us</span>
               </h2>
             </div>
@@ -941,7 +941,7 @@ export default function AboutPage() {
                 <StaggerItem key={logo.name}>
                   <div className="group flex flex-col items-center justify-center p-6 rounded-2xl glass-gold hover:border-[rgba(212,168,83,0.2)] transition-all duration-300 hover-lift">
                     <logo.icon className="w-8 h-8 text-[rgba(245,245,245,0.2)] group-hover:text-[rgba(212,168,83,0.5)] transition-colors duration-300 mb-3" />
-                    <span className="text-xs font-semibold text-[rgba(245,245,245,0.3)] group-hover:text-[rgba(245,245,245,0.6)] transition-colors text-center leading-tight">{logo.name}</span>
+                    <span className="text-xs font-semibold text-[rgba(245,245,245,0.3)] group-hover:text-foreground/60 transition-colors text-center leading-tight">{logo.name}</span>
                     <span className="text-[10px] text-[rgba(245,245,245,0.15)] mt-1">{logo.sector}</span>
                   </div>
                 </StaggerItem>
@@ -954,7 +954,7 @@ export default function AboutPage() {
       <div className="h-px section-divider-gold" />
 
       {/* ────────────── 6. ENGAGEMENT MODELS SECTION ────────────── */}
-      <section className="relative py-20 md:py-28 bg-[#0A0A0B] section-gold-tint">
+      <section className="relative py-20 md:py-28 bg-background section-gold-tint">
         <div className="absolute top-0 left-0 right-0 h-px section-divider-gold" />
         {/* Gold glow orb */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[rgba(212,168,83,0.03)] rounded-full blur-[120px] pointer-events-none" />
@@ -973,7 +973,7 @@ export default function AboutPage() {
           >
             {engagementModels.map((model, idx) => (
               <StaggerItem key={model.title}>
-                <div className="group relative h-full rounded-2xl bg-[#131316] border border-[rgba(255,255,255,0.06)] p-6 md:p-8 card-hover-gold hover-lift overflow-hidden flex flex-col card-idle-pulse">
+                <div className="group relative h-full rounded-2xl bg-card border border-border p-6 md:p-8 card-hover-gold hover-lift overflow-hidden flex flex-col card-idle-pulse">
                   {/* Gold top accent */}
                   <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#D4A853] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -987,21 +987,21 @@ export default function AboutPage() {
                   </div>
 
                   <h3
-                    className="text-xl font-bold text-white mb-3 font-display"
+                    className="text-xl font-bold text-foreground mb-3 font-display"
                   >
                     {model.title}
                   </h3>
 
-                  <p className="text-sm text-[rgba(245,245,245,0.55)] leading-relaxed mb-6 flex-1">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">
                     {model.description}
                   </p>
 
                   {/* Best for tag */}
-                  <div className="mt-auto pt-4 border-t border-[rgba(255,255,255,0.06)]">
+                  <div className="mt-auto pt-4 border-t border-border">
                     <div className="flex items-start gap-2">
                       <Users className="w-4 h-4 text-[#D4A853] shrink-0 mt-0.5" />
-                      <p className="text-xs text-[rgba(245,245,245,0.4)] leading-relaxed">
-                        <span className="font-semibold text-[rgba(245,245,245,0.6)]">
+                      <p className="text-xs text-muted-foreground/60 leading-relaxed">
+                        <span className="font-semibold text-foreground/60">
                           Best for:
                         </span>{" "}
                         {model.bestFor}

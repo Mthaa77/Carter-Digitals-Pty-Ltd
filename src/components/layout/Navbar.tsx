@@ -202,7 +202,7 @@ function MobileNavItem({
         ${
           isActive
             ? "text-[#E8C97A] font-semibold"
-            : "text-[rgba(245,245,245,0.7)] font-medium"
+            : "text-muted-foreground font-medium"
         }
       `}
     >
@@ -296,7 +296,7 @@ export function Navbar() {
         transition={{ duration: 0.6, ease: [0.25, 0.4, 0.25, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "glass-gold py-3 shadow-lg shadow-black/20"
+            ? "glass-gold py-3 shadow-lg shadow-foreground/5"
             : "bg-transparent py-5"
         }`}
       >
@@ -325,7 +325,7 @@ export function Navbar() {
               </div>
               <div className="flex flex-col">
                 <span
-                  className="text-lg font-bold tracking-tight text-white leading-none"
+                  className="text-lg font-bold tracking-tight text-foreground leading-none"
                   style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                 >
                   Carter
@@ -345,7 +345,7 @@ export function Navbar() {
                   className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg tracking-[0.02em] ${
                     currentPage === item.key
                       ? "text-gradient-gold"
-                      : "text-[rgba(245,245,245,0.7)] hover:text-white hover:shadow-[0_0_12px_rgba(212,168,83,0.15)]"
+                      : "text-muted-foreground hover:text-foreground hover:shadow-[0_0_12px_rgba(212,168,83,0.15)]"
                   }`}
                 >
                   {item.label}
@@ -375,7 +375,7 @@ export function Navbar() {
               {/* Phone pill */}
               <a
                 href="tel:0724026893"
-                className="flex items-center gap-2 text-sm bg-[rgba(212,168,83,0.06)] border border-[rgba(212,168,83,0.12)] rounded-full px-3 py-1 text-[rgba(245,245,245,0.7)] hover:text-[#D4A853] hover:border-[rgba(212,168,83,0.25)] transition-all duration-300 group"
+                className="flex items-center gap-2 text-sm bg-[rgba(212,168,83,0.06)] border border-[rgba(212,168,83,0.12)] rounded-full px-3 py-1 text-foreground hover:text-[#D4A853] hover:border-[rgba(212,168,83,0.25)] transition-all duration-300 group"
               >
                 <Phone className="w-4 h-4 text-[#D4A853] group-hover:text-[#E8C97A] transition-colors" />
                 <span>072 402 6893</span>
@@ -443,10 +443,8 @@ export function Navbar() {
               initial="hidden"
               animate="visible"
               exit="exit"
-              className="absolute right-0 top-0 bottom-0 w-[300px] flex flex-col"
+              className="absolute right-0 top-0 bottom-0 w-[300px] flex flex-col bg-background"
               style={{
-                background:
-                  "linear-gradient(180deg, #0F0F12 0%, #0D0D10 50%, #0B0B0E 100%)",
                 borderLeft: "1px solid rgba(212,168,83,0.08)",
               }}
             >
@@ -481,7 +479,7 @@ export function Navbar() {
                   </div>
                   <div className="flex flex-col">
                     <span
-                      className="text-lg font-bold tracking-tight text-white leading-none"
+                      className="text-lg font-bold tracking-tight text-foreground leading-none"
                       style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                     >
                       Carter
@@ -495,11 +493,7 @@ export function Navbar() {
 
               {/* Subtle divider after logo */}
               <div
-                className="mx-6 h-[1px] shrink-0"
-                style={{
-                  background:
-                    "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%)",
-                }}
+                className="mx-6 h-[1px] shrink-0 bg-border"
               />
 
               {/* Mobile nav links with staggered animations */}
@@ -548,7 +542,7 @@ export function Navbar() {
                   {/* Phone number pill */}
                   <a
                     href="tel:0724026893"
-                    className="flex items-center gap-2.5 text-sm text-[rgba(245,245,245,0.7)] hover:text-[#D4A853] transition-all duration-300 bg-[rgba(212,168,83,0.05)] border border-[rgba(212,168,83,0.12)] rounded-full px-3 py-2 hover:border-[rgba(212,168,83,0.25)] hover:bg-[rgba(212,168,83,0.08)]"
+                    className="flex items-center gap-2.5 text-sm text-foreground hover:text-[#D4A853] transition-all duration-300 bg-[rgba(212,168,83,0.05)] border border-[rgba(212,168,83,0.12)] rounded-full px-3 py-2 hover:border-[rgba(212,168,83,0.25)] hover:bg-[rgba(212,168,83,0.08)]"
                   >
                     <Phone className="w-4 h-4 text-[#D4A853]" />
                     <span className="font-medium">072 402 6893</span>
@@ -615,7 +609,7 @@ export function Navbar() {
                         aria-label={social.label}
                         whileHover={{ scale: 1.1, y: -2 }}
                         whileTap={{ scale: 0.9 }}
-                        className="w-9 h-9 rounded-full border border-[rgba(212,168,83,0.15)] bg-[rgba(212,168,83,0.04)] flex items-center justify-center text-[rgba(245,245,245,0.4)] hover:text-[#D4A853] hover:border-[rgba(212,168,83,0.35)] hover:bg-[rgba(212,168,83,0.08)] transition-all duration-300 hover:shadow-[0_0_12px_rgba(212,168,83,0.1)]"
+                        className="w-9 h-9 rounded-full border border-[rgba(212,168,83,0.15)] bg-[rgba(212,168,83,0.04)] flex items-center justify-center text-muted-foreground hover:text-[#D4A853] hover:border-[rgba(212,168,83,0.35)] hover:bg-[rgba(212,168,83,0.08)] transition-all duration-300 hover:shadow-[0_0_12px_rgba(212,168,83,0.1)]"
                       >
                         <social.icon className="w-4 h-4" />
                       </motion.a>
