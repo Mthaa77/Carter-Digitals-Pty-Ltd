@@ -476,12 +476,18 @@ export default function HomePage() {
   return (
     <main className="relative overflow-hidden">
       {/* ════════════════════ 1. HERO SECTION ════════════════════ */}
-      <section className="relative min-h-screen flex flex-col justify-center bg-[#0A0A0B] overflow-hidden">
+      <section className="relative min-h-screen flex flex-col justify-center bg-background overflow-hidden">
+        {/* Animated gradient mesh background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute -top-[40%] -left-[20%] w-[70%] h-[70%] rounded-full bg-[radial-gradient(circle,rgba(30,58,95,0.08)_0%,transparent_70%)] animate-[float_20s_ease-in-out_infinite]" />
+          <div className="absolute -bottom-[30%] -right-[15%] w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle,rgba(196,30,58,0.06)_0%,transparent_70%)] animate-[float_25s_ease-in-out_infinite_reverse]" />
+          <div className="absolute top-[20%] right-[10%] w-[40%] h-[40%] rounded-full bg-[radial-gradient(circle,rgba(212,168,83,0.04)_0%,transparent_70%)] animate-[float_18s_ease-in-out_infinite_2s]" />
+        </div>
         {/* Cosmic ring decoration behind hero */}
         <CosmicDecorations variant="cosmic-ring" intensity="subtle" />
         {/* Background layers */}
         <div className="absolute inset-0 bg-grid" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0B] via-transparent to-[#0A0A0B]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
         <div className="absolute inset-0 bg-gradient-to-r from-[rgba(212,168,83,0.03)] via-transparent to-[rgba(212,168,83,0.02)]" />
 
         {/* Floating shapes with parallax */}
@@ -539,12 +545,12 @@ export default function HomePage() {
                   <br />
                   <span className="text-gradient-gold animate-gradient-text">Built African.</span>
                   <br />
-                  <span className="text-[#F5F5F5]">Built to Win.</span>
+                  <span className="text-gradient-gold">Built to Win.</span>
                 </h1>
               </AnimatedSection>
 
               <AnimatedSection delay={0.4} direction="up">
-                <p className="mt-6 md:mt-8 text-lg md:text-xl text-[rgba(245,245,245,0.55)] max-w-xl leading-[1.8]">
+                <p className="mt-6 md:mt-8 text-lg md:text-xl text-muted-foreground max-w-xl leading-[1.8]">
                   South Africa&apos;s forward-thinking institutions don&apos;t need another digital vendor. They need a builder — someone who delivers on time and leaves institutions stronger.
                 </p>
               </AnimatedSection>
@@ -559,7 +565,7 @@ export default function HomePage() {
                   </MagneticButton>
                   <MagneticButton strength={0.2}>
                     <Button onClick={() => handleNavClick("services")} size="lg" variant="outline"
-                      className="border-[rgba(255,255,255,0.15)] bg-transparent hover:bg-white/5 text-white font-semibold px-8 py-6 text-base rounded-xl transition-all duration-300 group">
+                      className="border-foreground/20 bg-transparent hover:bg-foreground/5 text-foreground font-semibold px-8 py-6 text-base rounded-xl transition-all duration-300 group">
                       View Our Work <ChevronRight className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </MagneticButton>
@@ -588,11 +594,11 @@ export default function HomePage() {
 
         {/* Trust badges strip */}
         <div className="relative z-10 mt-auto">
-          <div className="border-t border-[rgba(212,168,83,0.08)] bg-[rgba(10,10,11,0.8)] backdrop-blur-md">
+          <div className="bg-card/80 backdrop-blur-md border border-border/50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
               <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 md:gap-x-10">
                 {trustBadges.map((badge) => (
-                  <div key={badge} className="flex items-center gap-2 text-[rgba(245,245,245,0.5)]">
+                  <div key={badge} className="flex items-center gap-2 text-muted-foreground">
                     <CheckCircle className="w-4 h-4 text-[#D4A853] shrink-0" />
                     <span className="text-xs md:text-sm font-medium whitespace-nowrap">{badge}</span>
                   </div>
@@ -604,9 +610,12 @@ export default function HomePage() {
 
         {/* Scroll down indicator */}
         <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-scroll-bounce">
-          <span className="text-[10px] font-medium tracking-[0.2em] uppercase text-[rgba(245,245,245,0.3)]">Scroll</span>
+          <span className="text-[10px] font-medium tracking-[0.2em] uppercase text-muted-foreground/50">Scroll</span>
           <ChevronDown className="w-5 h-5 text-[rgba(212,168,83,0.5)]" />
         </div>
+
+        {/* Subtle decorative gradient line at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1E3A5F]/20 via-[#C41E3A]/15 to-transparent" />
       </section>
 
       {/* ════════════════ 1.5 LIVE TICKER ════════════════ */}

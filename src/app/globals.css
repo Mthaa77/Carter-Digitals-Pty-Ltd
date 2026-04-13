@@ -105,40 +105,34 @@
 
 /* ─── Light theme overrides ─── */
 .light {
-  --background: #FFFBF5;          /* warm cream */
-  --foreground: #1A1A2E;          /* deep navy */
+  --background: #FAFBFF;
+  --foreground: #0F0F12;
   --card: #FFFFFF;
-  --card-foreground: #1A1A2E;
+  --card-foreground: #0F0F12;
   --popover: #FFFFFF;
-  --popover-foreground: #1A1A2E;
-  --primary: #D4A853;             /* gold */
+  --popover-foreground: #0F0F12;
+  --primary: #1E3A5F;
   --primary-foreground: #FFFFFF;
-  --secondary: #FFF7ED;           /* warm peach */
-  --secondary-foreground: #7C2D12;
-  --muted: #F5F0EB;
-  --muted-foreground: #6B7280;
-  --accent: #FEF3C7;              /* amber-100 */
-  --accent-foreground: #92400E;
-  --destructive: #EF4444;
+  --secondary: #F0F4FF;
+  --secondary-foreground: #1E3A5F;
+  --muted: #F1F3F9;
+  --muted-foreground: #64748B;
+  --accent: #C41E3A;
+  --accent-foreground: #FFFFFF;
+  --destructive: #DC2626;
   --destructive-foreground: #FFFFFF;
-  --border: rgba(212, 168, 83, 0.15);
-  --input: rgba(212, 168, 83, 0.2);
-  --ring: #D4A853;
+  --border: rgba(30, 58, 95, 0.12);
+  --input: rgba(30, 58, 95, 0.2);
+  --ring: #1E3A5F;
   --radius: 0.625rem;
-  --chart-1: oklch(0.70 0.15 75);
-  --chart-2: oklch(0.65 0.18 160);
-  --chart-3: oklch(0.70 0.15 30);
-  --chart-4: oklch(0.60 0.20 280);
-  --chart-5: oklch(0.75 0.12 60);
 
-  /* Custom theme tokens */
-  --color-surface: #FFFBF5;
-  --color-surface-light: #FFF7ED;
-  --color-surface-lighter: #FEF3C7;
-  --color-gold-muted: rgba(212, 168, 83, 0.12);
-  --color-text-primary: #1A1A2E;
-  --color-text-secondary: #4A5568;
-  --color-text-muted: #94A3B8;
+  --color-surface: #FAFBFF;
+  --color-surface-light: #F0F4FF;
+  --color-surface-lighter: #E8ECF8;
+  --color-gold-muted: rgba(212, 168, 83, 0.08);
+  --color-text-primary: #0F0F12;
+  --color-text-secondary: #374151;
+  --color-text-muted: #6B7280;
 }
 
 @layer base {
@@ -154,6 +148,400 @@
   }
 }
 
+
+/* ═══════════════════════════════════════════════════════════════════════
+   COMPREHENSIVE LIGHT MODE OVERRIDES — PREMIUM BLUE/RED/BLACK THEME
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* --- Section Backgrounds --- */
+.light .bg-\[\#0A0A0B\],
+.light .bg-\[\#060607\],
+.light .bg-\[\#080809\],
+.light .bg-\[\#0B0B0E\],
+.light .bg-\[\#0D0D10\],
+.light .bg-\[\#0E0E11\],
+.light .bg-\[\#0F0F12\],
+.light .bg-\[\#101014\],
+.light .bg-\[\#111114\],
+.light .bg-\[\#131316\],
+.light .bg-\[\#151519\],
+.light .bg-\[\#1A1A1E\],
+.light .bg-\[\#1A1A1F\],
+.light .bg-\[\#1E1E22\] {
+  background-color: #FFFFFF !important;
+}
+
+/* --- Card & Panel Backgrounds --- */
+.light .bg-\[\#111114\],
+.light .bg-\[rgba\(19\,19\,22\,0\.9\)\],
+.light .bg-\[rgba\(19\,19\,22\,0\.95\)\],
+.light .bg-\[rgba\(10\,10\,11\,0\.8\)\],
+.light .bg-\[rgba\(10\,10\,11\,0\.9\)\],
+.light .bg-\[rgba\(15\,15\,18\,0\.8\)\],
+.light .bg-\[rgba\(15\,15\,18\,0\.9\)\],
+.light .bg-\[rgba\(0\,0\,0\,0\.7\)\],
+.light .bg-\[rgba\(0\,0\,0\,0\.8\)\],
+.light .bg-black\/70,
+.light .bg-black\/80 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+/* --- Gradient Backgrounds --- */
+.light .from-\[\#0A0A0B\] {
+  --tw-gradient-from: #FFFFFF !important;
+}
+.light .via-\[\#0D0B08\],
+.light .via-\[\#080809\],
+.light .via-\[\#0D0D10\],
+.light .via-transparent {
+  --tw-gradient-via: rgba(240, 244, 255, 0.5) !important;
+}
+.light .to-\[\#0A0A0B\],
+.light .to-\[\#060607\],
+.light .to-\[\#0B0B0E\] {
+  --tw-gradient-to: #FFFFFF !important;
+}
+
+/* --- Text Colors (PRIMARY - must be dark for readability) --- */
+.light .text-white,
+.light .text-\[\#F5F5F5\],
+.light .text-\[\#E8E8E8\],
+.light .text-\[\#EEEEEE\] {
+  color: #0F0F12 !important;
+}
+
+/* --- Text Colors (SECONDARY - dark gray) --- */
+.light .text-\[rgba\(245\,245\,245\,0\.7\)\],
+.light .text-\[rgba\(245\,245\,255\,0\.7\)\],
+.light .text-\[rgba\(245\,245\,245\,0\.65\)\],
+.light .text-\[rgba\(255\,255\,255\,0\.7\)\] {
+  color: #374151 !important;
+}
+
+.light .text-\[rgba\(245\,245\,245\,0\.55\)\] {
+  color: #4B5563 !important;
+}
+
+.light .text-\[rgba\(245\,245\,245\,0\.5\)\],
+.light .text-\[rgba\(255\,255\,255\,0\.5\)\],
+.light .text-\[rgba\(245\,245\,255\,0\.5\)\] {
+  color: #6B7280 !important;
+}
+
+/* --- Text Colors (TERTIARY - muted) --- */
+.light .text-\[rgba\(245\,245\,245\,0\.45\)\],
+.light .text-\[rgba\(255\,255\,255\,0\.45\)\] {
+  color: #9CA3AF !important;
+}
+
+.light .text-\[rgba\(245\,245\,245\,0\.4\)\],
+.light .text-\[rgba\(255\,255\,255\,0\.4\)\] {
+  color: #9CA3AF !important;
+}
+
+.light .text-\[rgba\(245\,245\,245\,0\.35\)\],
+.light .text-\[rgba\(255\,255\,255\,0\.35\)\],
+.light .text-\[rgba\(245\,245\,255\,0\.35\)\] {
+  color: #B0B8C8 !important;
+}
+
+.light .text-\[rgba\(245\,245\,245\,0\.3\)\],
+.light .text-\[rgba\(255\,255\,255\,0\.3\)\] {
+  color: #CBD5E1 !important;
+}
+
+.light .text-\[rgba\(245\,245\,245\,0\.25\)\],
+.light .text-\[rgba\(255\,255\,255\,0\.25\)\],
+.light .text-\[rgba\(245\,245\,245\,0\.15\)\],
+.light .text-\[rgba\(255\,255\,255\,0\.15\)\],
+.light .text-\[rgba\(255\,255\,255\,0\.1\)\],
+.light .text-\[rgba\(255\,255\,255\,0\.06\)\],
+.light .text-\[rgba\(255\,255\,255\,0\.05\)\] {
+  color: #D1D5DB !important;
+}
+
+/* --- Gold Text Accent --- */
+.light .text-\[rgba\(212\,168\,83\,0\.65\)\],
+.light .text-\[rgba\(212\,168\,83\,0\.5\)\],
+.light .text-\[rgba\(212\,168\,83\,0\.4\)\] {
+  color: #B8922F !important;
+}
+
+/* --- Border Colors --- */
+.light .border-\[rgba\(255\,255\,255\,0\.06\)\],
+.light .border-\[rgba\(255\,255\,255\,0\.08\)\],
+.light .border-\[rgba\(255\,255\,255\,0\.05\)\] {
+  border-color: rgba(30, 58, 95, 0.08) !important;
+}
+
+.light .border-\[rgba\(255\,255\,255\,0\.1\)\] {
+  border-color: rgba(30, 58, 95, 0.1) !important;
+}
+
+.light .border-\[rgba\(255\,255\,255\,0\.15\)\] {
+  border-color: rgba(30, 58, 95, 0.12) !important;
+}
+
+.light .border-\[rgba\(212\,168\,83\,0\.2\)\] {
+  border-color: rgba(30, 58, 95, 0.15) !important;
+}
+
+.light .border-\[rgba\(212\,168\,83\,0\.15\)\] {
+  border-color: rgba(30, 58, 95, 0.1) !important;
+}
+
+/* --- Subtle Backgrounds --- */
+.light .bg-\[rgba\(255\,255\,255\,0\.03\)\],
+.light .bg-\[rgba\(255\,255\,255\,0\.04\)\],
+.light .bg-\[rgba\(255\,255\,255\,0\.05\)\] {
+  background-color: rgba(30, 58, 95, 0.04) !important;
+}
+
+.light .bg-\[rgba\(255\,255\,255\,0\.06\)\] {
+  background-color: rgba(30, 58, 95, 0.06) !important;
+}
+
+.light .bg-\[rgba\(212\,168\,83\,0\.02\)\],
+.light .bg-\[rgba\(212\,168\,83\,0\.04\)\],
+.light .bg-\[rgba\(212\,168\,83\,0\.06\)\] {
+  background-color: rgba(30, 58, 95, 0.03) !important;
+}
+
+/* --- Gradient Text Overrides --- */
+.light .text-gradient-gold {
+  background: linear-gradient(135deg, #1E3A5F 0%, #C41E3A 50%, #1E3A5F 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+/* --- Glass Effects --- */
+.light .glass,
+.light .glass-light {
+  background: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(16px) !important;
+  border-color: rgba(30, 58, 95, 0.1) !important;
+  box-shadow: 0 4px 24px rgba(30, 58, 95, 0.06) !important;
+}
+
+.light .glass-gold,
+.light .glass-gold-premium {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(20px) !important;
+  border-color: rgba(30, 58, 95, 0.12) !important;
+  box-shadow: 0 8px 32px rgba(30, 58, 95, 0.08) !important;
+}
+
+/* --- Card Hover Effects --- */
+.light .card-hover {
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 8px rgba(30, 58, 95, 0.04) !important;
+}
+.light .card-hover:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 40px rgba(30, 58, 95, 0.1), 0 4px 12px rgba(196, 30, 58, 0.04) !important;
+  border-color: rgba(30, 58, 95, 0.15) !important;
+}
+
+.light .card-hover-gold {
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 8px rgba(212, 168, 83, 0.06) !important;
+}
+.light .card-hover-gold:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 40px rgba(212, 168, 83, 0.12), 0 4px 12px rgba(196, 30, 58, 0.04) !important;
+}
+
+/* --- Section Dividers --- */
+.light .section-divider,
+.light .section-divider-gold {
+  background: linear-gradient(to right, transparent, rgba(30, 58, 95, 0.15), rgba(196, 30, 58, 0.1), rgba(30, 58, 95, 0.15), transparent) !important;
+}
+
+/* --- Section Gold Tint --- */
+.light .section-gold-tint {
+  background: linear-gradient(135deg, rgba(240, 244, 255, 0.4) 0%, rgba(255, 240, 245, 0.2) 50%, rgba(240, 244, 255, 0.4) 100%) !important;
+}
+
+/* --- Section Description --- */
+.light .section-description {
+  color: #64748B !important;
+}
+
+/* --- Background Patterns --- */
+.light .bg-grid {
+  background-image: linear-gradient(rgba(30, 58, 95, 0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(30, 58, 95, 0.03) 1px, transparent 1px) !important;
+}
+
+.light .bg-dots {
+  background-image: radial-gradient(circle, rgba(30, 58, 95, 0.06) 1px, transparent 1px) !important;
+}
+
+/* --- Gold Glow --- */
+.light .glow-gold {
+  background: radial-gradient(circle, rgba(30, 58, 95, 0.04) 0%, transparent 70%) !important;
+}
+
+/* --- Gold Border Animated --- */
+.light .gold-border-animated::before,
+.light .gold-border-animated::after {
+  background: conic-gradient(from 0deg, #1E3A5F, #C41E3A, #D4A853, #1E3A5F) !important;
+}
+
+.light .gold-border-animated {
+  --gold-border-fill: #FAFBFF !important;
+}
+
+/* --- Hover Lift --- */
+.light .hover-lift:hover {
+  box-shadow: 0 16px 48px rgba(30, 58, 95, 0.12), 0 6px 16px rgba(196, 30, 58, 0.06) !important;
+}
+
+/* --- Text Glow --- */
+.light .text-glow-gold {
+  text-shadow: 0 0 20px rgba(30, 58, 95, 0.15) !important;
+}
+
+/* --- Counter Glow --- */
+.light .counter-glow {
+  text-shadow: none !important;
+}
+
+/* --- Noise Overlays --- */
+.light .noise-overlay::after,
+.light .noise-gold::after {
+  opacity: 0.015 !important;
+}
+
+/* --- Input Focus --- */
+.light .input-gold:focus {
+  border-color: #1E3A5F !important;
+  box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1) !important;
+}
+
+/* --- Accordion --- */
+.light .accordion-gold {
+  border-color: rgba(30, 58, 95, 0.1) !important;
+}
+
+/* --- Animations (subtle in light mode) --- */
+.light .animate-gold-float,
+.light .animate-shimmer-gold {
+  opacity: 0.4 !important;
+}
+
+/* --- Floating Particles --- */
+.light .animate-particle-drift {
+  background-color: #1E3A5F !important;
+}
+
+/* --- Scrollbar --- */
+.light ::-webkit-scrollbar-track {
+  background: #F1F3F9;
+}
+.light ::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #1E3A5F, #C41E3A) !important;
+}
+.light * {
+  scrollbar-color: #1E3A5F #F1F3F9;
+}
+
+/* --- Selection --- */
+.light ::selection {
+  background: rgba(196, 30, 58, 0.15);
+  color: #0F0F12;
+}
+
+/* --- Starfield Canvas --- */
+.light canvas {
+  opacity: 0.05 !important;
+}
+
+/* --- Hero Logo Frame --- */
+.light .hero-logo-frame {
+  border-color: rgba(30, 58, 95, 0.15) !important;
+  box-shadow: 0 0 40px rgba(30, 58, 95, 0.06), 0 0 80px rgba(196, 30, 58, 0.04) !important;
+  background: rgba(255, 255, 255, 0.6) !important;
+}
+.light .hero-logo-frame:hover {
+  border-color: rgba(196, 30, 58, 0.3) !important;
+  box-shadow: 0 0 60px rgba(196, 30, 58, 0.1), 0 0 120px rgba(30, 58, 95, 0.08) !important;
+}
+
+/* --- Pricing Slider --- */
+.light .pricing-slider::-webkit-slider-thumb {
+  border-color: #1E3A5F !important;
+}
+.light .pricing-slider::-moz-range-thumb {
+  border-color: #1E3A5F !important;
+}
+
+/* --- Lightbox --- */
+.light .lightbox-backdrop {
+  background: rgba(15, 15, 18, 0.7) !important;
+  backdrop-filter: blur(8px) !important;
+}
+.light .lightbox-container {
+  background: #FFFFFF !important;
+  border-color: rgba(30, 58, 95, 0.12) !important;
+}
+
+/* --- Theme Toggle Button --- */
+.light .theme-toggle-btn {
+  background: rgba(30, 58, 95, 0.06) !important;
+  border-color: rgba(30, 58, 95, 0.12) !important;
+}
+.light .theme-toggle-btn:hover {
+  background: rgba(30, 58, 95, 0.1) !important;
+  border-color: rgba(196, 30, 58, 0.2) !important;
+}
+
+/* --- Ticker / Marquee --- */
+.light .ticker-fade-mask {
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent) !important;
+}
+
+/* --- Trust Badges --- */
+.light .bg-\[rgba\(10\,10\,11\,0\.6\)\] {
+  background: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+/* --- Tooltip --- */
+.light .bg-\[\#1A1A1F\] {
+  background-color: #1E3A5F !important;
+  color: #FFFFFF !important;
+}
+
+.light .border-l-\[\#1A1A1E\],
+.light .border-l-\[\#1A1A1F\] {
+  border-left-color: #1E3A5F !important;
+}
+
+/* --- Dot Indicators --- */
+.light .bg-\[rgba\(255\,255\,255\,0\.15\)\] {
+  background-color: rgba(30, 58, 95, 0.15) !important;
+}
+
+.light .hover\:bg-\[rgba\(255\,255\,255\,0\.3\)\]:hover {
+  background-color: rgba(30, 58, 95, 0.25) !important;
+}
+
+/* --- Checkbox/radio accents --- */
+.light .bg-\[\#D4A853\] {
+  background-color: #C41E3A !important;
+}
+
+/* --- WhatsApp / CTA buttons keep their brand colors --- */
+/* (No override needed - green/red buttons look fine in light mode) */
+
+/* --- Cosmic / Galaxy section overrides --- */
+.light .cosmic-section-overlay::before {
+  background: radial-gradient(ellipse at center, rgba(240, 244, 255, 0.3) 0%, transparent 70%) !important;
+}
+
 /* Premium scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
@@ -162,10 +550,6 @@
 ::-webkit-scrollbar-track {
   background: #0A0A0B;
   transition: background-color 0.5s ease;
-}
-
-.light ::-webkit-scrollbar-track {
-  background: #FFF7ED;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -438,22 +822,6 @@
   -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
 }
 
-/* Light mode overrides for new hero elements */
-.light .hero-logo-frame {
-  background: rgba(255, 247, 237, 0.6);
-  border-color: rgba(212, 168, 83, 0.2);
-  box-shadow: 0 0 60px rgba(212, 168, 83, 0.08), 0 0 120px rgba(212, 168, 83, 0.04);
-}
-
-.light .hero-logo-frame:hover {
-  border-color: rgba(212, 168, 83, 0.35);
-  box-shadow: 0 0 80px rgba(212, 168, 83, 0.12), 0 0 160px rgba(212, 168, 83, 0.06);
-}
-
-.light .animate-logo-glow {
-  animation: logoGlowPulseLight 4s ease-in-out infinite;
-}
-
 @keyframes logoGlowPulseLight {
   0%, 100% { box-shadow: 0 0 60px rgba(184, 146, 47, 0.05), 0 0 120px rgba(184, 146, 47, 0.02); }
   50% { box-shadow: 0 0 80px rgba(184, 146, 47, 0.1), 0 0 160px rgba(184, 146, 47, 0.05); }
@@ -662,65 +1030,6 @@
 ::selection {
   background: rgba(212, 168, 83, 0.3);
   color: #F5F5F5;
-}
-
-.light ::selection {
-  background: rgba(212, 168, 83, 0.25);
-  color: #1A1A2E;
-}
-
-/* ─── Light mode overrides for custom utilities ─── */
-
-.light .glass {
-  background: rgba(255, 247, 237, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(212, 168, 83, 0.1);
-}
-
-.light .glass-light {
-  background: rgba(255, 247, 237, 0.5);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(212, 168, 83, 0.08);
-}
-
-.light .bg-grid {
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-}
-
-.light .bg-dots {
-  background-image: radial-gradient(rgba(184, 146, 47, 0.1) 1px, transparent 1px);
-}
-
-.light .glow-gold {
-  box-shadow: 0 0 40px rgba(212, 168, 83, 0.12), 0 0 80px rgba(212, 168, 83, 0.05);
-}
-
-.light .card-hover:hover {
-  box-shadow: 0 8px 32px rgba(212, 168, 83, 0.12), 0 0 30px rgba(212, 168, 83, 0.08);
-}
-
-.light .card-hover-gold:hover {
-  box-shadow: 0 25px 50px rgba(212, 168, 83, 0.12), 0 0 40px rgba(212, 168, 83, 0.1);
-}
-
-.light .glass-gold {
-  background: rgba(255, 247, 237, 0.5);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(212, 168, 83, 0.15);
-}
-
-.light .noise-overlay::after,
-.light .noise-gold::after {
-  opacity: 0.015;
-}
-
-.light .gold-border-animated::after {
-  background: #FFFBF5;
 }
 
 /* ============================================
@@ -947,19 +1256,10 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 30px rgba(212, 168, 83, 0.08);
 }
 
-/* Light mode hover-lift */
-.light .hover-lift:hover {
-  box-shadow: 0 8px 32px rgba(212, 168, 83, 0.12), 0 0 30px rgba(212, 168, 83, 0.08);
-}
-
 /* Smooth scrollbar everywhere */
 * {
   scrollbar-width: thin;
   scrollbar-color: rgba(212, 168, 83, 0.3) transparent;
-}
-
-.light * {
-  scrollbar-color: rgba(184, 146, 47, 0.25) transparent;
 }
 
 /* Focus visible for accessibility */
@@ -996,117 +1296,9 @@ a {
   box-shadow: 0 0 20px rgba(212, 168, 83, 0.08);
 }
 
-/* Glass morphism light mode for navbar & cards */
-.light .glass-gold-premium {
-  background: rgba(255, 247, 237, 0.7);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(212, 168, 83, 0.15);
-}
-
-.light .glass-gold-premium:hover {
-  border-color: rgba(212, 168, 83, 0.3);
-  box-shadow: 0 20px 60px rgba(212, 168, 83, 0.08), 0 0 40px rgba(212, 168, 83, 0.05);
-}
-
-/* Section dividers visible in light mode */
-.light .section-divider {
-  background: linear-gradient(90deg, transparent, rgba(212, 168, 83, 0.25), transparent);
-}
-
-.light .section-divider-gold {
-  background: linear-gradient(90deg, transparent 0%, rgba(212, 168, 83, 0.4) 50%, transparent 100%);
-}
-
-/* Light mode gradient text */
-.light .text-gradient-gold {
-  background: linear-gradient(135deg, #B8922F 0%, #D4A853 40%, #E8C97A 100%) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text;
-}
-
-/* Light mode text glow */
-.light .text-glow-gold {
-  text-shadow: 0 0 20px rgba(184, 146, 47, 0.15), 0 0 40px rgba(184, 146, 47, 0.05);
-}
-
-/* Light mode counter glow */
-.light .counter-glow {
-  text-shadow: 0 0 30px rgba(184, 146, 47, 0.1);
-}
-
-/* Light mode section gold tint */
-.light .section-gold-tint {
-  background: linear-gradient(180deg, rgba(212, 168, 83, 0.04) 0%, transparent 50%, rgba(212, 168, 83, 0.03) 100%);
-}
-
-/* Light mode gold gradient backgrounds */
-.light .bg-gold-gradient-subtle {
-  background: linear-gradient(135deg, rgba(212, 168, 83, 0.05) 0%, transparent 50%, rgba(212, 168, 83, 0.03) 100%);
-}
-
-.light .bg-gold-gradient-radial {
-  background: radial-gradient(ellipse at center, rgba(212, 168, 83, 0.06) 0%, transparent 70%);
-}
-
-/* Light mode card backgrounds */
-.light .card-hover {
-  border-color: rgba(212, 168, 83, 0.12);
-}
-
-/* Light mode input gold focus */
-.light .input-gold:focus {
-  border-color: rgba(184, 146, 47, 0.4);
-  box-shadow: 0 0 0 3px rgba(184, 146, 47, 0.08);
-}
-
-/* Light mode accordion gold */
-.light .accordion-gold[data-state="open"] {
-  border-color: rgba(184, 146, 47, 0.2);
-  background: rgba(212, 168, 83, 0.03);
-}
-
-.light .accordion-gold[data-state="open"] > button {
-  color: #B8922F;
-}
-
-/* Light mode animated gold float */
-.light .animate-gold-float {
-  filter: brightness(0.7);
-}
-
-/* Light mode shimmer gold */
-.light .animate-shimmer-gold {
-  background: linear-gradient(90deg, transparent 0%, rgba(184, 146, 47, 0.1) 25%, rgba(212, 168, 83, 0.15) 50%, rgba(184, 146, 47, 0.1) 75%, transparent 100%);
-  background-size: 200% 100%;
-  animation: shimmerGold 3s ease-in-out infinite;
-}
-
-/* Light mode pulse glow */
-.light .animate-pulse-glow {
-  animation: pulseGlowLight 3s ease-in-out infinite;
-}
-
 @keyframes pulseGlowLight {
   0%, 100% { box-shadow: 0 0 20px rgba(212, 168, 83, 0.06); }
   50% { box-shadow: 0 0 40px rgba(212, 168, 83, 0.12); }
-}
-
-/* Light mode gold border animated */
-.light .gold-border-animated::before {
-  background: conic-gradient(
-    from var(--angle),
-    rgba(184, 146, 47, 0.4),
-    rgba(212, 168, 83, 0.6),
-    rgba(184, 146, 47, 0.3),
-    rgba(184, 146, 47, 0.4)
-  );
-}
-
-/* Light mode description text */
-.light .section-description {
-  color: rgba(26, 26, 31, 0.55);
 }
 
 /* Theme toggle glassmorphism */
@@ -1122,17 +1314,6 @@ a {
   background: rgba(212, 168, 83, 0.1);
   border-color: rgba(212, 168, 83, 0.35);
   box-shadow: 0 0 20px rgba(212, 168, 83, 0.1);
-}
-
-.light .theme-toggle-btn {
-  background: rgba(184, 146, 47, 0.06);
-  border-color: rgba(184, 146, 47, 0.15);
-}
-
-.light .theme-toggle-btn:hover {
-  background: rgba(184, 146, 47, 0.1);
-  border-color: rgba(184, 146, 47, 0.3);
-  box-shadow: 0 0 20px rgba(184, 146, 47, 0.08);
 }
 
 /* ============================================
@@ -1177,27 +1358,6 @@ a {
 
 .lightbox-thumb[aria-selected="true"] {
   transform: translateY(-2px) scale(1.05);
-}
-
-/* Light mode lightbox overrides */
-.light .lightbox-image::before {
-  background: linear-gradient(
-    135deg,
-    rgba(184, 146, 47, 0.3) 0%,
-    rgba(212, 168, 83, 0.15) 25%,
-    rgba(184, 146, 47, 0.1) 50%,
-    rgba(212, 168, 83, 0.15) 75%,
-    rgba(184, 146, 47, 0.3) 100%
-  );
-}
-
-.light .lightbox-overlay {
-  background: rgba(255, 255, 255, 0.92);
-}
-
-.light .lightbox-image {
-  background: #F3F2EF;
-  border-color: rgba(184, 146, 47, 0.2);
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -1349,15 +1509,6 @@ a {
   animation: cookieShieldGlow 3s ease-in-out infinite;
 }
 
-/* Light mode overrides for cookie banner */
-.light .cookie-gold-noise::after {
-  opacity: 0.012;
-}
-
-.light .cookie-shield-glow {
-  animation: cookieShieldGlowLight 3s ease-in-out infinite;
-}
-
 @keyframes cookieShieldGlowLight {
   0%, 100% {
     box-shadow: 0 0 12px rgba(184, 146, 47, 0.1), 0 0 24px rgba(184, 146, 47, 0.04);
@@ -1495,127 +1646,9 @@ a {
   border-color: rgba(212, 168, 83, 0.2);
 }
 
-/* Light mode cosmic overrides */
-.light .cosmic-section-overlay::before {
-  background:
-    radial-gradient(ellipse at 15% 25%, rgba(60, 20, 80, 0.03) 0%, transparent 50%),
-    radial-gradient(ellipse at 85% 75%, rgba(20, 40, 80, 0.02) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 50%, rgba(184, 146, 47, 0.02) 0%, transparent 40%);
-}
-
-.light .cosmic-glow-purple {
-  background: radial-gradient(ellipse at 20% 50%, rgba(60, 20, 80, 0.04) 0%, transparent 60%);
-}
-
-.light .cosmic-glow-blue {
-  background: radial-gradient(ellipse at 80% 30%, rgba(20, 40, 80, 0.03) 0%, transparent 60%);
-}
-
-.light .cosmic-glow-gold {
-  background: radial-gradient(ellipse at 50% 80%, rgba(100, 70, 20, 0.03) 0%, transparent 60%);
-}
-
-.light .cosmic-divider {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(60, 20, 80, 0.1) 20%,
-    rgba(184, 146, 47, 0.15) 50%,
-    rgba(20, 40, 80, 0.1) 80%,
-    transparent 100%
-  );
-}
-
-.light .galaxy-bg {
-  background:
-    radial-gradient(ellipse at 30% 20%, rgba(60, 20, 80, 0.03) 0%, transparent 40%),
-    radial-gradient(ellipse at 70% 80%, rgba(20, 50, 90, 0.02) 0%, transparent 40%),
-    radial-gradient(ellipse at 50% 50%, rgba(184, 146, 47, 0.02) 0%, transparent 30%);
-}
-
 /* ============================================
    Light mode — warm & colourful enhancements
    ============================================ */
 
 /* Override dark backgrounds used throughout the site */
-.light .bg-\[\#0A0A0B\] {
-  background-color: var(--color-surface) !important;
-}
-.light .bg-\[\#131316\],
-.light .bg-\[\#0F0F12\],
-.light .bg-\[\#0E0E11\] {
-  background-color: #FFFFFF !important;
-}
 
-/* Warm gradient accents for light mode sections */
-.light .bg-gradient-to-b {
-  background-image: linear-gradient(to bottom, transparent, rgba(212, 168, 83, 0.03), transparent) !important;
-}
-
-/* Light mode text — remap dark-mode whites/grays to warm darks */
-.light .text-white {
-  color: #1A1A2E !important;
-}
-.light .text-\[\#E8E8E8\],
-.light .text-\[\#F5F5F5\] {
-  color: #374151 !important;
-}
-.light .text-\[rgba\(245\,245\,245\,0\.7\)\] {
-  color: #4B5563 !important;
-}
-.light .text-\[rgba\(245\,245\,245\,0\.45\)\] {
-  color: #6B7280 !important;
-}
-.light .text-\[rgba\(245\,245\,245\,0\.5\)\] {
-  color: #6B7280 !important;
-}
-.light .text-\[rgba\(245\,245\,245\,0\.35\)\] {
-  color: #9CA3AF !important;
-}
-.light .text-\[rgba\(245\,245\,245\,0\.4\)\] {
-  color: #9CA3AF !important;
-}
-.light .text-\[rgba\(245\,245\,245\,0\.3\)\],
-.light .text-\[rgba\(245\,245\,245\,0\.25\)\],
-.light .text-\[rgba\(245\,245\,245\,0\.15\)\] {
-  color: #D1D5DB !important;
-}
-.light .text-\[rgba\(255\,255\,255\,0\.06\)\] {
-  color: rgba(26, 26, 46, 0.6) !important;
-}
-.light .text-\[rgba\(212\,168\,83\,0\.65\)\],
-.light .text-\[rgba\(212\,168\,83\,0\.5\)\] {
-  color: rgba(180, 130, 40, 0.9) !important;
-}
-
-/* Light mode borders */
-.light .border-\[rgba\(255\,255\,255\,0\.06\)\],
-.light .border-\[rgba\(255\,255\,255\,0\.08\)\] {
-  border-color: rgba(212, 168, 83, 0.12) !important;
-}
-.light .border-\[rgba\(255\,255\,255\,0\.1\)\] {
-  border-color: rgba(212, 168, 83, 0.15) !important;
-}
-
-/* Light mode backgrounds with opacity */
-.light .bg-\[rgba\(255\,255\,255\,0\.03\)\] {
-  background-color: rgba(212, 168, 83, 0.04) !important;
-}
-.light .bg-\[rgba\(255\,255\,255\,0\.06\)\] {
-  background-color: rgba(212, 168, 83, 0.06) !important;
-}
-
-/* Light mode scrollbar */
-.light ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #D4A853, #B8922F);
-}
-
-/* Light mode starfield canvas override */
-.light canvas {
-  opacity: 0.15;
-}
-
-/* Warm section backgrounds for light mode alternating sections */
-.light section:nth-child(even of section) {
-  background-color: rgba(255, 247, 237, 0.3) !important;
-}
