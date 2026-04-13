@@ -487,6 +487,18 @@ export default function Starfield() {
       performance.now() + rand(SHOOTING_STAR_MIN_INTERVAL, SHOOTING_STAR_MAX_INTERVAL);
     prevTime = performance.now();
 
+    // Light mode: fade out the starfield canvas
+    function applyThemeOpacity() {
+      const isLight = document.documentElement.classList.contains('light');
+      canvas.style.opacity = isLight ? '0.15' : '1';
+      canvas.style.transition = 'opacity 0.5s ease';
+    }
+    applyThemeOpacity();
+
+    // Observe class changes on <html> for theme switching
+    const themeObserver = new MutationObserver(() => applyThemeOpacity());
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
     if (reducedMotion) {
       const ctx = canvas.getContext("2d");
       if (ctx) {
@@ -508,6 +520,7 @@ export default function Starfield() {
     return () => {
       window.removeEventListener("resize", handleResize);
       motionQuery.removeEventListener("change", handleMotionChange);
+      themeObserver.disconnect();
       cancelAnimationFrame(animFrameId);
     };
   }, []);

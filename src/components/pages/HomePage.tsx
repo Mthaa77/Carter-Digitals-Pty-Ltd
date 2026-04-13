@@ -63,7 +63,6 @@ import { MagneticButton } from "@/components/shared/MagneticButton";
 import { ParallaxSection } from "@/components/shared/ParallaxSection";
 import { CircularProgress } from "@/components/shared/CircularProgress";
 import { QuickCalculator } from "@/components/shared/QuickCalculator";
-import { BeforeAfterSlider } from "@/components/shared/BeforeAfterSlider";
 import InteractiveTestimonials from "@/components/shared/InteractiveTestimonials";
 import FaqSearch from "@/components/shared/FaqSearch";
 import CosmicDecorations from "@/components/shared/CosmicDecorations";
@@ -203,22 +202,10 @@ const processSteps = [
 
 const testimonials = [
   {
-    quote: "Carter Digitals transformed our school's online presence completely. Parents now enroll their children directly through the website, and our Google ranking jumped from page 5 to the top 3 results within two months. The team understood exactly what an educational institution needs.",
-    name: "Dr. Thabo Molefe",
-    role: "School Principal",
-    company: "Rise & Shine Academy, Gauteng",
-  },
-  {
-    quote: "As a growing SME, we needed a professional web presence without the enterprise price tag. Carter Digitals delivered a stunning e-commerce site in under a week. Our online sales increased by 340% in the first quarter. Absolute game-changer.",
-    name: "Nomsa Dlamini",
-    role: "Founder & CEO",
-    company: "Lush Naturals Co., Johannesburg",
-  },
-  {
-    quote: "In the legal industry, credibility is everything. Carter Digitals built us a website that projects authority and professionalism. Client inquiries through the site have tripled. Truly exceptional work from a team that understands our world.",
-    name: "Adv. Pieter van der Merwe",
-    role: "Senior Partner",
-    company: "Van der Merwe & Associates, Pretoria",
+    quote: "Carter Digitals transformed our school's digital presence. The new website has made it easier for parents to engage with us, and enrollment inquiries have increased significantly. They truly understood what a school of specialisation needs.",
+    name: "School of Specialisation",
+    role: "Soshanguve Secondary",
+    company: "Gauteng, South Africa",
   },
 ];
 
@@ -1004,23 +991,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ════════════════ 11. BEFORE & AFTER — TRANSFORMATION SHOWCASE ════════════════ */}
-      <section className="relative py-24 md:py-32 bg-[#0A0A0B]">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[rgba(212,168,83,0.015)] to-transparent pointer-events-none" />
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(212,168,83,0.2)] to-transparent" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            label="Transformations"
-            title="Before & After."
-            titleHighlight="See The Difference."
-            description="Drag the slider to compare what our clients had before — and what they got after partnering with Carter Digitals. Real projects, real results."
-            align="center"
-          />
-          <AnimatedSection delay={0.15} direction="up">
-            <BeforeAfterSlider />
-          </AnimatedSection>
-        </div>
-      </section>
 
       {/* ════════════════ 12. QUICK CALCULATOR ════════════════ */}
       <section className="relative py-24 md:py-32 bg-[#0A0A0B]">

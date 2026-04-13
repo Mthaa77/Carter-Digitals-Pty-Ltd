@@ -1883,3 +1883,39 @@ Server and client generate different random values → React detects attribute m
 - ✅ ESLint: Zero errors (`bun run lint`)
 - ✅ Dev server: Clean compilation, no hydration warnings in console
 - ✅ All existing functionality preserved
+
+---
+Task ID: testimonial-cleanup
+Agent: general-purpose
+Task: Remove fake testimonials (keep only School of Specialisation), remove Before/After components
+
+Work Log:
+- Updated InteractiveTestimonials.tsx: replaced 3 fake testimonials with 1 School of Specialisation testimonial
+- Updated HomePage.tsx: removed fake testimonials array, updated to match; removed Before/After section and import
+- Updated ServicesPage.tsx: removed Before/After showcase and import
+- Deleted BeforeAfterSlider.tsx component file
+- Lint passes clean
+
+Stage Summary:
+- Only 1 authentic testimonial remains (Soshanguve School of Specialisation)
+- All before/after components removed from HomePage and ServicesPage
+- ✅ ESLint: Zero errors
+
+---
+Task ID: light-theme-enhancement
+Agent: general-purpose  
+Task: Create colourful engaging light theme with next-themes
+
+Work Log:
+- Enhanced .light CSS custom properties with warm cream backgrounds and deep navy text
+- Added comprehensive light mode overrides for 15+ color patterns (text, borders, backgrounds)
+- Made gold accent more vibrant in light mode with enhanced gradient
+- Reduced starfield canvas opacity in light mode via MutationObserver
+- Verified ThemeToggle component functional in Navbar (desktop + mobile)
+- Warm scrollbar, section tints, and glass effects for light mode
+- Lint passes clean
+
+Stage Summary:
+- Light theme is warm, colourful, and engaging with gold accent colours
+- Dark theme completely untouched
+- ✅ ESLint: Zero errors

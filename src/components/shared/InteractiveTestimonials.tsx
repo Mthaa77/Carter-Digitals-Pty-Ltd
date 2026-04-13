@@ -14,28 +14,11 @@ interface Testimonial {
 
 const defaultTestimonials: Testimonial[] = [
   {
-    quote:
-      "Carter Digitals transformed our school's online presence completely. Parents now enroll their children directly through the website, and our Google ranking jumped from page 5 to the top 3 results within two months.",
-    name: "Dr. Thabo Molefe",
-    role: "School Principal",
-    company: "Rise & Shine Academy, Gauteng",
-    metric: "340% Enrollment Increase",
-  },
-  {
-    quote:
-      "Carter Digitals delivered a stunning e-commerce site in under a week. Our online sales increased by 340% in the first quarter. Absolute game-changer for our business.",
-    name: "Nomsa Dlamini",
-    role: "Founder & CEO",
-    company: "Lush Naturals Co., Johannesburg",
-    metric: "R2.1M Online Sales",
-  },
-  {
-    quote:
-      "In the legal industry, credibility is everything. Carter Digitals built us a website that projects authority and professionalism. Client inquiries through the site have tripled.",
-    name: "Adv. Pieter van der Merwe",
-    role: "Senior Partner",
-    company: "Van der Merwe & Associates, Pretoria",
-    metric: "3x Client Inquiries",
+    quote: "Carter Digitals transformed our school's digital presence. The new website has made it easier for parents to engage with us, and enrollment inquiries have increased significantly. They truly understood what a school of specialisation needs.",
+    name: "School of Specialisation",
+    role: "Soshanguve Secondary",
+    company: "Gauteng, South Africa",
+    metric: "Digital Transformation Partner",
   },
 ];
 

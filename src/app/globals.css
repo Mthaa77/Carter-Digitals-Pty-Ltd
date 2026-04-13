@@ -105,33 +105,40 @@
 
 /* ─── Light theme overrides ─── */
 .light {
-  --background: oklch(0.98 0.003 80);
-  --foreground: oklch(0.12 0.01 80);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.12 0.01 80);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.12 0.01 80);
-  --primary: oklch(0.70 0.15 75);
-  --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.94 0.01 80);
-  --secondary-foreground: oklch(0.18 0.01 80);
-  --muted: oklch(0.94 0.005 80);
-  --muted-foreground: oklch(0.50 0.01 80);
-  --accent: oklch(0.94 0.02 75);
-  --accent-foreground: oklch(0.18 0.01 80);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.88 0.01 80);
-  --input: oklch(0.88 0.01 80);
-  --ring: oklch(0.70 0.15 75);
+  --background: #FFFBF5;          /* warm cream */
+  --foreground: #1A1A2E;          /* deep navy */
+  --card: #FFFFFF;
+  --card-foreground: #1A1A2E;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A2E;
+  --primary: #D4A853;             /* gold */
+  --primary-foreground: #FFFFFF;
+  --secondary: #FFF7ED;           /* warm peach */
+  --secondary-foreground: #7C2D12;
+  --muted: #F5F0EB;
+  --muted-foreground: #6B7280;
+  --accent: #FEF3C7;              /* amber-100 */
+  --accent-foreground: #92400E;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(212, 168, 83, 0.15);
+  --input: rgba(212, 168, 83, 0.2);
+  --ring: #D4A853;
+  --radius: 0.625rem;
   --chart-1: oklch(0.70 0.15 75);
   --chart-2: oklch(0.65 0.18 160);
   --chart-3: oklch(0.70 0.15 30);
   --chart-4: oklch(0.60 0.20 280);
   --chart-5: oklch(0.75 0.12 60);
-  --color-surface: #FAFAF8;
-  --color-surface-light: #F3F2EF;
-  --color-surface-lighter: #EBEAE6;
-  --color-gold-muted: rgba(184, 146, 47, 0.1);
+
+  /* Custom theme tokens */
+  --color-surface: #FFFBF5;
+  --color-surface-light: #FFF7ED;
+  --color-surface-lighter: #FEF3C7;
+  --color-gold-muted: rgba(212, 168, 83, 0.12);
+  --color-text-primary: #1A1A2E;
+  --color-text-secondary: #4A5568;
+  --color-text-muted: #94A3B8;
 }
 
 @layer base {
@@ -158,7 +165,7 @@
 }
 
 .light ::-webkit-scrollbar-track {
-  background: #FAFAF8;
+  background: #FFF7ED;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -433,14 +440,14 @@
 
 /* Light mode overrides for new hero elements */
 .light .hero-logo-frame {
-  background: rgba(255, 255, 255, 0.6);
-  border-color: rgba(184, 146, 47, 0.2);
-  box-shadow: 0 0 60px rgba(184, 146, 47, 0.06), 0 0 120px rgba(184, 146, 47, 0.03);
+  background: rgba(255, 247, 237, 0.6);
+  border-color: rgba(212, 168, 83, 0.2);
+  box-shadow: 0 0 60px rgba(212, 168, 83, 0.08), 0 0 120px rgba(212, 168, 83, 0.04);
 }
 
 .light .hero-logo-frame:hover {
-  border-color: rgba(184, 146, 47, 0.35);
-  box-shadow: 0 0 80px rgba(184, 146, 47, 0.1), 0 0 160px rgba(184, 146, 47, 0.05);
+  border-color: rgba(212, 168, 83, 0.35);
+  box-shadow: 0 0 80px rgba(212, 168, 83, 0.12), 0 0 160px rgba(212, 168, 83, 0.06);
 }
 
 .light .animate-logo-glow {
@@ -658,24 +665,24 @@
 }
 
 .light ::selection {
-  background: rgba(184, 146, 47, 0.25);
-  color: #1A1A1F;
+  background: rgba(212, 168, 83, 0.25);
+  color: #1A1A2E;
 }
 
 /* ─── Light mode overrides for custom utilities ─── */
 
 .light .glass {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 247, 237, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(212, 168, 83, 0.1);
 }
 
 .light .glass-light {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 247, 237, 0.5);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(212, 168, 83, 0.08);
 }
 
 .light .bg-grid {
@@ -689,20 +696,22 @@
 }
 
 .light .glow-gold {
-  box-shadow: 0 0 40px rgba(212, 168, 83, 0.08), 0 0 80px rgba(212, 168, 83, 0.03);
+  box-shadow: 0 0 40px rgba(212, 168, 83, 0.12), 0 0 80px rgba(212, 168, 83, 0.05);
 }
 
 .light .card-hover:hover {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 0 30px rgba(212, 168, 83, 0.06);
+  box-shadow: 0 8px 32px rgba(212, 168, 83, 0.12), 0 0 30px rgba(212, 168, 83, 0.08);
 }
 
 .light .card-hover-gold:hover {
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08), 0 0 40px rgba(212, 168, 83, 0.1);
+  box-shadow: 0 25px 50px rgba(212, 168, 83, 0.12), 0 0 40px rgba(212, 168, 83, 0.1);
 }
 
 .light .glass-gold {
-  background: rgba(212, 168, 83, 0.04);
-  border: 1px solid rgba(184, 146, 47, 0.12);
+  background: rgba(255, 247, 237, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 168, 83, 0.15);
 }
 
 .light .noise-overlay::after,
@@ -711,7 +720,7 @@
 }
 
 .light .gold-border-animated::after {
-  background: #FAFAF8;
+  background: #FFFBF5;
 }
 
 /* ============================================
@@ -940,7 +949,7 @@
 
 /* Light mode hover-lift */
 .light .hover-lift:hover {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 0 30px rgba(212, 168, 83, 0.06);
+  box-shadow: 0 8px 32px rgba(212, 168, 83, 0.12), 0 0 30px rgba(212, 168, 83, 0.08);
 }
 
 /* Smooth scrollbar everywhere */
@@ -989,31 +998,31 @@ a {
 
 /* Glass morphism light mode for navbar & cards */
 .light .glass-gold-premium {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 247, 237, 0.7);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(184, 146, 47, 0.12);
+  border: 1px solid rgba(212, 168, 83, 0.15);
 }
 
 .light .glass-gold-premium:hover {
-  border-color: rgba(184, 146, 47, 0.25);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06), 0 0 40px rgba(212, 168, 83, 0.04);
+  border-color: rgba(212, 168, 83, 0.3);
+  box-shadow: 0 20px 60px rgba(212, 168, 83, 0.08), 0 0 40px rgba(212, 168, 83, 0.05);
 }
 
 /* Section dividers visible in light mode */
 .light .section-divider {
-  background: linear-gradient(90deg, transparent, rgba(184, 146, 47, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(212, 168, 83, 0.25), transparent);
 }
 
 .light .section-divider-gold {
-  background: linear-gradient(90deg, transparent 0%, rgba(184, 146, 47, 0.3) 50%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 168, 83, 0.4) 50%, transparent 100%);
 }
 
 /* Light mode gradient text */
 .light .text-gradient-gold {
-  background: linear-gradient(135deg, #B8922F 0%, #D4A853 50%, #B8922F 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background: linear-gradient(135deg, #B8922F 0%, #D4A853 40%, #E8C97A 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
   background-clip: text;
 }
 
@@ -1029,21 +1038,21 @@ a {
 
 /* Light mode section gold tint */
 .light .section-gold-tint {
-  background: linear-gradient(180deg, rgba(212, 168, 83, 0.02) 0%, transparent 50%, rgba(212, 168, 83, 0.015) 100%);
+  background: linear-gradient(180deg, rgba(212, 168, 83, 0.04) 0%, transparent 50%, rgba(212, 168, 83, 0.03) 100%);
 }
 
 /* Light mode gold gradient backgrounds */
 .light .bg-gold-gradient-subtle {
-  background: linear-gradient(135deg, rgba(212, 168, 83, 0.03) 0%, transparent 50%, rgba(212, 168, 83, 0.02) 100%);
+  background: linear-gradient(135deg, rgba(212, 168, 83, 0.05) 0%, transparent 50%, rgba(212, 168, 83, 0.03) 100%);
 }
 
 .light .bg-gold-gradient-radial {
-  background: radial-gradient(ellipse at center, rgba(212, 168, 83, 0.04) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(212, 168, 83, 0.06) 0%, transparent 70%);
 }
 
 /* Light mode card backgrounds */
 .light .card-hover {
-  border-color: rgba(0, 0, 0, 0.06);
+  border-color: rgba(212, 168, 83, 0.12);
 }
 
 /* Light mode input gold focus */
@@ -1522,4 +1531,91 @@ a {
     radial-gradient(ellipse at 30% 20%, rgba(60, 20, 80, 0.03) 0%, transparent 40%),
     radial-gradient(ellipse at 70% 80%, rgba(20, 50, 90, 0.02) 0%, transparent 40%),
     radial-gradient(ellipse at 50% 50%, rgba(184, 146, 47, 0.02) 0%, transparent 30%);
+}
+
+/* ============================================
+   Light mode — warm & colourful enhancements
+   ============================================ */
+
+/* Override dark backgrounds used throughout the site */
+.light .bg-\[\#0A0A0B\] {
+  background-color: var(--color-surface) !important;
+}
+.light .bg-\[\#131316\],
+.light .bg-\[\#0F0F12\],
+.light .bg-\[\#0E0E11\] {
+  background-color: #FFFFFF !important;
+}
+
+/* Warm gradient accents for light mode sections */
+.light .bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, transparent, rgba(212, 168, 83, 0.03), transparent) !important;
+}
+
+/* Light mode text — remap dark-mode whites/grays to warm darks */
+.light .text-white {
+  color: #1A1A2E !important;
+}
+.light .text-\[\#E8E8E8\],
+.light .text-\[\#F5F5F5\] {
+  color: #374151 !important;
+}
+.light .text-\[rgba\(245\,245\,245\,0\.7\)\] {
+  color: #4B5563 !important;
+}
+.light .text-\[rgba\(245\,245\,245\,0\.45\)\] {
+  color: #6B7280 !important;
+}
+.light .text-\[rgba\(245\,245\,245\,0\.5\)\] {
+  color: #6B7280 !important;
+}
+.light .text-\[rgba\(245\,245\,245\,0\.35\)\] {
+  color: #9CA3AF !important;
+}
+.light .text-\[rgba\(245\,245\,245\,0\.4\)\] {
+  color: #9CA3AF !important;
+}
+.light .text-\[rgba\(245\,245\,245\,0\.3\)\],
+.light .text-\[rgba\(245\,245\,245\,0\.25\)\],
+.light .text-\[rgba\(245\,245\,245\,0\.15\)\] {
+  color: #D1D5DB !important;
+}
+.light .text-\[rgba\(255\,255\,255\,0\.06\)\] {
+  color: rgba(26, 26, 46, 0.6) !important;
+}
+.light .text-\[rgba\(212\,168\,83\,0\.65\)\],
+.light .text-\[rgba\(212\,168\,83\,0\.5\)\] {
+  color: rgba(180, 130, 40, 0.9) !important;
+}
+
+/* Light mode borders */
+.light .border-\[rgba\(255\,255\,255\,0\.06\)\],
+.light .border-\[rgba\(255\,255\,255\,0\.08\)\] {
+  border-color: rgba(212, 168, 83, 0.12) !important;
+}
+.light .border-\[rgba\(255\,255\,255\,0\.1\)\] {
+  border-color: rgba(212, 168, 83, 0.15) !important;
+}
+
+/* Light mode backgrounds with opacity */
+.light .bg-\[rgba\(255\,255\,255\,0\.03\)\] {
+  background-color: rgba(212, 168, 83, 0.04) !important;
+}
+.light .bg-\[rgba\(255\,255\,255\,0\.06\)\] {
+  background-color: rgba(212, 168, 83, 0.06) !important;
+}
+
+/* Light mode scrollbar */
+.light ::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #D4A853, #B8922F);
+}
+
+/* Light mode starfield canvas override */
+.light canvas {
+  opacity: 0.15;
+}
+
+/* Warm section backgrounds for light mode alternating sections */
+.light section:nth-child(even of section) {
+  background-color: rgba(255, 247, 237, 0.3) !important;
 }

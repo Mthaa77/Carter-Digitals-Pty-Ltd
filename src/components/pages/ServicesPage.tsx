@@ -54,7 +54,6 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 import { ParallaxSection } from "@/components/shared/ParallaxSection";
 import { TiltCard } from "@/components/shared/TiltCard";
 import { CircularProgress } from "@/components/shared/CircularProgress";
-import { BeforeAfterSlider } from "@/components/shared/BeforeAfterSlider";
 import { useNavigation } from "@/lib/navigation";
 import CosmicDecorations from "@/components/shared/CosmicDecorations";
 import { toast } from "sonner";
@@ -437,15 +436,6 @@ export default function ServicesPage() {
                     </div>
                   </ParallaxSection>
 
-                  {/* Before / After Showcase */}
-                  <AnimatedSection direction="up" delay={0.3}>
-                    <div className="mt-10">
-                      <h3 className="text-xl font-bold text-white mb-6 font-display text-center">
-                        Real Results. <span className="text-gradient-gold">Real Transformations.</span>
-                      </h3>
-                      <BeforeAfterSlider />
-                    </div>
-                  </AnimatedSection>
                 </div>
               </div>
             </div>
