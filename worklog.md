@@ -1849,3 +1849,37 @@ Stage Summary:
 - Zero ESLint errors, clean dev server compilation
 - Files created: src/components/shared/Starfield.tsx, src/components/shared/CosmicDecorations.tsx
 - Files modified: src/app/page.tsx, src/app/globals.css, src/components/pages/HomePage.tsx, + 5 inner pages
+
+---
+## [2025-07-14] Hydration Mismatch Fix — Math.random() in SSR Render Path
+
+### Problem
+React hydration mismatch errors caused by `Math.random()` being called during server-side rendering in two components:
+1. `HomePage.tsx` — `goldParticles` array (20 particles) generated at module scope with `Math.random()` for size, position, opacity, delay, and duration
+2. `PortfolioPage.tsx` — `generateProjectImages()` used `Math.floor(Math.random() * 3)` for image count per project
+
+Server and client generate different random values → React detects attribute mismatches and logs warnings.
+
+### Fix Applied
+
+**1. HomePage.tsx (goldParticles)**
+- Added deterministic seeded PRNG function: `seededRandom(seed: number)` using Lehmer-style RNG `(s * 16807) % 2147483647`
+- Wrapped goldParticles in IIFE with seed=42, producing same values on both server and client
+- All values rounded with `.toFixed(4)` and converted to Number for consistent serialization
+
+**2. PortfolioPage.tsx (generateProjectImages)**
+- Added `simpleHash(str)` function using djb2-style hash for deterministic string→number mapping
+- Replaced `Math.floor(Math.random() * 3)` with `simpleHash(projectName) % 3` — same project always gets same count
+
+**3. Starfield.tsx** — Already safe (all `Math.random()` calls inside `useEffect` which is client-only)
+
+**4. sidebar.tsx** — Not used in the project (no imports), so no action needed
+
+### Files Modified
+- `src/components/pages/HomePage.tsx` — Replaced Math.random() with seededRandom(42) for goldParticles
+- `src/components/pages/PortfolioPage.tsx` — Added simpleHash() and replaced Math.random() for image count
+
+### Quality Verification
+- ✅ ESLint: Zero errors (`bun run lint`)
+- ✅ Dev server: Clean compilation, no hydration warnings in console
+- ✅ All existing functionality preserved

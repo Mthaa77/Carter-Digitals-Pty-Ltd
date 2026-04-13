@@ -241,6 +241,14 @@ const projectCards: ProjectData[] = [
 ];
 
 /* ──────────────────────── mock project images ────────────────────── */
+function simpleHash(str: string): number {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash + str.charCodeAt(i)) | 0;
+  }
+  return Math.abs(hash);
+}
+
 function generateProjectImages(projectName: string, categoryKey: string): LightboxImage[] {
   /* Generate gradient placeholder images based on category */
   const gradients: Record<string, string[]> = {
@@ -271,7 +279,7 @@ function generateProjectImages(projectName: string, categoryKey: string): Lightb
   };
 
   const categoryGradients = gradients[categoryKey] || gradients.business;
-  const count = 3 + Math.floor(Math.random() * 3); // 3–5 images
+  const count = 3 + (simpleHash(projectName) % 3); // deterministic 3–5 images
   const captions = [
     `${projectName} — Homepage Design`,
     `${projectName} — Dashboard Interface`,

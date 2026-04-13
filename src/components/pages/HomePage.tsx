@@ -352,17 +352,27 @@ function ResultsBar({ label, percentage }: { label: string; percentage: number }
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   GOLD PARTICLES DATA
+   GOLD PARTICLES DATA — deterministic seeded PRNG for SSR hydration
    ═══════════════════════════════════════════════════════════════ */
-const goldParticles = Array.from({ length: 20 }, (_, i) => ({
-  id: i,
-  size: Math.random() * 3 + 1,
-  x: `${Math.random() * 100}%`,
-  y: `${Math.random() * 100}%`,
-  delay: Math.random() * 5,
-  duration: Math.random() * 4 + 4,
-  opacity: Math.random() * 0.5 + 0.2,
-}));
+function seededRandom(seed: number): () => number {
+  let s = seed;
+  return () => {
+    s = (s * 16807) % 2147483647;
+    return (s - 1) / 2147483646;
+  };
+}
+const goldParticles = (() => {
+  const rng = seededRandom(42);
+  return Array.from({ length: 20 }, (_, i) => ({
+    id: i,
+    size: rng() * 3 + 1,
+    x: `${(rng() * 100).toFixed(4)}%`,
+    y: `${(rng() * 100).toFixed(4)}%`,
+    delay: Number((rng() * 5).toFixed(4)),
+    duration: Number((rng() * 4 + 4).toFixed(4)),
+    opacity: Number((rng() * 0.5 + 0.2).toFixed(4)),
+  }));
+})();
 
 /* ═══════════════════════════════════════════════════════════════
    LIVE TICKER COMPONENT
